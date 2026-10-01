@@ -1,0 +1,614 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="7242" viewBox="0 0 1600 7242" font-family="Mulish, 'Segoe UI', Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTphZTNhMWZlZi01OTk5LTQ1NDgtYmVjZS01YzhlOTQyMzAwNjcAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaGIHfU/SQcSA/d5wSacO+0QAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDowYTczYzIwZi1mNTlkLTRlZDUtYWFlNy03MjRiYzA1MTA2ZjVscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoIIuaMyszlT1sBws7eTqEiQAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggW3eNTnFaa7+hgJPDFAs/qRihlqajX6bK1wvdUJUWt8ukZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaN4zMZYFe+MxR5K1vTnBZ2IAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCDYus0wvePIZkWPaaDPcSMv2Hs7WtZX3a18Hirbk4zR0WRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBjOZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmFlM2ExZmVmLTU5OTktNDU0OC1iZWNlLTVjOGU5NDIzMDA2Ny9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjY1Y2Y1OTNlLTZhMjgtNGZiYi04MTNiLTViMGViZWM5YWI1M3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCBbd41OcVprv6GAk8MUCz+pGKGWpqNfpsrXC91QlRa3y6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggel2HJOJlbZ0B54H+Co0Ue7RyZ/2t2H+z8HDNZfOFBvmiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggNbT1A/MKTnhSnJZv3dUna1edNgJWA1z+YRWCjD6IjJJ0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQKvDTgnyxzvmsClgwZk6g5jfRab696kRw3bmaW/UnCxthMGKKmR8yJKs2r9ahNkfTW8zxmEo5tMdepdgWqqJfdQ=</c2pa:manifest></metadata>
+<title>Labora design system</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&amp;display=swap');</style>
+<defs><symbol id="logo-mark" viewBox="0 0 34 34"><rect width="34" height="34" rx="10" fill="#11806a"/><path d="M12 8.5v11.5a5 5 0 0 0 5 5h6.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><circle cx="22.5" cy="12" r="3.2" fill="#8fe0c6"/></symbol><symbol id="logo-mark-light" viewBox="0 0 34 34"><rect width="34" height="34" rx="10" fill="#2FB38F"/><path d="M12 8.5v11.5a5 5 0 0 0 5 5h6.5" fill="none" stroke="#0D3A33" stroke-width="3.2" stroke-linecap="round"/><circle cx="22.5" cy="12" r="3.2" fill="#fff"/></symbol><symbol id="logo-mark-white" viewBox="0 0 34 34"><rect width="34" height="34" rx="10" fill="#fff"/><path d="M12 8.5v11.5a5 5 0 0 0 5 5h6.5" fill="none" stroke="#11806a" stroke-width="3.2" stroke-linecap="round"/><circle cx="22.5" cy="12" r="3.2" fill="#0D3A33"/></symbol><symbol id="i-tube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2v17.5a2.5 2.5 0 0 1-5 0V2"/><path d="M8.5 2h7"/><path d="M9.5 14h5"/></symbol><symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21.5h11.6a2 2 0 0 0 1.7-3L14 9V3"/><path d="M7 15h10"/></symbol><symbol id="i-db" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol><symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M9 7h7M9 11h5"/></symbol><symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol><symbol id="i-flow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1.5"/><rect x="15" y="15" width="6" height="6" rx="1.5"/><path d="M6 9v3a3 3 0 0 0 3 3h6"/></symbol><symbol id="i-micro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></symbol><symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></symbol><symbol id="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0V8z"/><path d="M12 18v4"/></symbol><symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol><symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol><symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol><symbol id="i-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol><symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol><symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"/></symbol><symbol id="i-thermo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/></symbol><symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H8a6 6 0 1 1 5.7-7.9A4.5 4.5 0 1 1 17.5 19z"/></symbol><filter id="sh-ui" x="-30%" y="-30%" width="160%" height="220%"><feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#0D3A33" flood-opacity=".06"/><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0D3A33" flood-opacity=".14"/></filter><filter id="sh-float" x="-30%" y="-40%" width="160%" height="260%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0D3A33" flood-opacity=".06"/><feDropShadow dx="0" dy="22" stdDeviation="20" flood-color="#0D3A33" flood-opacity=".24"/></filter></defs>
+<rect width="1600" height="7242" fill="#FFFFFF"/>
+<rect x="0" y="0" width="1600" height="380" rx="0" fill="#0D3A33" />
+<circle cx="1330" cy="190" r="330" fill="none" stroke="#fff" stroke-opacity="0.05"/>
+<circle cx="1330" cy="190" r="240" fill="none" stroke="#fff" stroke-opacity="0.08"/>
+<circle cx="1330" cy="190" r="150" fill="none" stroke="#fff" stroke-opacity="0.14"/>
+<circle cx="1330" cy="190" r="150" fill="none" stroke="#8FE0C6" stroke-opacity=".45"/>
+<use href="#logo-mark-light" x="1292" y="152" width="76" height="76" />
+<rect x="1304" y="14" width="52" height="52" rx="14" fill="#ffffff" fill-opacity=".08" stroke="#fff" stroke-opacity=".16"/>
+<use href="#i-tube" x="1318" y="28" width="24" height="24" style="color:#8FE0C6" />
+<rect x="1454" y="164" width="52" height="52" rx="14" fill="#ffffff" fill-opacity=".08" stroke="#fff" stroke-opacity=".16"/>
+<use href="#i-box" x="1468" y="178" width="24" height="24" style="color:#8FE0C6" />
+<rect x="1304" y="314" width="52" height="52" rx="14" fill="#ffffff" fill-opacity=".08" stroke="#fff" stroke-opacity=".16"/>
+<use href="#i-micro" x="1318" y="328" width="24" height="24" style="color:#8FE0C6" />
+<rect x="1154" y="164" width="52" height="52" rx="14" fill="#ffffff" fill-opacity=".08" stroke="#fff" stroke-opacity=".16"/>
+<use href="#i-book" x="1168" y="178" width="24" height="24" style="color:#8FE0C6" />
+<use href="#logo-mark-light" x="80" y="72" width="48" height="48" />
+<text x="142" y="108" font-size="36" font-weight="800" fill="#FFFFFF" text-anchor="start" letter-spacing="-1">Labora</text>
+<text x="80" y="232" font-size="76" font-weight="800" fill="#FFFFFF" text-anchor="start" letter-spacing="-2.6">Design system</text>
+<text x="80" y="282" font-size="22" font-weight="400" fill="#d9e9e3" text-anchor="start">Colors, type, components, and rules for every Labora screen, post, and image.</text>
+<text x="80" y="330" font-size="15" font-weight="700" fill="#8FE0C6" text-anchor="start">Version 1.0, 2026</text>
+<text x="80" y="460" font-size="15" font-weight="800" fill="#11806A" text-anchor="start" letter-spacing="1">01</text>
+<text x="80" y="506" font-size="40" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1.2">Logo</text>
+<text x="80" y="542" font-size="18" font-weight="400" fill="#56635F" text-anchor="start">The mark is an L that turns like a bench workflow, with a dot for the sample. Never redraw, stretch, or recolor it.</text>
+<line x1="80" y1="572" x2="1520" y2="572" stroke="#E0E6E2" stroke-width="1"/>
+<rect x="80.0" y="620" width="464.0" height="230" rx="24" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<use href="#logo-mark" x="202.0" y="705.0" width="60" height="60" />
+<text x="278.8" y="750.6" font-size="46.800000000000004" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1.8">Labora</text>
+<text x="80.0" y="884" font-size="18" font-weight="800" fill="#0D3A33" text-anchor="start">Primary</text>
+<text x="80.0" y="910" font-size="15" font-weight="400" fill="#56635F" text-anchor="start">On white, cream, or mint backgrounds</text>
+<rect x="568.0" y="620" width="464.0" height="230" rx="24" fill="#0D3A33" />
+<use href="#logo-mark-light" x="690.0" y="705.0" width="60" height="60" />
+<text x="766.8" y="750.6" font-size="46.800000000000004" font-weight="800" fill="#FFFFFF" text-anchor="start" letter-spacing="-1.8">Labora</text>
+<text x="568.0" y="884" font-size="18" font-weight="800" fill="#0D3A33" text-anchor="start">Reversed</text>
+<text x="568.0" y="910" font-size="15" font-weight="400" fill="#56635F" text-anchor="start">On Deep Teal and dark photography</text>
+<rect x="1056.0" y="620" width="464.0" height="230" rx="24" fill="#11806A" />
+<use href="#logo-mark-white" x="1178.0" y="705.0" width="60" height="60" />
+<text x="1254.8" y="750.6" font-size="46.800000000000004" font-weight="800" fill="#FFFFFF" text-anchor="start" letter-spacing="-1.8">Labora</text>
+<text x="1056.0" y="884" font-size="18" font-weight="800" fill="#0D3A33" text-anchor="start">On brand green</text>
+<text x="1056.0" y="910" font-size="15" font-weight="400" fill="#56635F" text-anchor="start">For small brand moments and stickers</text>
+<rect x="80" y="940" width="1440" height="150" rx="20" fill="#FBF8F1" />
+<rect x="120" y="975" width="250" height="80" fill="none" stroke="#11806A" stroke-dasharray="4 4"/>
+<use href="#logo-mark" x="140" y="995" width="40" height="40" />
+<text x="191.2" y="1025.4" font-size="31.200000000000003" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1.2">Labora</text>
+<text x="395" y="1005" font-size="17" font-weight="800" fill="#0D3A33" text-anchor="start">Clear space</text>
+<text x="395" y="1031" font-size="15" font-weight="400" fill="#56635F" text-anchor="start">Keep empty space around the logo equal to</text>
+<text x="395" y="1053" font-size="15" font-weight="400" fill="#56635F" text-anchor="start">half the height of the mark on every side.</text>
+<use href="#logo-mark" x="840" y="1003" width="24" height="24" />
+<use href="#logo-mark" x="890" y="1003" width="24" height="24" />
+<text x="920.72" y="1021.24" font-size="18.72" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-0.72">Labora</text>
+<text x="1050" y="1005" font-size="17" font-weight="800" fill="#0D3A33" text-anchor="start">Minimum size</text>
+<text x="1050" y="1031" font-size="15" font-weight="400" fill="#56635F" text-anchor="start">Mark: 24 px tall. Full logo: 96 px wide.</text>
+<text x="1050" y="1053" font-size="15" font-weight="400" fill="#56635F" text-anchor="start">Below that, use the mark alone.</text>
+<text x="80" y="1200" font-size="15" font-weight="800" fill="#11806A" text-anchor="start" letter-spacing="1">02</text>
+<text x="80" y="1246" font-size="40" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1.2">Color</text>
+<text x="80" y="1282" font-size="18" font-weight="400" fill="#56635F" text-anchor="start">A calm, nature-led palette: deep teal for authority, warm green for action, mint and cream for space.</text>
+<line x1="80" y1="1312" x2="1520" y2="1312" stroke="#E0E6E2" stroke-width="1"/>
+<text x="80" y="1360" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Core colors</text>
+<rect x="80.0" y="1384" width="220.0" height="330" rx="20" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<path d="M80.0 1404 a20 20 0 0 1 20 -20 h180.0 a20 20 0 0 1 20 20 v170 h-220.0 z" fill="#0D3A33"/>
+<text x="100.0" y="1608" font-size="19" font-weight="800" fill="#0D3A33" text-anchor="start">Deep Teal</text>
+<text x="100.0" y="1634" font-size="16" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#0D3A33</text>
+<text x="100.0" y="1656" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">RGB 13, 58, 51</text>
+<text x="100.0" y="1682" font-size="13" font-weight="400" fill="#56635F" text-anchor="start">Headlines, dark backgrounds,</text>
+<text x="100.0" y="1700" font-size="13" font-weight="400" fill="#56635F" text-anchor="start">logo text</text>
+<rect x="324.0" y="1384" width="220.0" height="330" rx="20" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<path d="M324.0 1404 a20 20 0 0 1 20 -20 h180.0 a20 20 0 0 1 20 20 v170 h-220.0 z" fill="#11806A"/>
+<text x="344.0" y="1608" font-size="19" font-weight="800" fill="#0D3A33" text-anchor="start">Labora Green</text>
+<text x="344.0" y="1634" font-size="16" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#11806A</text>
+<text x="344.0" y="1656" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">RGB 17, 128, 106</text>
+<text x="344.0" y="1682" font-size="13" font-weight="400" fill="#56635F" text-anchor="start">Primary accent, buttons,</text>
+<text x="344.0" y="1700" font-size="13" font-weight="400" fill="#56635F" text-anchor="start">icons, logo mark</text>
+<rect x="568.0" y="1384" width="220.0" height="330" rx="20" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<path d="M568.0 1404 a20 20 0 0 1 20 -20 h180.0 a20 20 0 0 1 20 20 v170 h-220.0 z" fill="#DCF1E8"/>
+<text x="588.0" y="1608" font-size="19" font-weight="800" fill="#0D3A33" text-anchor="start">Mint</text>
+<text x="588.0" y="1634" font-size="16" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#DCF1E8</text>
+<text x="588.0" y="1656" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">RGB 220, 241, 232</text>
+<text x="588.0" y="1682" font-size="13" font-weight="400" fill="#56635F" text-anchor="start">Soft backgrounds and shapes</text>
+<text x="588.0" y="1700" font-size="13" font-weight="400" fill="#56635F" text-anchor="start">behind product visuals</text>
+<rect x="812.0" y="1384" width="220.0" height="330" rx="20" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<path d="M812.0 1404 a20 20 0 0 1 20 -20 h180.0 a20 20 0 0 1 20 20 v170 h-220.0 z" fill="#FBF8F1"/>
+<line x1="812.0" y1="1574" x2="1032.0" y2="1574" stroke="#E0E6E2"/>
+<text x="832.0" y="1608" font-size="19" font-weight="800" fill="#0D3A33" text-anchor="start">Cream</text>
+<text x="832.0" y="1634" font-size="16" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#FBF8F1</text>
+<text x="832.0" y="1656" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">RGB 251, 248, 241</text>
+<text x="832.0" y="1682" font-size="13" font-weight="400" fill="#56635F" text-anchor="start">Light page and post</text>
+<text x="832.0" y="1700" font-size="13" font-weight="400" fill="#56635F" text-anchor="start">backgrounds</text>
+<rect x="1056.0" y="1384" width="220.0" height="330" rx="20" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<path d="M1056.0 1404 a20 20 0 0 1 20 -20 h180.0 a20 20 0 0 1 20 20 v170 h-220.0 z" fill="#FFFFFF"/>
+<line x1="1056.0" y1="1574" x2="1276.0" y2="1574" stroke="#E0E6E2"/>
+<text x="1076.0" y="1608" font-size="19" font-weight="800" fill="#0D3A33" text-anchor="start">White</text>
+<text x="1076.0" y="1634" font-size="16" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#FFFFFF</text>
+<text x="1076.0" y="1656" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">RGB 255, 255, 255</text>
+<text x="1076.0" y="1682" font-size="13" font-weight="400" fill="#56635F" text-anchor="start">Cards and product UI</text>
+<text x="1076.0" y="1700" font-size="13" font-weight="400" fill="#56635F" text-anchor="start">surfaces</text>
+<rect x="1300.0" y="1384" width="220.0" height="330" rx="20" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<path d="M1300.0 1404 a20 20 0 0 1 20 -20 h180.0 a20 20 0 0 1 20 20 v170 h-220.0 z" fill="#25302E"/>
+<text x="1320.0" y="1608" font-size="19" font-weight="800" fill="#0D3A33" text-anchor="start">Charcoal</text>
+<text x="1320.0" y="1634" font-size="16" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#25302E</text>
+<text x="1320.0" y="1656" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">RGB 37, 48, 46</text>
+<text x="1320.0" y="1682" font-size="13" font-weight="400" fill="#56635F" text-anchor="start">Body text and long</text>
+<text x="1320.0" y="1700" font-size="13" font-weight="400" fill="#56635F" text-anchor="start">paragraphs</text>
+<text x="80" y="1764" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Supporting colors</text>
+<rect x="80.0" y="1788" width="145.77777777777777" height="110" rx="16" fill="#134A41" />
+<text x="80.0" y="1926" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Teal 2</text>
+<text x="80.0" y="1948" font-size="14" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#134A41</text>
+<text x="80.0" y="1968" font-size="12" font-weight="600" fill="#56635F" text-anchor="start">19, 74, 65</text>
+<rect x="241.77777777777777" y="1788" width="145.77777777777777" height="110" rx="16" fill="#0B6654" />
+<text x="241.77777777777777" y="1926" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Green Dark</text>
+<text x="241.77777777777777" y="1948" font-size="14" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#0B6654</text>
+<text x="241.77777777777777" y="1968" font-size="12" font-weight="600" fill="#56635F" text-anchor="start">11, 102, 84</text>
+<rect x="403.55555555555554" y="1788" width="145.77777777777777" height="110" rx="16" fill="#2FB38F" />
+<text x="403.55555555555554" y="1926" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Bright Green</text>
+<text x="403.55555555555554" y="1948" font-size="14" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#2FB38F</text>
+<text x="403.55555555555554" y="1968" font-size="12" font-weight="600" fill="#56635F" text-anchor="start">47, 179, 143</text>
+<rect x="565.3333333333333" y="1788" width="145.77777777777777" height="110" rx="16" fill="#8FE0C6" />
+<text x="565.3333333333333" y="1926" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Light Green</text>
+<text x="565.3333333333333" y="1948" font-size="14" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#8FE0C6</text>
+<text x="565.3333333333333" y="1968" font-size="12" font-weight="600" fill="#56635F" text-anchor="start">143, 224, 198</text>
+<rect x="727.1111111111111" y="1788" width="145.77777777777777" height="110" rx="16" fill="#B7E2D1" />
+<text x="727.1111111111111" y="1926" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Chart Mint</text>
+<text x="727.1111111111111" y="1948" font-size="14" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#B7E2D1</text>
+<text x="727.1111111111111" y="1968" font-size="12" font-weight="600" fill="#56635F" text-anchor="start">183, 226, 209</text>
+<rect x="888.8888888888889" y="1788" width="145.77777777777777" height="110" rx="16" fill="#EEF8F3" stroke="#E0E6E2" stroke-width="1" />
+<text x="888.8888888888889" y="1926" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Mint Soft</text>
+<text x="888.8888888888889" y="1948" font-size="14" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#EEF8F3</text>
+<text x="888.8888888888889" y="1968" font-size="12" font-weight="600" fill="#56635F" text-anchor="start">238, 248, 243</text>
+<rect x="1050.6666666666665" y="1788" width="145.77777777777777" height="110" rx="16" fill="#56635F" />
+<text x="1050.6666666666665" y="1926" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Muted Gray</text>
+<text x="1050.6666666666665" y="1948" font-size="14" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#56635F</text>
+<text x="1050.6666666666665" y="1968" font-size="12" font-weight="600" fill="#56635F" text-anchor="start">86, 99, 95</text>
+<rect x="1212.4444444444443" y="1788" width="145.77777777777777" height="110" rx="16" fill="#E0E6E2" stroke="#E0E6E2" stroke-width="1" />
+<text x="1212.4444444444443" y="1926" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Border</text>
+<text x="1212.4444444444443" y="1948" font-size="14" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#E0E6E2</text>
+<text x="1212.4444444444443" y="1968" font-size="12" font-weight="600" fill="#56635F" text-anchor="start">224, 230, 226</text>
+<rect x="1374.2222222222222" y="1788" width="145.77777777777777" height="110" rx="16" fill="#CBD6D0" />
+<text x="1374.2222222222222" y="1926" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Border Strong</text>
+<text x="1374.2222222222222" y="1948" font-size="14" font-weight="700" fill="#25302E" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#CBD6D0</text>
+<text x="1374.2222222222222" y="1968" font-size="12" font-weight="600" fill="#56635F" text-anchor="start">203, 214, 208</text>
+<text x="80" y="2028" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Status colors (product UI only)</text>
+<text x="840" y="2028" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Color balance</text>
+<rect x="80" y="2052" width="330" height="120" rx="18" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<rect x="100" y="2072" width="56" height="56" rx="14" fill="#B86E12" />
+<rect x="166" y="2072" width="56" height="56" rx="14" fill="#FCF1E1" stroke="#E0E6E2" stroke-width="1" />
+<text x="240" y="2092" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Amber, warning</text>
+<text x="240" y="2114" font-size="13" font-weight="700" fill="#56635F" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#B86E12  /  #FCF1E1</text>
+<rect x="240" y="2130" width="106" height="26" rx="13" fill="#FCF1E1" />
+<circle cx="254" cy="2143" r="3.5" fill="#B86E12"/>
+<text x="264" y="2148" font-size="12.5" font-weight="800" fill="#B86E12" text-anchor="start">Low stock</text>
+<rect x="430" y="2052" width="330" height="120" rx="18" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<rect x="450" y="2072" width="56" height="56" rx="14" fill="#B4413C" />
+<rect x="516" y="2072" width="56" height="56" rx="14" fill="#FBECEB" stroke="#E0E6E2" stroke-width="1" />
+<text x="590" y="2092" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Rose, error</text>
+<text x="590" y="2114" font-size="13" font-weight="700" fill="#56635F" text-anchor="start" font-family="ui-monospace, Menlo, Consolas, monospace">#B4413C  /  #FBECEB</text>
+<rect x="590" y="2130" width="122" height="26" rx="13" fill="#FBECEB" />
+<circle cx="604" cy="2143" r="3.5" fill="#B4413C"/>
+<text x="614" y="2148" font-size="12.5" font-weight="800" fill="#B4413C" text-anchor="start">Out of spec</text>
+<clipPath id="bal"><rect x="840" y="2052" width="680" height="64" rx="16"/></clipPath><g clip-path="url(#bal)">
+<rect x="840" y="2052" width="204.0" height="64" rx="0" fill="#FBF8F1" />
+<rect x="1044.0" y="2052" width="122.39999999999999" height="64" rx="0" fill="#FFFFFF" />
+<rect x="1166.4" y="2052" width="81.6" height="64" rx="0" fill="#DCF1E8" />
+<rect x="1248.0" y="2052" width="204.0" height="64" rx="0" fill="#0D3A33" />
+<rect x="1452.0" y="2052" width="68.0" height="64" rx="0" fill="#11806A" />
+</g>
+<rect x="840" y="2052" width="680" height="64" rx="16" fill="none" stroke="#E0E6E2" stroke-width="1" />
+<text x="852" y="2090" font-size="13" font-weight="800" fill="#0D3A33" text-anchor="start">Cream</text>
+<text x="1056.0" y="2090" font-size="13" font-weight="800" fill="#0D3A33" text-anchor="start">White</text>
+<text x="1178.4" y="2090" font-size="13" font-weight="800" fill="#0D3A33" text-anchor="start">Mint</text>
+<text x="1260.0" y="2090" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="start">Deep Teal</text>
+<text x="1464.0" y="2090" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="start">Green</text>
+<text x="840" y="2148" font-size="15" font-weight="700" fill="#25302E" text-anchor="start">About 60% neutral space, 30% Deep Teal, 10% Labora Green.</text>
+<text x="840" y="2170" font-size="15" font-weight="400" fill="#56635F" text-anchor="start">Green is the accent: one button, one highlight, or one icon set per layout.</text>
+<text x="80" y="2282" font-size="15" font-weight="800" fill="#11806A" text-anchor="start" letter-spacing="1">03</text>
+<text x="80" y="2328" font-size="40" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1.2">Accessible pairings</text>
+<text x="80" y="2364" font-size="18" font-weight="400" fill="#56635F" text-anchor="start">Measured WCAG contrast. Normal text needs 4.5:1 (AA). Large, bold text needs 3:1.</text>
+<line x1="80" y1="2394" x2="1520" y2="2394" stroke="#E0E6E2" stroke-width="1"/>
+<rect x="80.0" y="2442" width="342.0" height="130" rx="20" fill="#0D3A33" />
+<text x="104.0" y="2522" font-size="46" font-weight="800" fill="#FFFFFF" text-anchor="start">Aa</text>
+<text x="190.0" y="2508" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="start">Headline</text>
+<text x="190.0" y="2532" font-size="15" font-weight="500" fill="#FFFFFF" text-anchor="start">Body text sample</text>
+<text x="80.0" y="2600" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">White on Deep Teal</text>
+<text x="422.0" y="2600" font-size="15" font-weight="800" fill="#25302E" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace">12.6:1</text>
+<rect x="80.0" y="2610" width="77.19999999999999" height="22" rx="11" fill="#DCF1E8" />
+<text x="92.0" y="2626" font-size="12" font-weight="800" fill="#0B6654" text-anchor="start">AA pass</text>
+<rect x="446.0" y="2442" width="342.0" height="130" rx="20" fill="#11806A" />
+<text x="470.0" y="2522" font-size="46" font-weight="800" fill="#FFFFFF" text-anchor="start">Aa</text>
+<text x="556.0" y="2508" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="start">Headline</text>
+<text x="556.0" y="2532" font-size="15" font-weight="500" fill="#FFFFFF" text-anchor="start">Body text sample</text>
+<text x="446.0" y="2600" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">White on Labora Green</text>
+<text x="788.0" y="2600" font-size="15" font-weight="800" fill="#25302E" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace">4.9:1</text>
+<rect x="446.0" y="2610" width="77.19999999999999" height="22" rx="11" fill="#DCF1E8" />
+<text x="458.0" y="2626" font-size="12" font-weight="800" fill="#0B6654" text-anchor="start">AA pass</text>
+<rect x="812.0" y="2442" width="342.0" height="130" rx="20" fill="#DCF1E8" />
+<text x="836.0" y="2522" font-size="46" font-weight="800" fill="#0D3A33" text-anchor="start">Aa</text>
+<text x="922.0" y="2508" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Headline</text>
+<text x="922.0" y="2532" font-size="15" font-weight="500" fill="#0D3A33" text-anchor="start">Body text sample</text>
+<text x="812.0" y="2600" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Deep Teal on Mint</text>
+<text x="1154.0" y="2600" font-size="15" font-weight="800" fill="#25302E" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace">10.7:1</text>
+<rect x="812.0" y="2610" width="77.19999999999999" height="22" rx="11" fill="#DCF1E8" />
+<text x="824.0" y="2626" font-size="12" font-weight="800" fill="#0B6654" text-anchor="start">AA pass</text>
+<rect x="1178.0" y="2442" width="342.0" height="130" rx="20" fill="#FBF8F1" stroke="#E0E6E2" stroke-width="1" />
+<text x="1202.0" y="2522" font-size="46" font-weight="800" fill="#25302E" text-anchor="start">Aa</text>
+<text x="1288.0" y="2508" font-size="20" font-weight="800" fill="#25302E" text-anchor="start">Headline</text>
+<text x="1288.0" y="2532" font-size="15" font-weight="500" fill="#25302E" text-anchor="start">Body text sample</text>
+<text x="1178.0" y="2600" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Charcoal on Cream</text>
+<text x="1520.0" y="2600" font-size="15" font-weight="800" fill="#25302E" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace">12.8:1</text>
+<rect x="1178.0" y="2610" width="77.19999999999999" height="22" rx="11" fill="#DCF1E8" />
+<text x="1190.0" y="2626" font-size="12" font-weight="800" fill="#0B6654" text-anchor="start">AA pass</text>
+<rect x="80.0" y="2668" width="342.0" height="130" rx="20" fill="#0D3A33" />
+<text x="104.0" y="2748" font-size="46" font-weight="800" fill="#8FE0C6" text-anchor="start">Aa</text>
+<text x="190.0" y="2734" font-size="20" font-weight="800" fill="#8FE0C6" text-anchor="start">Headline</text>
+<text x="190.0" y="2758" font-size="15" font-weight="500" fill="#8FE0C6" text-anchor="start">Body text sample</text>
+<text x="80.0" y="2826" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Light Green on Deep Teal</text>
+<text x="422.0" y="2826" font-size="15" font-weight="800" fill="#25302E" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace">8.2:1</text>
+<rect x="80.0" y="2836" width="77.19999999999999" height="22" rx="11" fill="#DCF1E8" />
+<text x="92.0" y="2852" font-size="12" font-weight="800" fill="#0B6654" text-anchor="start">AA pass</text>
+<rect x="446.0" y="2668" width="342.0" height="130" rx="20" fill="#2FB38F" />
+<text x="470.0" y="2748" font-size="46" font-weight="800" fill="#0D3A33" text-anchor="start">Aa</text>
+<text x="556.0" y="2734" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Headline</text>
+<text x="556.0" y="2758" font-size="15" font-weight="500" fill="#0D3A33" text-anchor="start">Body text sample</text>
+<text x="446.0" y="2826" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Deep Teal on Bright Green</text>
+<text x="788.0" y="2826" font-size="15" font-weight="800" fill="#25302E" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace">4.8:1</text>
+<rect x="446.0" y="2836" width="77.19999999999999" height="22" rx="11" fill="#DCF1E8" />
+<text x="458.0" y="2852" font-size="12" font-weight="800" fill="#0B6654" text-anchor="start">AA pass</text>
+<rect x="812.0" y="2668" width="342.0" height="130" rx="20" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<text x="836.0" y="2748" font-size="46" font-weight="800" fill="#2FB38F" text-anchor="start">Aa</text>
+<text x="922.0" y="2734" font-size="20" font-weight="800" fill="#2FB38F" text-anchor="start">Headline</text>
+<text x="922.0" y="2758" font-size="15" font-weight="500" fill="#2FB38F" text-anchor="start">Body text sample</text>
+<text x="812.0" y="2826" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Bright Green on White</text>
+<text x="1154.0" y="2826" font-size="15" font-weight="800" fill="#25302E" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace">2.6:1</text>
+<rect x="812.0" y="2836" width="62.0" height="22" rx="11" fill="#FBECEB" />
+<text x="824.0" y="2852" font-size="12" font-weight="800" fill="#B4413C" text-anchor="start">Avoid</text>
+<rect x="1178.0" y="2668" width="342.0" height="130" rx="20" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<text x="1202.0" y="2748" font-size="46" font-weight="800" fill="#8FE0C6" text-anchor="start">Aa</text>
+<text x="1288.0" y="2734" font-size="20" font-weight="800" fill="#8FE0C6" text-anchor="start">Headline</text>
+<text x="1288.0" y="2758" font-size="15" font-weight="500" fill="#8FE0C6" text-anchor="start">Body text sample</text>
+<text x="1178.0" y="2826" font-size="15" font-weight="800" fill="#0D3A33" text-anchor="start">Light Green on White</text>
+<text x="1520.0" y="2826" font-size="15" font-weight="800" fill="#25302E" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace">1.5:1</text>
+<rect x="1178.0" y="2836" width="62.0" height="22" rx="11" fill="#FBECEB" />
+<text x="1190.0" y="2852" font-size="12" font-weight="800" fill="#B4413C" text-anchor="start">Avoid</text>
+<text x="80" y="2974" font-size="15" font-weight="800" fill="#11806A" text-anchor="start" letter-spacing="1">04</text>
+<text x="80" y="3020" font-size="40" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1.2">Typography</text>
+<text x="80" y="3056" font-size="18" font-weight="400" fill="#56635F" text-anchor="start">Mulish for everything. Hierarchy comes from size and weight, never from extra colors or all caps.</text>
+<line x1="80" y1="3086" x2="1520" y2="3086" stroke="#E0E6E2" stroke-width="1"/>
+<rect x="80" y="3134" width="420" height="560" rx="28" fill="#0D3A33" />
+<text x="120" y="3204" font-size="15" font-weight="800" fill="#8FE0C6" text-anchor="start">Typeface</text>
+<text x="116" y="3384" font-size="190" font-weight="800" fill="#FFFFFF" text-anchor="start" letter-spacing="-8">Aa</text>
+<text x="120" y="3454" font-size="40" font-weight="800" fill="#FFFFFF" text-anchor="start" letter-spacing="-1">Mulish</text>
+<text x="120" y="3486" font-size="14" font-weight="400" fill="#cfe3dc" text-anchor="start">Free on Google Fonts. Fallback: Segoe UI, Arial.</text>
+<text x="120" y="3544" font-size="17" font-weight="400" fill="#FFFFFF" text-anchor="start">Laboratory data  Regular 400</text>
+<text x="120" y="3580" font-size="17" font-weight="600" fill="#FFFFFF" text-anchor="start">Laboratory data  SemiBold 600</text>
+<text x="120" y="3616" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="start">Laboratory data  Bold 700</text>
+<text x="120" y="3652" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="start">Laboratory data  ExtraBold 800</text>
+<text x="550" y="3158" font-size="14" font-weight="800" fill="#11806A" text-anchor="start">Display / H1</text>
+<text x="550" y="3178" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">64 / 66 px, ExtraBold, -3.5%</text>
+<text x="820" y="3198.48" font-size="64" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-2.2">Run your lab smarter</text>
+<line x1="550" y1="3250" x2="1520" y2="3250" stroke="#E0E6E2"/>
+<text x="550" y="3276" font-size="14" font-weight="800" fill="#11806A" text-anchor="start">H2 / Section</text>
+<text x="550" y="3296" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">44 / 50 px, ExtraBold, -3%</text>
+<text x="820" y="3300.08" font-size="44" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1.3">Everything, connected</text>
+<line x1="550" y1="3350" x2="1520" y2="3350" stroke="#E0E6E2"/>
+<text x="550" y="3376" font-size="14" font-weight="800" fill="#11806A" text-anchor="start">H3 / Card title</text>
+<text x="550" y="3396" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">22 / 28 px, Bold, -2%</text>
+<text x="820" y="3382.04" font-size="22" font-weight="700" fill="#0D3A33" text-anchor="start" letter-spacing="-0.4">Know where every sample stands</text>
+<line x1="550" y1="3420" x2="1520" y2="3420" stroke="#E0E6E2"/>
+<text x="550" y="3446" font-size="14" font-weight="800" fill="#11806A" text-anchor="start">Body large</text>
+<text x="550" y="3466" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">20 / 32 px, Regular</text>
+<text x="820" y="3450.4" font-size="20" font-weight="400" fill="#0D3A33" text-anchor="start" letter-spacing="0">Bring samples, inventory, and equipment together.</text>
+<line x1="550" y1="3488" x2="1520" y2="3488" stroke="#E0E6E2"/>
+<text x="550" y="3514" font-size="14" font-weight="800" fill="#11806A" text-anchor="start">Body</text>
+<text x="550" y="3534" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">16 / 26 px, Regular</text>
+<text x="820" y="3515.12" font-size="16" font-weight="400" fill="#25302E" text-anchor="start" letter-spacing="0">Every record is attributable, traceable, and protected.</text>
+<line x1="550" y1="3552" x2="1520" y2="3552" stroke="#E0E6E2"/>
+<text x="550" y="3578" font-size="14" font-weight="800" fill="#11806A" text-anchor="start">Label</text>
+<text x="550" y="3598" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">14 / 20 px, Bold, sentence case</text>
+<text x="820" y="3577.48" font-size="14" font-weight="700" fill="#25302E" text-anchor="start" letter-spacing="0">Laboratory management software</text>
+<line x1="550" y1="3612" x2="1520" y2="3612" stroke="#E0E6E2"/>
+<text x="550" y="3638" font-size="14" font-weight="800" fill="#11806A" text-anchor="start">Caption</text>
+<text x="550" y="3658" font-size="13" font-weight="600" fill="#56635F" text-anchor="start">12.5 / 18 px, ExtraBold</text>
+<text x="820" y="3636.25" font-size="12.5" font-weight="800" fill="#25302E" text-anchor="start" letter-spacing="0">Updated 20 min ago</text>
+<line x1="550" y1="3670" x2="1520" y2="3670" stroke="#E0E6E2"/>
+<text x="80" y="3804" font-size="15" font-weight="800" fill="#11806A" text-anchor="start" letter-spacing="1">05</text>
+<text x="80" y="3850" font-size="40" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1.2">Spacing, radius, and elevation</text>
+<text x="80" y="3886" font-size="18" font-weight="400" fill="#56635F" text-anchor="start">An 8-point rhythm, soft rounded corners, and two shadow levels only.</text>
+<line x1="80" y1="3916" x2="1520" y2="3916" stroke="#E0E6E2" stroke-width="1"/>
+<text x="80" y="3964" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Spacing scale</text>
+<rect x="80" y="4064" width="4" height="4" rx="2" fill="#11806A" />
+<text x="82.0" y="4096" font-size="13" font-weight="800" fill="#25302E" text-anchor="middle">4</text>
+<rect x="114" y="4060" width="8" height="8" rx="2" fill="#11806A" />
+<text x="118.0" y="4096" font-size="13" font-weight="800" fill="#25302E" text-anchor="middle">8</text>
+<rect x="152" y="4056" width="12" height="12" rx="2" fill="#11806A" />
+<text x="158.0" y="4096" font-size="13" font-weight="800" fill="#25302E" text-anchor="middle">12</text>
+<rect x="194" y="4052" width="16" height="16" rx="4" fill="#11806A" />
+<text x="202.0" y="4096" font-size="13" font-weight="800" fill="#25302E" text-anchor="middle">16</text>
+<rect x="240" y="4044" width="24" height="24" rx="4" fill="#11806A" />
+<text x="252.0" y="4096" font-size="13" font-weight="800" fill="#25302E" text-anchor="middle">24</text>
+<rect x="294" y="4036" width="32" height="32" rx="4" fill="#11806A" />
+<text x="310.0" y="4096" font-size="13" font-weight="800" fill="#25302E" text-anchor="middle">32</text>
+<rect x="356" y="4020" width="48" height="48" rx="4" fill="#11806A" />
+<text x="380.0" y="4096" font-size="13" font-weight="800" fill="#25302E" text-anchor="middle">48</text>
+<rect x="434" y="4004" width="64" height="64" rx="4" fill="#11806A" />
+<text x="466.0" y="4096" font-size="13" font-weight="800" fill="#25302E" text-anchor="middle">64</text>
+<text x="80" y="4130" font-size="14" font-weight="400" fill="#56635F" text-anchor="start">Section padding 96–128 px. Card padding 24 px.</text>
+<text x="640" y="3964" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Corner radius</text>
+<rect x="640" y="4004" width="80" height="80" rx="10" fill="#DCF1E8" stroke="#11806A" stroke-width="1.5" />
+<text x="680" y="4112" font-size="12.5" font-weight="800" fill="#25302E" text-anchor="middle">10 small</text>
+<rect x="732" y="4004" width="80" height="80" rx="14" fill="#DCF1E8" stroke="#11806A" stroke-width="1.5" />
+<text x="772" y="4112" font-size="12.5" font-weight="800" fill="#25302E" text-anchor="middle">14 input</text>
+<rect x="824" y="4004" width="80" height="80" rx="20" fill="#DCF1E8" stroke="#11806A" stroke-width="1.5" />
+<text x="864" y="4112" font-size="12.5" font-weight="800" fill="#25302E" text-anchor="middle">20 card</text>
+<rect x="916" y="4004" width="80" height="80" rx="28" fill="#DCF1E8" stroke="#11806A" stroke-width="1.5" />
+<text x="956" y="4112" font-size="12.5" font-weight="800" fill="#25302E" text-anchor="middle">28 panel</text>
+<rect x="1008" y="4004" width="80" height="80" rx="40" fill="#DCF1E8" stroke="#11806A" stroke-width="1.5" />
+<text x="1048" y="4112" font-size="12.5" font-weight="800" fill="#25302E" text-anchor="middle">Pill</text>
+<text x="1140" y="3964" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Elevation</text>
+<rect x="1140" y="4004" width="160" height="90" rx="16" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" filter="url(#sh-ui)"/>
+<text x="1220" y="4054" font-size="14" font-weight="800" fill="#0D3A33" text-anchor="middle">UI card</text>
+<text x="1220" y="4122" font-size="12.5" font-weight="700" fill="#56635F" text-anchor="middle">Cards, mockups</text>
+<rect x="1340" y="4004" width="160" height="90" rx="16" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" filter="url(#sh-float)"/>
+<text x="1420" y="4054" font-size="14" font-weight="800" fill="#0D3A33" text-anchor="middle">Floating</text>
+<text x="1420" y="4122" font-size="12.5" font-weight="700" fill="#56635F" text-anchor="middle">Stat cards, menus</text>
+<text x="80" y="4264" font-size="15" font-weight="800" fill="#11806A" text-anchor="start" letter-spacing="1">06</text>
+<text x="80" y="4310" font-size="40" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1.2">Components</text>
+<text x="80" y="4346" font-size="18" font-weight="400" fill="#56635F" text-anchor="start">Building blocks used across the site and product visuals. Reuse them in posts instead of inventing new ones.</text>
+<line x1="80" y1="4376" x2="1520" y2="4376" stroke="#E0E6E2" stroke-width="1"/>
+<text x="80" y="4424" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Buttons</text>
+<rect x="80" y="4452" width="151.4" height="52" rx="26.0" fill="#11806A" />
+<text x="104" y="4484.0" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="start">Book a demo</text>
+<rect x="247.4" y="4452" width="236.0" height="52" rx="26.0" fill="#FFFFFF" stroke="#CBD6D0" stroke-width="1.5" />
+<text x="271.4" y="4484.0" font-size="16" font-weight="800" fill="#0D3A33" text-anchor="start">Explore the platform</text>
+<text x="80" y="4538" font-size="14" font-weight="400" fill="#56635F" text-anchor="start">Primary: one per view, Labora Green.</text>
+<text x="80" y="4558" font-size="14" font-weight="400" fill="#56635F" text-anchor="start">Secondary: ghost with a gray outline.</text>
+<rect x="600" y="4436" width="440" height="124" rx="22" fill="#0D3A33" />
+<rect x="628" y="4460" width="151.4" height="52" rx="26.0" fill="#2FB38F" />
+<text x="652" y="4492.0" font-size="16" font-weight="800" fill="#0D3A33" text-anchor="start">Book a demo</text>
+<rect x="793.4" y="4460" width="179.6" height="52" rx="26.0" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity=".5"/>
+<text x="817.4" y="4492.0" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="start">Explore Labora</text>
+<text x="628" y="4544" font-size="14" font-weight="400" fill="#cfe3dc" text-anchor="start">On dark: Bright Green fill, white outline.</text>
+<text x="1090" y="4450" font-size="14" font-weight="800" fill="#11806A" text-anchor="start">Sizes</text>
+<rect x="1090" y="4462" width="123.2" height="56" rx="28.0" fill="#11806A" />
+<text x="1114" y="4496.0" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="start">Large 56</text>
+<rect x="1250" y="4466" width="132.60000000000002" height="48" rx="24.0" fill="#11806A" />
+<text x="1274" y="4496.0" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="start">Medium 48</text>
+<rect x="1260" y="4524" width="123.2" height="40" rx="20.0" fill="#FFFFFF" stroke="#CBD6D0" stroke-width="1.5" />
+<text x="1284" y="4550.0" font-size="16" font-weight="800" fill="#0D3A33" text-anchor="start">Small 40</text>
+<text x="80" y="4602" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Badges and tags</text>
+<text x="840" y="4602" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Form fields</text>
+<rect x="80" y="4632" width="87.19999999999999" height="28" rx="14" fill="#DCF1E8" />
+<circle cx="95" cy="4646" r="3.5" fill="#0B6654"/>
+<text x="105" y="4651" font-size="12.5" font-weight="800" fill="#0B6654" text-anchor="start">Running</text>
+<rect x="179.2" y="4632" width="102.39999999999999" height="28" rx="14" fill="#E5ECEA" />
+<circle cx="194.2" cy="4646" r="3.5" fill="#0D3A33"/>
+<text x="204.2" y="4651" font-size="12.5" font-weight="800" fill="#0D3A33" text-anchor="start">Available</text>
+<rect x="293.59999999999997" y="4632" width="117.6" height="28" rx="14" fill="#FCF1E1" />
+<circle cx="308.59999999999997" cy="4646" r="3.5" fill="#B86E12"/>
+<text x="318.59999999999997" y="4651" font-size="12.5" font-weight="800" fill="#B86E12" text-anchor="start">Calibration</text>
+<rect x="423.19999999999993" y="4632" width="117.6" height="28" rx="14" fill="#FBECEB" />
+<circle cx="438.19999999999993" cy="4646" r="3.5" fill="#B4413C"/>
+<text x="448.19999999999993" y="4651" font-size="12.5" font-weight="800" fill="#B4413C" text-anchor="start">Out of spec</text>
+<rect x="80" y="4684" width="300" height="40" rx="20" fill="#DCF1E8" />
+<rect x="86" y="4690" width="28" height="28" rx="14" fill="#FFFFFF" />
+<use href="#i-db" x="93" y="4697" width="14" height="14" style="color:#11806A" />
+<text x="124" y="4710" font-size="14" font-weight="800" fill="#0D3A33" text-anchor="start">Laboratory information management</text>
+<circle cx="410" cy="4704" r="4" fill="#11806A"/><circle cx="410" cy="4704" r="8" fill="none" stroke="#DCF1E8" stroke-width="4"/>
+<text x="424" y="4709" font-size="14" font-weight="700" fill="#11806A" text-anchor="start">Laboratory management software</text>
+<text x="80" y="4756" font-size="14" font-weight="400" fill="#56635F" text-anchor="start">Status pill, module tag, and eyebrow. Sentence case only.</text>
+<text x="840.0" y="4646" font-size="14" font-weight="800" fill="#0D3A33" text-anchor="start">Work email</text>
+<rect x="840.0" y="4662" width="216.0" height="48" rx="10" fill="#FFFFFF" stroke="#CBD6D0" stroke-width="1.5" />
+<text x="854.0" y="4692" font-size="15" font-weight="500" fill="#56635F" text-anchor="start">name@lab.com</text>
+<text x="840.0" y="4734" font-size="13" font-weight="700" fill="#56635F" text-anchor="start">Default</text>
+<text x="1072.0" y="4646" font-size="14" font-weight="800" fill="#0D3A33" text-anchor="start">Work email</text>
+<rect x="1068.0" y="4658" width="224.0" height="56" rx="16" fill="#DCF1E8" />
+<rect x="1072.0" y="4662" width="216.0" height="48" rx="10" fill="#FFFFFF" stroke="#11806A" stroke-width="1.5" />
+<text x="1086.0" y="4692" font-size="15" font-weight="500" fill="#25302E" text-anchor="start">name@lab|</text>
+<text x="1072.0" y="4734" font-size="13" font-weight="700" fill="#56635F" text-anchor="start">Focus: green + mint ring</text>
+<text x="1304.0" y="4646" font-size="14" font-weight="800" fill="#0D3A33" text-anchor="start">Work email</text>
+<rect x="1304.0" y="4662" width="216.0" height="48" rx="10" fill="#FFFFFF" stroke="#B4413C" stroke-width="1.5" />
+<text x="1318.0" y="4692" font-size="15" font-weight="500" fill="#25302E" text-anchor="start">name@lab</text>
+<text x="1304.0" y="4734" font-size="13" font-weight="700" fill="#B4413C" text-anchor="start">Enter a valid work email.</text>
+<text x="80" y="4832" font-size="20" font-weight="800" fill="#0D3A33" text-anchor="start">Cards</text>
+<rect x="80" y="4860" width="342.0" height="170" rx="20" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" filter="url(#sh-ui)"/>
+<text x="104" y="4900" font-size="14" font-weight="700" fill="#56635F" text-anchor="start">Avg. turnaround</text>
+<text x="104" y="4948" font-size="40" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1">26.4 h</text>
+<text x="104" y="4978" font-size="13" font-weight="800" fill="#11806A" text-anchor="start">−1.8 h this week</text>
+<polyline points="104,5010 150,5004 190,5007 230,4998 270,5000 398.0,4990" fill="none" stroke="#11806A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="446.0" y="4890" width="342.0" height="92" rx="16" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" filter="url(#sh-float)"/>
+<rect x="466.0" y="4912" width="48" height="48" rx="14" fill="#DCF1E8" />
+<use href="#i-tube" x="478.0" y="4924" width="24" height="24" style="color:#11806A" />
+<text x="530.0" y="4934" font-size="24" font-weight="800" fill="#0D3A33" text-anchor="start">1,284</text>
+<text x="530.0" y="4956" font-size="13" font-weight="700" fill="#56635F" text-anchor="start">Active samples</text>
+<text x="446.0" y="5020" font-size="13" font-weight="700" fill="#56635F" text-anchor="start">Floating stat card</text>
+<rect x="812.0" y="4860" width="342.0" height="170" rx="20" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<rect x="836.0" y="4884" width="44" height="44" rx="13" fill="#DCF1E8" />
+<use href="#i-box" x="846.0" y="4894" width="24" height="24" style="color:#11806A" />
+<text x="836.0" y="4958" font-size="19" font-weight="800" fill="#0D3A33" text-anchor="start">Inventory</text>
+<text x="836.0" y="4982" font-size="14" font-weight="400" fill="#56635F" text-anchor="start">Track reagents, lots, and expiry.</text>
+<text x="836.0" y="5012" font-size="14" font-weight="800" fill="#11806A" text-anchor="start">Explore solution</text>
+<use href="#i-arrow" x="958.0" y="4999" width="16" height="16" style="color:#11806A" />
+<rect x="1178.0" y="4860" width="342.0" height="170" rx="20" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<text x="1200.0" y="4894" font-size="14" font-weight="800" fill="#0D3A33" text-anchor="start">Equipment status</text>
+<circle cx="1205.0" cy="4926" r="4.5" fill="#11806A"/>
+<text x="1218.0" y="4931" font-size="14" font-weight="700" fill="#0D3A33" text-anchor="start">HPLC-02</text>
+<rect x="1423.0" y="4914" width="75" height="24" rx="12" fill="#DCF1E8" />
+<text x="1460.5" y="4930" font-size="11.5" font-weight="800" fill="#0B6654" text-anchor="middle">Running</text>
+<circle cx="1205.0" cy="4962" r="4.5" fill="#B86E12"/>
+<text x="1218.0" y="4967" font-size="14" font-weight="700" fill="#0D3A33" text-anchor="start">Centrifuge C-4</text>
+<rect x="1395.0" y="4950" width="103" height="24" rx="12" fill="#FCF1E1" />
+<text x="1446.5" y="4966" font-size="11.5" font-weight="800" fill="#B86E12" text-anchor="middle">Calibration</text>
+<circle cx="1205.0" cy="4998" r="4.5" fill="#B4413C"/>
+<text x="1218.0" y="5003" font-size="14" font-weight="700" fill="#0D3A33" text-anchor="start">Balance B-7</text>
+<rect x="1423.0" y="4986" width="75" height="24" rx="12" fill="#FBECEB" />
+<text x="1460.5" y="5002" font-size="11.5" font-weight="800" fill="#B4413C" text-anchor="middle">Service</text>
+<text x="80" y="5140" font-size="15" font-weight="800" fill="#11806A" text-anchor="start" letter-spacing="1">07</text>
+<text x="80" y="5186" font-size="40" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1.2">Iconography</text>
+<text x="80" y="5222" font-size="18" font-weight="400" fill="#56635F" text-anchor="start">Outline icons on a 24 px grid, 1.8 px stroke, rounded ends. Labora Green on a Mint tile.</text>
+<line x1="80" y1="5252" x2="1520" y2="5252" stroke="#E0E6E2" stroke-width="1"/>
+<rect x="80.0" y="5300" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="133.25" y="5318" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-tube" x="147.25" y="5332" width="28" height="28" style="color:#11806A" />
+<text x="161.25" y="5398" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Sample</text>
+<rect x="262.5" y="5300" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="315.75" y="5318" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-flask" x="329.75" y="5332" width="28" height="28" style="color:#11806A" />
+<text x="343.75" y="5398" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Experiment</text>
+<rect x="445.0" y="5300" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="498.25" y="5318" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-db" x="512.25" y="5332" width="28" height="28" style="color:#11806A" />
+<text x="526.25" y="5398" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">LIMS</text>
+<rect x="627.5" y="5300" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="680.75" y="5318" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-book" x="694.75" y="5332" width="28" height="28" style="color:#11806A" />
+<text x="708.75" y="5398" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">ELN</text>
+<rect x="810.0" y="5300" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="863.25" y="5318" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-box" x="877.25" y="5332" width="28" height="28" style="color:#11806A" />
+<text x="891.25" y="5398" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Inventory</text>
+<rect x="992.5" y="5300" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="1045.75" y="5318" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-flow" x="1059.75" y="5332" width="28" height="28" style="color:#11806A" />
+<text x="1073.75" y="5398" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Workflow</text>
+<rect x="1175.0" y="5300" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="1228.25" y="5318" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-micro" x="1242.25" y="5332" width="28" height="28" style="color:#11806A" />
+<text x="1256.25" y="5398" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Equipment</text>
+<rect x="1357.5" y="5300" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="1410.75" y="5318" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-shield" x="1424.75" y="5332" width="28" height="28" style="color:#11806A" />
+<text x="1438.75" y="5398" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Quality</text>
+<rect x="80.0" y="5450" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="133.25" y="5468" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-chart" x="147.25" y="5482" width="28" height="28" style="color:#11806A" />
+<text x="161.25" y="5548" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Analytics</text>
+<rect x="262.5" y="5450" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="315.75" y="5468" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-plug" x="329.75" y="5482" width="28" height="28" style="color:#11806A" />
+<text x="343.75" y="5548" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Integrations</text>
+<rect x="445.0" y="5450" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="498.25" y="5468" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-zap" x="512.25" y="5482" width="28" height="28" style="color:#11806A" />
+<text x="526.25" y="5548" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Automation</text>
+<rect x="627.5" y="5450" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="680.75" y="5468" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-eye" x="694.75" y="5482" width="28" height="28" style="color:#11806A" />
+<text x="708.75" y="5548" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Visibility</text>
+<rect x="810.0" y="5450" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="863.25" y="5468" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-sliders" x="877.25" y="5482" width="28" height="28" style="color:#11806A" />
+<text x="891.25" y="5548" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Configure</text>
+<rect x="992.5" y="5450" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="1045.75" y="5468" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-lock" x="1059.75" y="5482" width="28" height="28" style="color:#11806A" />
+<text x="1073.75" y="5548" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Security</text>
+<rect x="1175.0" y="5450" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="1228.25" y="5468" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-history" x="1242.25" y="5482" width="28" height="28" style="color:#11806A" />
+<text x="1256.25" y="5548" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Audit trail</text>
+<rect x="1357.5" y="5450" width="162.5" height="112" rx="20" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<rect x="1410.75" y="5468" width="56" height="56" rx="16" fill="#DCF1E8" />
+<use href="#i-trend" x="1424.75" y="5482" width="28" height="28" style="color:#11806A" />
+<text x="1438.75" y="5548" font-size="13.5" font-weight="800" fill="#0D3A33" text-anchor="middle">Insights</text>
+<text x="80" y="5670" font-size="15" font-weight="800" fill="#11806A" text-anchor="start" letter-spacing="1">08</text>
+<text x="80" y="5716" font-size="40" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1.2">Social post templates</text>
+<text x="80" y="5752" font-size="18" font-weight="400" fill="#56635F" text-anchor="start">Three layouts for LinkedIn and Instagram. Export at 1080 × 1080 px. Product UI is always the hero.</text>
+<line x1="80" y1="5782" x2="1520" y2="5782" stroke="#E0E6E2" stroke-width="1"/>
+<rect x="80" y="5830" width="464.0" height="464.0" rx="24" fill="#FBF8F1" stroke="#E0E6E2" stroke-width="1" />
+<clipPath id="p1"><rect x="80" y="5830" width="464.0" height="464.0" rx="24"/></clipPath>
+<g clip-path="url(#p1)"><rect x="288.8" y="6108.4" width="324.79999999999995" height="278.4" rx="36" fill="#DCF1E8" transform="rotate(-6 404.79999999999995 6224.4)"/></g>
+<use href="#logo-mark" x="112" y="5862" width="26" height="26" />
+<text x="145.28" y="5881.76" font-size="20.28" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-0.78">Labora</text>
+<text x="112" y="5934" font-size="13" font-weight="800" fill="#11806A" text-anchor="start">Laboratory management software</text>
+<text x="112" y="5976" font-size="34" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1">One platform to</text>
+<text x="112" y="6014" font-size="34" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1">manage your</text>
+<text x="112" y="6052" font-size="34" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1">entire laboratory</text>
+<rect x="112" y="6100" width="140" height="40" rx="20" fill="#11806A" />
+<text x="132" y="6125" font-size="14" font-weight="800" fill="#FFFFFF" text-anchor="start">Book a demo</text>
+<rect x="282.0" y="6104.0" width="230" height="150" rx="16" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" filter="url(#sh-ui)"/>
+<text x="298.0" y="6132.0" font-size="13" font-weight="800" fill="#0D3A33" text-anchor="start">Lab overview</text>
+<rect x="298.0" y="6146.0" width="93.0" height="52" rx="10" fill="#EEF8F3" />
+<text x="310.0" y="6166.0" font-size="10.5" font-weight="700" fill="#56635F" text-anchor="start">Received</text>
+<text x="310.0" y="6188.0" font-size="17" font-weight="800" fill="#0D3A33" text-anchor="start">146</text>
+<rect x="403.0" y="6146.0" width="93.0" height="52" rx="10" fill="#EEF8F3" />
+<text x="415.0" y="6166.0" font-size="10.5" font-weight="700" fill="#56635F" text-anchor="start">Turnaround</text>
+<text x="415.0" y="6188.0" font-size="17" font-weight="800" fill="#0D3A33" text-anchor="start">26.4 h</text>
+<rect x="298.0" y="6224.0" width="18.75" height="20" rx="3" fill="#B7E2D1" />
+<rect x="322.75" y="6216.0" width="18.75" height="28" rx="3" fill="#11806A" />
+<rect x="347.5" y="6222.0" width="18.75" height="22" rx="3" fill="#B7E2D1" />
+<rect x="372.25" y="6210.0" width="18.75" height="34" rx="3" fill="#11806A" />
+<rect x="397.0" y="6214.0" width="18.75" height="30" rx="3" fill="#B7E2D1" />
+<rect x="421.75" y="6204.0" width="18.75" height="40" rx="3" fill="#11806A" />
+<rect x="446.5" y="6208.0" width="18.75" height="36" rx="3" fill="#B7E2D1" />
+<rect x="471.25" y="6200.0" width="18.75" height="44" rx="3" fill="#11806A" />
+<text x="80" y="6328.0" font-size="16" font-weight="800" fill="#0D3A33" text-anchor="start">Light: announcements, product value</text>
+<text x="80" y="6352.0" font-size="14" font-weight="400" fill="#56635F" text-anchor="start">Cream background, Deep Teal headline, one green button.</text>
+<rect x="568.0" y="5830" width="464.0" height="464.0" rx="24" fill="#0D3A33" />
+<circle cx="942.0" cy="6184.0" r="170" fill="none" stroke="#fff" stroke-opacity="0.06"/>
+<circle cx="942.0" cy="6184.0" r="120" fill="none" stroke="#fff" stroke-opacity="0.09"/>
+<circle cx="942.0" cy="6184.0" r="70" fill="none" stroke="#fff" stroke-opacity="0.18"/>
+<use href="#logo-mark-light" x="914.0" y="6156.0" width="56" height="56" />
+<use href="#logo-mark-light" x="600.0" y="5862" width="26" height="26" />
+<text x="633.28" y="5881.76" font-size="20.28" font-weight="800" fill="#FFFFFF" text-anchor="start" letter-spacing="-0.78">Labora</text>
+<text x="600.0" y="5952" font-size="36" font-weight="800" fill="#FFFFFF" text-anchor="start" letter-spacing="-1">Know where</text>
+<text x="600.0" y="5992" font-size="36" font-weight="800" fill="#FFFFFF" text-anchor="start" letter-spacing="-1">every sample</text>
+<text x="600.0" y="6032" font-size="36" font-weight="800" fill="#FFFFFF" text-anchor="start" letter-spacing="-1">stands</text>
+<text x="600.0" y="6092" font-size="15" font-weight="500" fill="#cfe3dc" text-anchor="start">Registration to report, in one record.</text>
+<rect x="600.0" y="6122" width="46" height="46" rx="13" fill="#ffffff" fill-opacity=".08" stroke="#fff" stroke-opacity=".14"/>
+<use href="#i-tube" x="611.0" y="6133" width="24" height="24" style="color:#8FE0C6" />
+<rect x="658.0" y="6122" width="46" height="46" rx="13" fill="#ffffff" fill-opacity=".08" stroke="#fff" stroke-opacity=".14"/>
+<use href="#i-eye" x="669.0" y="6133" width="24" height="24" style="color:#8FE0C6" />
+<rect x="716.0" y="6122" width="46" height="46" rx="13" fill="#ffffff" fill-opacity=".08" stroke="#fff" stroke-opacity=".14"/>
+<use href="#i-shield" x="727.0" y="6133" width="24" height="24" style="color:#8FE0C6" />
+<rect x="600.0" y="6222.0" width="150" height="40" rx="20" fill="#2FB38F" />
+<text x="620.0" y="6247.0" font-size="14" font-weight="800" fill="#0D3A33" text-anchor="start">Learn more</text>
+<use href="#i-arrow" x="718.0" y="6234.0" width="16" height="16" style="color:#0D3A33" />
+<text x="568.0" y="6328.0" font-size="16" font-weight="800" fill="#0D3A33" text-anchor="start">Dark: features, security, launches</text>
+<text x="568.0" y="6352.0" font-size="14" font-weight="400" fill="#56635F" text-anchor="start">Deep Teal, white headline, Light Green icons, Bright Green CTA.</text>
+<rect x="1056.0" y="5830" width="464.0" height="464.0" rx="24" fill="#EEF8F3" stroke="#DCF1E8" stroke-width="1" />
+<use href="#logo-mark" x="1088.0" y="5862" width="26" height="26" />
+<text x="1121.28" y="5881.76" font-size="20.28" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-0.78">Labora</text>
+<rect x="1088.0" y="5914" width="128" height="30" rx="15" fill="#FFFFFF" />
+<use href="#i-box" x="1096.0" y="5921" width="16" height="16" style="color:#11806A" />
+<text x="1118.0" y="5934" font-size="13" font-weight="800" fill="#0D3A33" text-anchor="start">Inventory</text>
+<text x="1088.0" y="5986" font-size="30" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-0.8">Reorder before</text>
+<text x="1088.0" y="6022" font-size="30" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-0.8">experiments stall</text>
+<rect x="1088.0" y="6058" width="400.0" height="204.0" rx="16" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" filter="url(#sh-ui)"/>
+<text x="1106.0" y="6094" font-size="14" font-weight="800" fill="#0D3A33" text-anchor="start">Acetonitrile</text>
+<rect x="1106.0" y="6106" width="250.0" height="7" rx="4" fill="#EDF2EF" />
+<rect x="1106.0" y="6106" width="25.0" height="7" rx="4" fill="#B86E12" />
+<rect x="1395.0" y="6082" width="75" height="24" rx="12" fill="#FCF1E1" />
+<text x="1432.5" y="6098" font-size="11.5" font-weight="800" fill="#B86E12" text-anchor="middle">Reorder</text>
+<text x="1106.0" y="6150" font-size="14" font-weight="800" fill="#0D3A33" text-anchor="start">Serum, lot 4471</text>
+<rect x="1106.0" y="6162" width="250.0" height="7" rx="4" fill="#EDF2EF" />
+<rect x="1106.0" y="6162" width="187.5" height="7" rx="4" fill="#11806A" />
+<rect x="1388.0" y="6138" width="82" height="24" rx="12" fill="#DCF1E8" />
+<text x="1429.0" y="6154" font-size="11.5" font-weight="800" fill="#0B6654" text-anchor="middle">In stock</text>
+<text x="1106.0" y="6206" font-size="14" font-weight="800" fill="#0D3A33" text-anchor="start">Trypsin T-88</text>
+<rect x="1106.0" y="6218" width="250.0" height="7" rx="4" fill="#EDF2EF" />
+<rect x="1106.0" y="6218" width="150.0" height="7" rx="4" fill="#11806A" />
+<rect x="1388.0" y="6194" width="82" height="24" rx="12" fill="#FCF1E1" />
+<text x="1429.0" y="6210" font-size="11.5" font-weight="800" fill="#B86E12" text-anchor="middle">Expiring</text>
+<text x="1056.0" y="6328.0" font-size="16" font-weight="800" fill="#0D3A33" text-anchor="start">Feature: one module, one message</text>
+<text x="1056.0" y="6352.0" font-size="14" font-weight="400" fill="#56635F" text-anchor="start">Mint background, module tag, a real product card.</text>
+<text x="80" y="6464.0" font-size="15" font-weight="800" fill="#11806A" text-anchor="start" letter-spacing="1">09</text>
+<text x="80" y="6510.0" font-size="40" font-weight="800" fill="#0D3A33" text-anchor="start" letter-spacing="-1.2">Do and don’t</text>
+<text x="80" y="6546.0" font-size="18" font-weight="400" fill="#56635F" text-anchor="start">Quick rules for designers and anyone making Labora images.</text>
+<line x1="80" y1="6576.0" x2="1520" y2="6576.0" stroke="#E0E6E2" stroke-width="1"/>
+<rect x="80.0" y="6624.0" width="708.0" height="388" rx="24" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<text x="112.0" y="6670.0" font-size="22" font-weight="800" fill="#0D3A33" text-anchor="start">Do</text>
+<rect x="112.0" y="6702.0" width="30" height="30" rx="15" fill="#EEF8F3" />
+<use href="#i-check" x="119.0" y="6709.0" width="16" height="16" style="color:#11806A" />
+<text x="156.0" y="6723.0" font-size="16" font-weight="600" fill="#25302E" text-anchor="start">Lead with product UI and dashboards</text>
+<rect x="112.0" y="6750.0" width="30" height="30" rx="15" fill="#EEF8F3" />
+<use href="#i-check" x="119.0" y="6757.0" width="16" height="16" style="color:#11806A" />
+<text x="156.0" y="6771.0" font-size="16" font-weight="600" fill="#25302E" text-anchor="start">Use one green accent per layout</text>
+<rect x="112.0" y="6798.0" width="30" height="30" rx="15" fill="#EEF8F3" />
+<use href="#i-check" x="119.0" y="6805.0" width="16" height="16" style="color:#11806A" />
+<text x="156.0" y="6819.0" font-size="16" font-weight="600" fill="#25302E" text-anchor="start">Leave generous whitespace</text>
+<rect x="112.0" y="6846.0" width="30" height="30" rx="15" fill="#EEF8F3" />
+<use href="#i-check" x="119.0" y="6853.0" width="16" height="16" style="color:#11806A" />
+<text x="156.0" y="6867.0" font-size="16" font-weight="600" fill="#25302E" text-anchor="start">Write headlines in sentence case</text>
+<rect x="112.0" y="6894.0" width="30" height="30" rx="15" fill="#EEF8F3" />
+<use href="#i-check" x="119.0" y="6901.0" width="16" height="16" style="color:#11806A" />
+<text x="156.0" y="6915.0" font-size="16" font-weight="600" fill="#25302E" text-anchor="start">Use real product screens or the mockup style above</text>
+<rect x="112.0" y="6942.0" width="30" height="30" rx="15" fill="#EEF8F3" />
+<use href="#i-check" x="119.0" y="6949.0" width="16" height="16" style="color:#11806A" />
+<text x="156.0" y="6963.0" font-size="16" font-weight="600" fill="#25302E" text-anchor="start">Keep claims factual and verifiable</text>
+<rect x="812.0" y="6624.0" width="708.0" height="388" rx="24" fill="#FFFFFF" stroke="#E0E6E2" stroke-width="1" />
+<text x="844.0" y="6670.0" font-size="22" font-weight="800" fill="#0D3A33" text-anchor="start">Don’t</text>
+<rect x="844.0" y="6702.0" width="30" height="30" rx="15" fill="#FBECEB" />
+<use href="#i-x" x="851.0" y="6709.0" width="16" height="16" style="color:#B4413C" />
+<text x="888.0" y="6723.0" font-size="16" font-weight="600" fill="#25302E" text-anchor="start">Use stock lab photos as the main visual</text>
+<rect x="844.0" y="6750.0" width="30" height="30" rx="15" fill="#FBECEB" />
+<use href="#i-x" x="851.0" y="6757.0" width="16" height="16" style="color:#B4413C" />
+<text x="888.0" y="6771.0" font-size="16" font-weight="600" fill="#25302E" text-anchor="start">Add blue, purple, or rainbow gradients</text>
+<rect x="844.0" y="6798.0" width="30" height="30" rx="15" fill="#FBECEB" />
+<use href="#i-x" x="851.0" y="6805.0" width="16" height="16" style="color:#B4413C" />
+<text x="888.0" y="6819.0" font-size="16" font-weight="600" fill="#25302E" text-anchor="start">Put Bright or Light Green text on white</text>
+<rect x="844.0" y="6846.0" width="30" height="30" rx="15" fill="#FBECEB" />
+<use href="#i-x" x="851.0" y="6853.0" width="16" height="16" style="color:#B4413C" />
+<text x="888.0" y="6867.0" font-size="16" font-weight="600" fill="#25302E" text-anchor="start">Write headlines in ALL CAPS</text>
+<rect x="844.0" y="6894.0" width="30" height="30" rx="15" fill="#FBECEB" />
+<use href="#i-x" x="851.0" y="6901.0" width="16" height="16" style="color:#B4413C" />
+<text x="888.0" y="6915.0" font-size="16" font-weight="600" fill="#25302E" text-anchor="start">Stack many shadows, glows, or glass effects</text>
+<rect x="844.0" y="6942.0" width="30" height="30" rx="15" fill="#FBECEB" />
+<use href="#i-x" x="851.0" y="6949.0" width="16" height="16" style="color:#B4413C" />
+<text x="888.0" y="6963.0" font-size="16" font-weight="600" fill="#25302E" text-anchor="start">Invent customer numbers, awards, or certifications</text>
+<rect x="0" y="7102.0" width="1600" height="140" rx="0" fill="#0D3A33" />
+<use href="#logo-mark-light" x="80" y="7152.0" width="36" height="36" />
+<text x="126.08" y="7179.36" font-size="28.080000000000002" font-weight="800" fill="#FFFFFF" text-anchor="start" letter-spacing="-1.0799999999999998">Labora</text>
+<text x="1520" y="7168.0" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="end">Labora design system, version 1.0</text>
+<text x="1520" y="7194.0" font-size="14" font-weight="400" fill="#cfe3dc" text-anchor="end">Font: Mulish (Google Fonts). Colors match the website stylesheet.</text>
+</svg>

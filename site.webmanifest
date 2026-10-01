@@ -1,0 +1,13 @@
+{
+  "name": "Labora",
+  "short_name": "Labora",
+  "description": "Laboratory management software for pathology, imaging, home collection, and multi-center labs.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#0d3a33",
+  "icons": [
+    { "src": "assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

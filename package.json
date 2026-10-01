@@ -1,0 +1,17 @@
+{
+  "name": "labora-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Labora laboratory management software landing page (static, vanilla HTML/CSS/JS).",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "html-validate index.html 404.html",
+    "serve": "npx --yes serve ."
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "html-validate": "^9.0.0",
+    "terser": "^5.31.0"
+  },
+  "type": "module"
+}
