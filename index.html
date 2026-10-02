@@ -32,7 +32,7 @@
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" type="image/webp" media="(max-width: 640px)" href="assets/img/screens/dashboard-m-640.webp" imagesrcset="assets/img/screens/dashboard-m-640.webp 640w, assets/img/screens/dashboard-m-1080.webp 985w" imagesizes="calc(100vw - 40px)" fetchpriority="high">
   <link rel="preload" as="image" type="image/webp" media="(min-width: 641px)" href="assets/img/screens/dashboard-1200.webp" imagesrcset="assets/img/screens/dashboard-800.webp 800w, assets/img/screens/dashboard-1200.webp 1200w, assets/img/screens/dashboard-1600.webp 1600w, assets/img/screens/dashboard-2320.webp 2320w" imagesizes="(max-width: 1024px) calc(100vw - 80px), 58vw" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/styles.min.css?v=0cc114f2e0">
+  <link rel="stylesheet" href="assets/css/styles.min.css?v=e8b9b72e83">
   <script>document.documentElement.classList.add('js');</script>
 
   <script type="application/ld+json">
@@ -103,9 +103,9 @@
   {
    "@type": "VideoObject",
    "@id": "https://www.labora.example/#product-tour",
-   "name": "Labora product tour: one patient, registered to reported in 38 minutes",
+   "name": "Labora product tour: one patient, registration to signed report",
    "description": "Follow one patient through Labora: test registration priced from the lab's list, barcode sample tracking to a rack slot, result approval with e-signature, and ultrasound reporting from templates.",
-   "thumbnailUrl": "https://www.labora.example/assets/video/labora-tour-v3-poster-1280.jpg",
+   "thumbnailUrl": "https://www.labora.example/assets/video/labora-tour-v3-poster-1600.webp",
    "uploadDate": "2026-10-01",
    "duration": "PT1M5S",
    "contentUrl": "https://www.labora.example/assets/video/labora-tour-v3-1080.mp4",
@@ -163,42 +163,10 @@
   },
   {
    "@type": "Question",
-   "name": "Can doctors sign reports digitally?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Yes. Pathologists, radiologists, and cardiologists review the report, preview it, and sign and send it in one step. Drafts save automatically while they work."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Does Labora support home sample collection?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Yes. Bookings are organized by status, phlebotomists are assigned to visits, and you can follow each visit on a live map with an estimated arrival time. Patients are kept informed by SMS."
-   }
-  },
-  {
-   "@type": "Question",
    "name": "Can I manage multiple centers and collection points?",
    "acceptedAnswer": {
     "@type": "Answer",
     "text": "Yes. Branches, collection centers, and home collection run in one system. You can switch between centers and compare activity and revenue across all of them."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Can Labora work with outsource or partner labs?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Yes. Tests sent to an outsource lab stay linked to the patient case, and business from partner labs (B2B) is tracked separately in your revenue and dues."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "What business reports does Labora provide?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Labora shows billing, collections, and outstanding dues, revenue by day and by center, business from partner labs and home collection, and referring doctors ranked by cases and revenue, with week-over-week trends."
    }
   },
   {
@@ -355,7 +323,7 @@
       </ul>
     </div>
     <div class="hero-media">
-      <div class="shot shot--hero"><picture><source media="(max-width: 640px)" type="image/webp" srcset="assets/img/screens/dashboard-m-640.webp 640w, assets/img/screens/dashboard-m-1080.webp 985w" sizes="calc(100vw - 40px)" width="640" height="684"><source type="image/webp" srcset="assets/img/screens/dashboard-800.webp 800w, assets/img/screens/dashboard-1200.webp 1200w, assets/img/screens/dashboard-1600.webp 1600w, assets/img/screens/dashboard-2320.webp 2320w" sizes="(max-width: 1024px) calc(100vw - 80px), 58vw" width="2320" height="2000"><img src="assets/img/screens/dashboard-1200.jpg" width="2320" height="2000" alt="Labora dashboard showing 248 cases today, 18,420 dollars collected, 2 hours 41 minutes average turnaround, 42 reports ready to sign, a patient-case trend, tests by department, recent cases, and items that need attention." fetchpriority="high" decoding="async"></picture></div>
+      <div class="shot shot--hero"><picture><source media="(max-width: 640px)" type="image/webp" srcset="assets/img/screens/dashboard-m-640.webp 640w, assets/img/screens/dashboard-m-1080.webp 985w" sizes="calc(100vw - 40px)" width="640" height="684"><source type="image/webp" srcset="assets/img/screens/dashboard-800.webp 800w, assets/img/screens/dashboard-1200.webp 1200w, assets/img/screens/dashboard-1600.webp 1600w, assets/img/screens/dashboard-2320.webp 2320w" sizes="(max-width: 1024px) calc(100vw - 80px), 58vw" width="2320" height="2000"><img src="assets/img/screens/dashboard-1200.webp" width="2320" height="2000" alt="Labora dashboard showing 248 cases today, 18,420 dollars collected, 2 hours 41 minutes average turnaround, 42 reports ready to sign, a patient-case trend, tests by department, recent cases, and items that need attention." fetchpriority="high" decoding="async"></picture></div>
     </div>
   </div>
 </section>
@@ -392,22 +360,147 @@
 <section class="section video-sec" id="product-tour" aria-labelledby="video-title">
   <div class="container">
     <div class="split-head reveal">
-      <h2 id="video-title">One patient, registered to reported in 38 minutes</h2>
-      <p>Watch a real case move through Labora: tests priced from your list at the front desk, the tube scanned into its rack, results approved with an e-signature, and imaging reported from a template. No sound needed.</p>
+      <h2 id="video-title">One patient, registration to signed report</h2>
+      <p>A real case moving through Labora: the front desk registers a CBC, the tube is scanned into Rack B-04, the ultrasound is reported from a template, and the doctor gets the signed PDF. No sound needed.</p>
     </div>
     <!-- Autoplays muted and looped once on screen. Before that only the lazy poster loads; the video file is
          requested after page load, when the section scrolls into view (full 1080p on desktop and tablet, 720p on phones). -->
     <div class="video-frame reveal" data-video data-src-720="assets/video/labora-tour-v3-720.mp4" data-src-1080="assets/video/labora-tour-v3-1080.mp4">
-      <picture class="video-poster"><source type="image/webp" srcset="assets/video/labora-tour-v3-poster-960.webp 960w, assets/video/labora-tour-v3-poster-1600.webp 1600w" sizes="(max-width: 1240px) calc(100vw - 40px), 1200px"><img src="assets/video/labora-tour-v3-poster-1280.jpg" width="1600" height="900" alt="Labora dashboard: cases today, amount collected, average turnaround, recent cases, and home collection on a live map" loading="lazy" decoding="async"></picture>
+      <picture class="video-poster"><source type="image/webp" srcset="assets/video/labora-tour-v3-poster-960.webp 960w, assets/video/labora-tour-v3-poster-1600.webp 1600w" sizes="(max-width: 1240px) calc(100vw - 40px), 1200px"><img src="assets/video/labora-tour-v3-poster-1600.webp" width="1600" height="900" alt="Labora dashboard: cases today, amount collected, average turnaround, recent cases, and home collection on a live map" loading="lazy" decoding="async"></picture>
       <video muted loop playsinline disablepictureinpicture preload="none" width="1600" height="900" aria-hidden="true"></video>
       <button class="video-toggle" type="button" aria-label="Play product tour" hidden><svg class="icon i-play" aria-hidden="true"><use href="#i-play"/></svg><svg class="icon i-pause" aria-hidden="true"><use href="#i-pause"/></svg></button>
     </div>
     <ol class="video-steps">
-      <li><b>Register</b> tests priced from your list</li>
-      <li><b>Scan</b> the tube into its rack slot</li>
-      <li><b>Approve</b> results with an e-signature</li>
-      <li><b>Report</b> imaging from 58 templates</li>
+      <li><b>Register</b> a patient and tests</li>
+      <li><b>Collect</b> and barcode the tube</li>
+      <li><b>Report</b> lab and imaging</li>
+      <li><b>Deliver</b> the signed PDF</li>
     </ol>
+  </div>
+</section>
+
+<!-- ============ Trust / value ============ -->
+<section class="trust" aria-labelledby="trust-title">
+  <div class="container">
+    <h2 id="trust-title">Built to bring every part of your laboratory operation together</h2>
+    <ul class="trust-grid">
+      <li class="trust-item reveal"><span class="t-icon"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-db"/></svg></span><span>Centralized lab data</span></li>
+      <li class="trust-item reveal"><span class="t-icon"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-zap"/></svg></span><span>Automated workflows</span></li>
+      <li class="trust-item reveal"><span class="t-icon"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-eye"/></svg></span><span>Real-time visibility</span></li>
+      <li class="trust-item reveal"><span class="t-icon"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-sliders"/></svg></span><span>Configurable processes</span></li>
+      <li class="trust-item reveal"><span class="t-icon"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-lock"/></svg></span><span>Secure and scalable</span></li>
+      <li class="trust-item reveal"><span class="t-icon"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-trend"/></svg></span><span>Actionable analytics</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ Problem → Solution ============ -->
+<section class="section" id="why" aria-labelledby="problem-title">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <h2 id="problem-title">Your lab is too complex for spreadsheets and disconnected tools</h2>
+      <p>When sample logs, inventory sheets, instrument calendars, and notebooks all live in different places, your team spends its day reconciling records instead of doing science.</p>
+    </div>
+
+    <div class="transform reveal">
+      <div class="t-panel t-before">
+        <h3>How most labs run today <span class="t-tag">Before</span></h3>
+        <p>Scattered tools, repeated entry, and no single view of the work.</p>
+        <ul class="scatter">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>Manual data entry</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>Disconnected systems</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>Difficult sample tracking</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>Inventory uncertainty</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>Paper-based processes</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>Limited visibility</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>Repetitive admin work</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>Difficult reporting</li>
+        </ul>
+      </div>
+
+      <div class="t-bridge" aria-hidden="true">
+        <svg class="flow" viewBox="0 0 120 400" preserveAspectRatio="none">
+          <path d="M0 80 C 60 80, 40 200, 60 200" fill="none" stroke="#cbd6d0" stroke-width="1.5" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"/>
+          <path d="M0 200 H60" fill="none" stroke="#cbd6d0" stroke-width="1.5" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"/>
+          <path d="M0 320 C 60 320, 40 200, 60 200" fill="none" stroke="#cbd6d0" stroke-width="1.5" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"/>
+          <path d="M60 200 H120" fill="none" stroke="#11806a" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <span class="bridge-node"><svg aria-hidden="true"><use href="#logo-mark"/></svg></span>
+      </div>
+
+      <div class="t-panel t-after">
+        <h3>One connected laboratory platform <span class="t-tag">With Labora</span></h3>
+        <p>Every sample, record, and instrument in one system your whole team shares.</p>
+        <ul class="ordered">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Centralized data</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Automated workflows</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Real-time sample visibility</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Intelligent inventory</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Digital documentation</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Automated reporting</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Better collaboration</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Data-driven decisions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Platform overview ============ -->
+<section class="section" id="platform" aria-labelledby="platform-title">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <h2 id="platform-title">Everything your laboratory needs, connected in one platform</h2>
+      <p>Labora brings the core systems of a modern lab into a single laboratory management system. Each module works on its own, and every module shares the same data.</p>
+    </div>
+
+    <div class="hub reveal">
+      <svg class="hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="50" y1="50" x2="50" y2="10"/><line x1="50" y1="50" x2="75.7" y2="19.4"/><line x1="50" y1="50" x2="89.4" y2="43.1"/>
+        <line x1="50" y1="50" x2="84.6" y2="70"/><line x1="50" y1="50" x2="63.7" y2="87.6"/><line x1="50" y1="50" x2="36.3" y2="87.6"/>
+        <line x1="50" y1="50" x2="15.4" y2="70"/><line x1="50" y1="50" x2="10.6" y2="43.1"/><line x1="50" y1="50" x2="24.3" y2="19.4"/>
+      </svg>
+      <div class="hub-center">
+        <svg aria-hidden="true"><use href="#logo-mark-light"/></svg>
+        <div><strong>Labora platform</strong><br><span>One data model for your entire lab</span></div>
+      </div>
+      <a class="hub-node" style="--x:50%;--y:10%" href="/platform/lims/">
+        <div class="hn-top"><span class="hn-icon"><svg class="icon" aria-hidden="true"><use href="#i-db"/></svg></span><h3>LIMS</h3></div>
+        <p>Register samples, assign tests, and manage results and records.</p>
+      </a>
+      <a class="hub-node" style="--x:75.7%;--y:19.4%" href="/platform/eln/">
+        <div class="hn-top"><span class="hn-icon"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span><h3>ELN</h3></div>
+        <p>Document experiments, protocols, and observations digitally.</p>
+      </a>
+      <a class="hub-node" style="--x:89.4%;--y:43.1%" href="/platform/sample-management/">
+        <div class="hn-top"><span class="hn-icon"><svg class="icon" aria-hidden="true"><use href="#i-tube"/></svg></span><h3>Sample management</h3></div>
+        <p>Follow each sample from registration to archive.</p>
+      </a>
+      <a class="hub-node" style="--x:84.6%;--y:70%" href="/platform/inventory-management/">
+        <div class="hn-top"><span class="hn-icon"><svg class="icon" aria-hidden="true"><use href="#i-box"/></svg></span><h3>Inventory</h3></div>
+        <p>Track reagents, consumables, lots, and expiry dates.</p>
+      </a>
+      <a class="hub-node" style="--x:63.7%;--y:87.6%" href="/platform/workflow-automation/">
+        <div class="hn-top"><span class="hn-icon"><svg class="icon" aria-hidden="true"><use href="#i-flow"/></svg></span><h3>Workflow automation</h3></div>
+        <p>Route work with rules, triggers, and approvals.</p>
+      </a>
+      <a class="hub-node" style="--x:36.3%;--y:87.6%" href="/platform/equipment-management/">
+        <div class="hn-top"><span class="hn-icon"><svg class="icon" aria-hidden="true"><use href="#i-micro"/></svg></span><h3>Equipment</h3></div>
+        <p>Schedule instruments and plan maintenance and calibration.</p>
+      </a>
+      <a class="hub-node" style="--x:15.4%;--y:70%" href="/platform/quality-compliance/">
+        <div class="hn-top"><span class="hn-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span><h3>Quality &amp; compliance</h3></div>
+        <p>Audit trails, permissions, and review steps built in.</p>
+      </a>
+      <a class="hub-node" style="--x:10.6%;--y:43.1%" href="/platform/reporting-analytics/">
+        <div class="hn-top"><span class="hn-icon"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span><h3>Reporting &amp; analytics</h3></div>
+        <p>Dashboards and reports on the data you already capture.</p>
+      </a>
+      <a class="hub-node" style="--x:24.3%;--y:19.4%" href="/platform/integrations/">
+        <div class="hn-top"><span class="hn-icon"><svg class="icon" aria-hidden="true"><use href="#i-plug"/></svg></span><h3>Integrations &amp; API</h3></div>
+        <p>Connect instruments and business systems.</p>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -421,7 +514,7 @@
       <a class="link-arrow" href="/platform/home-collection/">See home collection <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
     <figure class="feature-media reveal">
-      <div class="shot"><picture><source media="(max-width: 640px)" type="image/webp" srcset="assets/img/screens/home-collection-m-640.webp 618w" sizes="calc(100vw - 40px)" width="618" height="1098"><source type="image/webp" srcset="assets/img/screens/home-collection-800.webp 800w, assets/img/screens/home-collection-1200.webp 1200w, assets/img/screens/home-collection-1600.webp 1600w, assets/img/screens/home-collection-2320.webp 2320w" sizes="(max-width: 1024px) calc(100vw - 80px), 58vw" width="2320" height="2000"><img src="assets/img/screens/home-collection-1200.jpg" width="2320" height="2000" alt="Home collection board listing patient bookings by status with addresses, tests, and arrival times, next to a live map tracking phlebotomist Marcus Lee 2.1 miles away." loading="lazy" decoding="async"></picture></div>
+      <div class="shot"><picture><source media="(max-width: 640px)" type="image/webp" srcset="assets/img/screens/home-collection-m-640.webp 618w" sizes="calc(100vw - 40px)" width="618" height="1098"><source type="image/webp" srcset="assets/img/screens/home-collection-800.webp 800w, assets/img/screens/home-collection-1200.webp 1200w, assets/img/screens/home-collection-1600.webp 1600w, assets/img/screens/home-collection-2320.webp 2320w" sizes="(max-width: 1024px) calc(100vw - 80px), 58vw" width="2320" height="2000"><img src="assets/img/screens/home-collection-1200.webp" width="2320" height="2000" alt="Home collection board listing patient bookings by status with addresses, tests, and arrival times, next to a live map tracking phlebotomist Marcus Lee 2.1 miles away." loading="lazy" decoding="async"></picture></div>
       <figcaption>Every visit, its tests, and its ETA in one list, with the phlebotomist on a live map.</figcaption>
     </figure>
   </div>
@@ -437,7 +530,7 @@
       <a class="link-arrow" href="/platform/sample-tracking/">See sample tracking <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
     <figure class="feature-media reveal">
-      <div class="shot"><picture><source media="(max-width: 640px)" type="image/webp" srcset="assets/img/screens/sample-tracking-m-640.webp 636w" sizes="calc(100vw - 40px)" width="636" height="952"><source type="image/webp" srcset="assets/img/screens/sample-tracking-800.webp 800w, assets/img/screens/sample-tracking-1200.webp 1200w, assets/img/screens/sample-tracking-1600.webp 1600w, assets/img/screens/sample-tracking-2320.webp 2320w" sizes="(max-width: 1024px) calc(100vw - 80px), 58vw" width="2320" height="2000"><img src="assets/img/screens/sample-tracking-1200.jpg" width="2320" height="2000" alt="Sample tracking screen: barcode LB-24817-02 matched to patient Emily Carter, her sample timeline from registration to testing, its slot in hematology rack B-04, and a list of received and rejected samples." loading="lazy" decoding="async"></picture></div>
+      <div class="shot"><picture><source media="(max-width: 640px)" type="image/webp" srcset="assets/img/screens/sample-tracking-m-640.webp 636w" sizes="calc(100vw - 40px)" width="636" height="952"><source type="image/webp" srcset="assets/img/screens/sample-tracking-800.webp 800w, assets/img/screens/sample-tracking-1200.webp 1200w, assets/img/screens/sample-tracking-1600.webp 1600w, assets/img/screens/sample-tracking-2320.webp 2320w" sizes="(max-width: 1024px) calc(100vw - 80px), 58vw" width="2320" height="2000"><img src="assets/img/screens/sample-tracking-1200.webp" width="2320" height="2000" alt="Sample tracking screen: barcode LB-24817-02 matched to patient Emily Carter, her sample timeline from registration to testing, its slot in hematology rack B-04, and a list of received and rejected samples." loading="lazy" decoding="async"></picture></div>
       <figcaption>Scan one tube to see the patient, the test, each handoff, and its exact rack slot.</figcaption>
     </figure>
   </div>
@@ -453,7 +546,7 @@
       <a class="link-arrow" href="/platform/turnaround-tracking/">See turnaround tracking <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
     <figure class="feature-media reveal">
-      <div class="shot"><picture><source media="(max-width: 640px)" type="image/webp" srcset="assets/img/screens/turnaround-tracking-m-640.webp 640w, assets/img/screens/turnaround-tracking-m-1080.webp 824w" sizes="calc(100vw - 40px)" width="640" height="770"><source type="image/webp" srcset="assets/img/screens/turnaround-tracking-800.webp 800w, assets/img/screens/turnaround-tracking-1200.webp 1200w, assets/img/screens/turnaround-tracking-1600.webp 1600w, assets/img/screens/turnaround-tracking-2320.webp 2320w" sizes="(max-width: 1024px) calc(100vw - 80px), 58vw" width="2320" height="2000"><img src="assets/img/screens/turnaround-tracking-1200.jpg" width="2320" height="2000" alt="Turnaround tracker showing 96.4% of reports delivered on time, 5 cases at risk, and each case’s elapsed time against its target, with an alert sent to Dr. Patel for a Troponin-T test past target." loading="lazy" decoding="async"></picture></div>
+      <div class="shot"><picture><source media="(max-width: 640px)" type="image/webp" srcset="assets/img/screens/turnaround-tracking-m-640.webp 640w, assets/img/screens/turnaround-tracking-m-1080.webp 824w" sizes="calc(100vw - 40px)" width="640" height="770"><source type="image/webp" srcset="assets/img/screens/turnaround-tracking-800.webp 800w, assets/img/screens/turnaround-tracking-1200.webp 1200w, assets/img/screens/turnaround-tracking-1600.webp 1600w, assets/img/screens/turnaround-tracking-2320.webp 2320w" sizes="(max-width: 1024px) calc(100vw - 80px), 58vw" width="2320" height="2000"><img src="assets/img/screens/turnaround-tracking-1200.webp" width="2320" height="2000" alt="Turnaround tracker showing 96.4% of reports delivered on time, 5 cases at risk, and each case’s elapsed time against its target, with an alert sent to Dr. Patel for a Troponin-T test past target." loading="lazy" decoding="async"></picture></div>
       <figcaption>Green is on time, amber is at risk, red is past target, so the team knows what to do next.</figcaption>
     </figure>
   </div>
@@ -469,7 +562,7 @@
       <a class="link-arrow" href="/platform/radiology-reporting/">See reporting <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
     <figure class="feature-media reveal">
-      <div class="shot"><picture><source media="(max-width: 640px)" type="image/webp" srcset="assets/img/screens/pathology-imaging-reporting-m-640.webp 640w, assets/img/screens/pathology-imaging-reporting-m-1080.webp 1080w" sizes="calc(100vw - 40px)" width="640" height="625"><source type="image/webp" srcset="assets/img/screens/pathology-imaging-reporting-800.webp 800w, assets/img/screens/pathology-imaging-reporting-1200.webp 1200w, assets/img/screens/pathology-imaging-reporting-1600.webp 1600w, assets/img/screens/pathology-imaging-reporting-2320.webp 2320w" sizes="(max-width: 1024px) calc(100vw - 80px), 58vw" width="2320" height="2000"><img src="assets/img/screens/pathology-imaging-reporting-1200.jpg" width="2320" height="2000" alt="Radiology reporting screen with tabs for pathology, ultrasound, X-ray, CT, MRI, ECG, 2D echo, and treadmill, a list of 58 ultrasound templates, and a drafted abdomen and pelvis report ready to sign and send." loading="lazy" decoding="async"></picture></div>
+      <div class="shot"><picture><source media="(max-width: 640px)" type="image/webp" srcset="assets/img/screens/pathology-imaging-reporting-m-640.webp 640w, assets/img/screens/pathology-imaging-reporting-m-1080.webp 1080w" sizes="calc(100vw - 40px)" width="640" height="625"><source type="image/webp" srcset="assets/img/screens/pathology-imaging-reporting-800.webp 800w, assets/img/screens/pathology-imaging-reporting-1200.webp 1200w, assets/img/screens/pathology-imaging-reporting-1600.webp 1600w, assets/img/screens/pathology-imaging-reporting-2320.webp 2320w" sizes="(max-width: 1024px) calc(100vw - 80px), 58vw" width="2320" height="2000"><img src="assets/img/screens/pathology-imaging-reporting-1200.webp" width="2320" height="2000" alt="Radiology reporting screen with tabs for pathology, ultrasound, X-ray, CT, MRI, ECG, 2D echo, and treadmill, a list of 58 ultrasound templates, and a drafted abdomen and pelvis report ready to sign and send." loading="lazy" decoding="async"></picture></div>
       <figcaption>Pick a template, complete the findings, then sign and send. Lab and imaging share the same patient case.</figcaption>
     </figure>
   </div>
@@ -485,23 +578,198 @@
       <a class="link-arrow" href="/platform/business-insights/">See business insights <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
     <figure class="feature-media reveal">
-      <div class="shot"><picture><source media="(max-width: 640px)" type="image/webp" srcset="assets/img/screens/business-insights-m-640.webp 640w, assets/img/screens/business-insights-m-1080.webp 747w" sizes="calc(100vw - 40px)" width="640" height="559"><source type="image/webp" srcset="assets/img/screens/business-insights-800.webp 800w, assets/img/screens/business-insights-1200.webp 1200w, assets/img/screens/business-insights-1600.webp 1600w, assets/img/screens/business-insights-2320.webp 2320w" sizes="(max-width: 1024px) calc(100vw - 80px), 58vw" width="2320" height="2000"><img src="assets/img/screens/business-insights-1200.jpg" width="2320" height="2000" alt="Business insights showing 64,280 dollars billed this week, 58,910 collected, 5,370 outstanding, revenue by day and by center, and top referring doctors." loading="lazy" decoding="async"></picture></div>
+      <div class="shot"><picture><source media="(max-width: 640px)" type="image/webp" srcset="assets/img/screens/business-insights-m-640.webp 640w, assets/img/screens/business-insights-m-1080.webp 747w" sizes="calc(100vw - 40px)" width="640" height="559"><source type="image/webp" srcset="assets/img/screens/business-insights-800.webp 800w, assets/img/screens/business-insights-1200.webp 1200w, assets/img/screens/business-insights-1600.webp 1600w, assets/img/screens/business-insights-2320.webp 2320w" sizes="(max-width: 1024px) calc(100vw - 80px), 58vw" width="2320" height="2000"><img src="assets/img/screens/business-insights-1200.webp" width="2320" height="2000" alt="Business insights showing 64,280 dollars billed this week, 58,910 collected, 5,370 outstanding, revenue by day and by center, and top referring doctors." loading="lazy" decoding="async"></picture></div>
       <figcaption>Billing, collections, and referral business across every center, updated as cases are billed.</figcaption>
     </figure>
   </div>
 </section>
 
-<section class="cta-band" aria-labelledby="band-title">
+<!-- Sample lifecycle -->
+<section class="section" id="sample-management" aria-labelledby="sample-title">
   <div class="container">
-    <div class="band reveal">
-      <div>
-        <h2 id="band-title">Put your own test menu in Labora</h2>
-        <p>Book a 20-minute demo. We set it up with your tests and price list, so you see your own lab day, not a sample account.</p>
+    <div class="section-head section-head--center reveal">
+      <span class="module-tag"><span class="mt-icon"><svg class="icon" aria-hidden="true"><use href="#i-tube"/></svg></span>Sample management</span>
+      <h2 id="sample-title">Track samples from registration to final result</h2>
+      <p>Laboratory sample management software that shows exactly where each sample is in its lifecycle, who handled it, and what happens next.</p>
+    </div>
+
+    <div class="lifecycle reveal">
+      <div class="lifecycle-scroll">
+        <ol class="lc-track" data-lifecycle>
+          <li class="lc-step is-done"><span class="lc-node"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-inbox"/></svg></span><h3>Registration</h3><p>Unique ID, label, and metadata</p></li>
+          <li class="lc-step is-done"><span class="lc-node"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-tube"/></svg></span><h3>Processing</h3><p>Aliquots, prep, and storage</p></li>
+          <li class="lc-step is-done"><span class="lc-node"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-flask"/></svg></span><h3>Testing</h3><p>Assigned tests and instruments</p></li>
+          <li class="lc-step is-current"><span class="lc-node"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-eye"/></svg></span><h3>Review</h3><p>Results checked against specs</p><span class="pill pill--green lc-state">Current step</span></li>
+          <li class="lc-step"><span class="lc-node"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-check"/></svg></span><h3>Approval</h3><p>Electronic sign-off by role</p></li>
+          <li class="lc-step"><span class="lc-node"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-file"/></svg></span><h3>Reporting</h3><p>Certificates and result reports</p></li>
+          <li class="lc-step"><span class="lc-node"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-box"/></svg></span><h3>Archive</h3><p>Retained, searchable, traceable</p></li>
+        </ol>
       </div>
-      <div class="band-ctas">
-        <a class="btn btn--primary btn--lg" href="#demo">Book a demo</a>
-        <a class="btn btn--ghost btn--lg" href="#product-tour">Watch the tour</a>
+      <div class="ui lc-sample" aria-hidden="true">
+        <span class="ui-icon-tile" style="width:40px;height:40px"><svg class="icon" aria-hidden="true"><use href="#i-tube"/></svg></span>
+        <div>
+          <div class="ls-id">S-24-0918, serum</div>
+          <div class="ls-meta"><span>Location <b>F-2 / R3 / B12</b></span><span>Tests <b>Panel B (4 of 4 done)</b></span><span>Reviewer <b>R. Kapoor</b></span></div>
+        </div>
+        <span class="pill pill--amber">Awaiting review</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Differentiation ============ -->
+<section class="section" id="why-labora" aria-labelledby="diff-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="diff-title">More than laboratory software. A connected operating system for your lab.</h2>
+      <p>Point solutions solve one problem and create another integration to maintain. Labora is designed as one system from the start.</p>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-item reveal"><span class="d-icon"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-link"/></svg></span><h3>Connected</h3><p>Samples, experiments, inventory, and equipment share one data model, so information entered once is available everywhere.</p></div>
+      <div class="diff-item reveal"><span class="d-icon"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-sliders"/></svg></span><h3>Configurable</h3><p>Adapt sample types, fields, statuses, and workflows to your laboratory rather than changing how your team works.</p></div>
+      <div class="diff-item reveal"><span class="d-icon"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-zap"/></svg></span><h3>Automated</h3><p>Hand off routing, reminders, and approvals to rules, and give your scientists back the time spent on admin.</p></div>
+      <div class="diff-item reveal"><span class="d-icon"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-eye"/></svg></span><h3>Visible</h3><p>See what is happening across benches, instruments, and sites without chasing updates by email.</p></div>
+      <div class="diff-item reveal"><span class="d-icon"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-layers"/></svg></span><h3>Scalable</h3><p>Add users, sample volume, and new locations without rebuilding your systems each time you grow.</p></div>
+      <div class="diff-item reveal"><span class="d-icon"><svg class="icon icon-lg" aria-hidden="true"><use href="#i-trend"/></svg></span><h3>Intelligent</h3><p>Turn operational data into trends and alerts that help you plan capacity and act before problems grow.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Use cases ============ -->
+<section class="section" id="solutions" aria-labelledby="uc-title">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <h2 id="uc-title">Built for the way modern laboratories work</h2>
+      <p>Different labs run different processes. Labora's configurable laboratory software adapts to each one.</p>
+    </div>
+    <div class="uc-grid">
+      <article class="uc-card reveal">
+        <span class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#i-flask"/></svg></span>
+        <h3>Research &amp; development</h3>
+        <p>Document experiments and connect findings to the materials and data behind them.</p>
+        <ul class="uc-tags"><li>ELN</li><li>Inventory</li><li>Analytics</li></ul>
+        <a class="link-arrow" href="/solutions/research-development/">Explore solution <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="uc-card reveal">
+        <span class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#i-hospital"/></svg></span>
+        <h3>Clinical laboratories</h3>
+        <p>Track specimens and results with a clear record of every handoff and review.</p>
+        <ul class="uc-tags"><li>LIMS</li><li>Samples</li><li>Audit trails</li></ul>
+        <a class="link-arrow" href="/solutions/clinical-laboratories/">Explore solution <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="uc-card reveal">
+        <span class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
+        <h3>Quality control</h3>
+        <p>Run specification checks, review results, and release batches consistently.</p>
+        <ul class="uc-tags"><li>LIMS</li><li>Workflows</li><li>Reporting</li></ul>
+        <a class="link-arrow" href="/solutions/quality-control/">Explore solution <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="uc-card reveal">
+        <span class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#i-pill"/></svg></span>
+        <h3>Pharmaceutical</h3>
+        <p>Manage stability studies, method work, and review steps with traceable records.</p>
+        <ul class="uc-tags"><li>Samples</li><li>Equipment</li><li>Quality</li></ul>
+        <a class="link-arrow" href="/solutions/pharmaceutical/">Explore solution <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="uc-card reveal">
+        <span class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#i-dna"/></svg></span>
+        <h3>Biotechnology</h3>
+        <p>Keep cell lines, reagents, and experiments connected as programs scale.</p>
+        <ul class="uc-tags"><li>ELN</li><li>Inventory</li><li>Samples</li></ul>
+        <a class="link-arrow" href="/solutions/biotechnology/">Explore solution <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="uc-card reveal">
+        <span class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#i-building"/></svg></span>
+        <h3>Contract research</h3>
+        <p>Organize work by client and project, and share results on a clear timeline.</p>
+        <ul class="uc-tags"><li>Workflows</li><li>Reporting</li><li>Permissions</li></ul>
+        <a class="link-arrow" href="/solutions/contract-research/">Explore solution <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="uc-card reveal">
+        <span class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#i-factory"/></svg></span>
+        <h3>Manufacturing</h3>
+        <p>Test incoming materials and in-process samples without slowing production.</p>
+        <ul class="uc-tags"><li>LIMS</li><li>Inventory</li><li>Automation</li></ul>
+        <a class="link-arrow" href="/solutions/manufacturing/">Explore solution <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="uc-card reveal">
+        <span class="uc-icon"><svg class="icon" aria-hidden="true"><use href="#i-grad"/></svg></span>
+        <h3>Academic laboratories</h3>
+        <p>Preserve lab knowledge as students and researchers come and go.</p>
+        <ul class="uc-tags"><li>ELN</li><li>Equipment</li><li>Inventory</li></ul>
+        <a class="link-arrow" href="/solutions/academic/">Explore solution <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Integrations ============ -->
+<section class="section" id="integrations" aria-labelledby="integ-title">
+  <div class="container integ">
+    <div class="integ-copy reveal">
+      <span class="module-tag"><span class="mt-icon"><svg class="icon" aria-hidden="true"><use href="#i-plug"/></svg></span>Integrations &amp; API</span>
+      <h2 id="integ-title">Connect Labora with the tools you already use</h2>
+      <p>Bring instrument data in and push results out. Labora's integration layer and API connect your laboratory data management with the rest of your business systems.</p>
+      <figure class="api-card" aria-label="Example API request">
+        <div class="ac-head"><span class="method">GET</span>/v1/samples?status=awaiting_review</div>
+<pre>{
+  <span class="k">"id"</span>: <span class="s">"S-24-0918"</span>,
+  <span class="k">"type"</span>: <span class="s">"serum"</span>,
+  <span class="k">"location"</span>: <span class="s">"F-2/R3/B12"</span>,
+  <span class="k">"tests_complete"</span>: <span class="n">4</span>,
+  <span class="k">"status"</span>: <span class="s">"awaiting_review"</span>
+}</pre>
+      </figure>
+      <p style="margin-top:1.5rem"><a class="link-arrow" href="/platform/integrations/">View integration options <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+    </div>
+
+    <div class="integ-net reveal" role="group" aria-label="Integration categories">
+      <svg class="net-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path class="live" d="M50 50 L50 6"/><path d="M50 50 L76 25"/><path d="M50 50 L84 50"/><path class="live" d="M50 50 L76 75"/>
+        <path d="M50 50 L50 94"/><path d="M50 50 L24 75"/><path class="live" d="M50 50 L16 50"/><path d="M50 50 L24 25"/>
+      </svg>
+      <div class="net-center"><svg aria-hidden="true"><use href="#logo-mark-light"/></svg><span class="sr-only">Labora</span></div>
+      <div class="net-node" style="--x:50%;--y:6%"><span class="nn-icon"><svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg></span><span><strong>Lab instruments</strong><small>Readings and run files</small></span></div>
+      <div class="net-node" style="--x:76%;--y:25%"><span class="nn-icon"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></span><span><strong>ERP</strong><small>Materials and purchasing</small></span></div>
+      <div class="net-node" style="--x:84%;--y:50%"><span class="nn-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span><span><strong>CRM</strong><small>Clients and projects</small></span></div>
+      <div class="net-node" style="--x:76%;--y:75%"><span class="nn-icon"><svg class="icon" aria-hidden="true"><use href="#i-bar"/></svg></span><span><strong>BI &amp; analytics</strong><small>Reporting tools</small></span></div>
+      <div class="net-node" style="--x:50%;--y:94%"><span class="nn-icon"><svg class="icon" aria-hidden="true"><use href="#i-cloud"/></svg></span><span><strong>Cloud storage</strong><small>Files and archives</small></span></div>
+      <div class="net-node" style="--x:24%;--y:75%"><span class="nn-icon"><svg class="icon" aria-hidden="true"><use href="#i-key"/></svg></span><span><strong>Identity &amp; access</strong><small>Sign-in and users</small></span></div>
+      <div class="net-node" style="--x:16%;--y:50%"><span class="nn-icon"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg></span><span><strong>REST API</strong><small>Build your own</small></span></div>
+      <div class="net-node" style="--x:24%;--y:25%"><span class="nn-icon"><svg class="icon" aria-hidden="true"><use href="#i-zap"/></svg></span><span><strong>Automation</strong><small>Workflow platforms</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ How it works ============ -->
+<section class="section" id="how-it-works" aria-labelledby="how-title">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <h2 id="how-title">How Labora works</h2>
+      <p>A simple loop that turns day-to-day lab work into better decisions.</p>
+    </div>
+    <ol class="process reveal">
+      <li class="p-step"><span class="p-num">01</span><h3>Capture</h3><p>Collect samples, experiments, and operational data.</p></li>
+      <li class="p-step"><span class="p-num">02</span><h3>Connect</h3><p>Bring laboratory processes and information together.</p></li>
+      <li class="p-step"><span class="p-num">03</span><h3>Automate</h3><p>Standardize and automate repetitive workflows.</p></li>
+      <li class="p-step"><span class="p-num">04</span><h3>Analyze</h3><p>Monitor laboratory performance and identify trends.</p></li>
+      <li class="p-step"><span class="p-num">05</span><h3>Improve</h3><p>Use insights to improve laboratory efficiency.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ Value ============ -->
+<section class="section" id="value" aria-labelledby="value-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="value-title">Less administrative work. More laboratory productivity.</h2>
+      <p>What changes when your lab runs on one connected system.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card reveal"><span class="v-icon"><svg class="icon" aria-hidden="true"><use href="#i-edit"/></svg></span><div><h3>Enter data once</h3><p>Records flow between modules, so scientists stop retyping the same information into different tools.</p><div class="vs"><span class="from">Copy between spreadsheets</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg><span class="to">Captured once, reused everywhere</span></div></div></div>
+      <div class="value-card reveal"><span class="v-icon"><svg class="icon" aria-hidden="true"><use href="#i-flow"/></svg></span><div><h3>Finish workflows with fewer handoffs</h3><p>Rules route work and approvals automatically, so nothing waits in an inbox.</p><div class="vs"><span class="from">Chasing by email</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg><span class="to">Automatic routing</span></div></div></div>
+      <div class="value-card reveal"><span class="v-icon"><svg class="icon" aria-hidden="true"><use href="#i-box"/></svg></span><div><h3>Avoid inventory surprises</h3><p>Low-stock and expiry alerts arrive before an experiment is blocked.</p><div class="vs"><span class="from">Empty shelf on assay day</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg><span class="to">Reorder in time</span></div></div></div>
+      <div class="value-card reveal"><span class="v-icon"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg></span><div><h3>Report without the scramble</h3><p>Reports draw on live data, so audits and management reviews start from a complete record.</p><div class="vs"><span class="from">Manual compilation</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg><span class="to">Live dashboards</span></div></div></div>
     </div>
   </div>
 </section>
@@ -514,22 +782,28 @@
       <h2 id="customers-title">From the people who run the lab every day</h2>
       <p>Lab directors, front-desk leads, and reporting doctors on what changed after the move to Labora.</p>
     </div>
-    <div class="stories">
-      <figure class="story story--lead reveal">
-        <blockquote><p>Every morning started with calls asking if a report was ready. Now the signed PDF goes to the patient and the referring doctor the moment I approve it, and the phone stays quiet.</p></blockquote>
-        <figcaption><strong>Dr. Priya Nair</strong><span>Lab director, three-center pathology lab</span></figcaption>
-      </figure>
-      <div class="story-side">
-        <figure class="story reveal">
+    <!-- Testimonial slider: native scroll-snap (swipe/trackpad), arrow buttons and gentle autoplay in main.js -->
+    <section class="t-slider reveal" data-slider aria-roledescription="carousel" aria-label="Client testimonials">
+      <div class="t-track" tabindex="0">
+        <div class="t-slide" role="group" aria-roledescription="slide" aria-label="1 of 3"><figure>
+          <blockquote><p>Every morning started with calls asking if a report was ready. Now the signed PDF goes to the patient and the referring doctor the moment I approve it, and the phone stays quiet.</p></blockquote>
+          <figcaption><strong>Dr. Priya Nair</strong>Lab director, three-center pathology lab</figcaption>
+        </figure></div>
+        <div class="t-slide" role="group" aria-roledescription="slide" aria-label="2 of 3"><figure>
           <blockquote><p>Every tube is scanned at the desk, so when a doctor asks, I can tell them the rack and slot in seconds instead of searching two refrigerators.</p></blockquote>
-          <figcaption><strong>Daniel Reyes</strong><span>Operations manager, diagnostic center</span></figcaption>
-        </figure>
-        <figure class="story reveal">
+          <figcaption><strong>Daniel Reyes</strong>Operations manager, diagnostic center</figcaption>
+        </figure></div>
+        <div class="t-slide" role="group" aria-roledescription="slide" aria-label="3 of 3"><figure>
           <blockquote><p>Ultrasound templates sit next to the lab results for the same patient. I report, sign, and send from one screen.</p></blockquote>
-          <figcaption><strong>Dr. Sarah Mitchell</strong><span>Consultant radiologist, imaging center</span></figcaption>
-        </figure>
+          <figcaption><strong>Dr. Sarah Mitchell</strong>Consultant radiologist, imaging center</figcaption>
+        </figure></div>
       </div>
-    </div>
+      <div class="t-nav">
+        <button class="t-btn t-prev" type="button" aria-label="Previous testimonial"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <span class="t-count" aria-live="polite">1 / 3</span>
+        <button class="t-btn t-next" type="button" aria-label="Next testimonial"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+    </section>
   </div>
 </section>
 
@@ -626,20 +900,35 @@
         <div class="faq-answer"><p>Each tube gets a barcode. Scanning it matches the tube to the right patient and test, records each step (registered, collected, received, in testing, reported), and shows the exact rack and slot where it is stored. Samples that cannot be used, for example hemolysed ones, are held or rejected with the reason recorded.</p></div></details>
       <details class="faq-item"><summary><h3>How does turnaround time (TAT) tracking work?</h3><span class="plus" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
         <div class="faq-answer"><p>Every case has a target time. Labora shows the time elapsed against that target, flags cases that are at risk or past target, and sends alerts so the team can act. Delays are logged with a reason, and you can see the share of reports delivered on time.</p></div></details>
-      <details class="faq-item"><summary><h3>Can doctors sign reports digitally?</h3><span class="plus" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
-        <div class="faq-answer"><p>Yes. Pathologists, radiologists, and cardiologists review the report, preview it, and sign and send it in one step. Drafts save automatically while they work.</p></div></details>
-      <details class="faq-item"><summary><h3>Does Labora support home sample collection?</h3><span class="plus" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
-        <div class="faq-answer"><p>Yes. Bookings are organized by status, phlebotomists are assigned to visits, and you can follow each visit on a live map with an estimated arrival time. Patients are kept informed by SMS.</p></div></details>
       <details class="faq-item"><summary><h3>Can I manage multiple centers and collection points?</h3><span class="plus" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
         <div class="faq-answer"><p>Yes. Branches, collection centers, and home collection run in one system. You can switch between centers and compare activity and revenue across all of them.</p></div></details>
-      <details class="faq-item"><summary><h3>Can Labora work with outsource or partner labs?</h3><span class="plus" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
-        <div class="faq-answer"><p>Yes. Tests sent to an outsource lab stay linked to the patient case, and business from partner labs (B2B) is tracked separately in your revenue and dues.</p></div></details>
-      <details class="faq-item"><summary><h3>What business reports does Labora provide?</h3><span class="plus" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
-        <div class="faq-answer"><p>Labora shows billing, collections, and outstanding dues, revenue by day and by center, business from partner labs and home collection, and referring doctors ranked by cases and revenue, with week-over-week trends.</p></div></details>
       <details class="faq-item"><summary><h3>Can Labora connect with lab analyzers and other systems?</h3><span class="plus" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
         <div class="faq-answer"><p>Labora is designed to connect with lab instruments and other systems through its integration layer and API. Which connections are available depends on your analyzers and setup, so the best next step is to review your equipment list with our team in a demo.</p></div></details>
       <details class="faq-item"><summary><h3>Can Labora be configured for my lab&#x27;s tests and workflows?</h3><span class="plus" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
         <div class="faq-answer"><p>Yes. Tests, report templates, turnaround targets, centers, user roles, and permissions are configured to match how your lab works, and the setup can grow as you add centers and services.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" aria-labelledby="final-title">
+  <div class="container">
+    <div class="final-box reveal">
+      <div>
+        <h2 id="final-title">Start with one center. Add the rest when you are ready.</h2>
+        <p>Rollout is guided center by center, with your test menu, price list, and report templates moved over for you.</p>
+        <div class="ctas">
+          <a class="btn btn--primary btn--lg" href="#demo">Book a demo</a>
+          <a class="btn btn--outline-light btn--lg" href="#product-tour">Watch the tour</a>
+        </div>
+      </div>
+      <div class="final-art" aria-hidden="true">
+        <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+        <span class="core"><svg><use href="#logo-mark"/></svg></span>
+        <span class="orb" style="left:calc(50% - 22px);top:calc(50% - 147px)"><svg class="icon" aria-hidden="true"><use href="#i-tube"/></svg></span>
+        <span class="orb" style="left:calc(50% + 103px);top:calc(50% - 22px)"><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg></span>
+        <span class="orb" style="left:calc(50% - 22px);top:calc(50% + 103px)"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+        <span class="orb" style="left:calc(50% - 147px);top:calc(50% - 22px)"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span>
+      </div>
     </div>
   </div>
 </section>
@@ -670,6 +959,6 @@
   <a class="btn btn--ghost" href="#product-tour">Watch tour</a>
 </div>
 
-<script src="assets/js/main.min.js?v=1cfe61300b" defer></script>
+<script src="assets/js/main.min.js?v=c389e2fe05" defer></script>
 </body>
 </html>
