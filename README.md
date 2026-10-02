@@ -22,7 +22,7 @@ assets/js/main.js         Source script
 assets/js/main.min.js     Built, minified (what the page loads, deferred)
 assets/fonts/             Inter variable font (weights 400-900), subset to Latin-1 + typographic punctuation (27 KB woff2, preloaded)
 assets/img/               og-image.png (1200×630), apple-touch-icon.png, icon-512.png
-assets/img/screens/       Product screenshots: WebP at 800/1200/1600/2320 px, phone crops (-m-), JPEG fallback
+assets/img/screens/       Product screenshots: WebP only, at 800/1200/1600/2320 px plus phone crops (-m-); every current browser supports WebP
 assets/video/             Product tour v3: original 1080p stream (9.6 MB, no re-encode) and 720p for phones (4.9 MB), posters
 deploy/nginx.conf         Nginx server block (current server): compression, caching, video delivery, security headers
 favicon.svg, site.webmanifest, robots.txt, sitemap.xml
@@ -39,7 +39,7 @@ The built files are already included, so you can deploy the folder as-is.
 - **Netlify / Cloudflare Pages:** drag the folder in, or connect the repo. No build command is needed. `_headers` is picked up automatically.
 - **Vercel:** import the folder with framework preset "Other" and no build command. `vercel.json` applies the headers.
 - **Apache / cPanel:** upload everything, including `.htaccess`.
-- **Nginx (current server):** use `deploy/nginx.conf`. It carries the same headers as `_headers`, plus gzip (Brotli if the module is installed), caching, and large-file settings for the video. Do not upload `labora-product-video*.mp4` (masters), `node_modules/`, `scripts/`, or `deploy/`.
+- **Nginx (current server):** use `deploy/nginx.conf`. It carries the same headers as `_headers`, plus gzip (Brotli if the module is installed), caching, and large-file settings for the video. Do not upload `node_modules/`, `scripts/`, `deploy/`, or `archive/`.
 
 ## Product screenshots
 
@@ -58,7 +58,7 @@ Each screenshot is served with `<picture>`: phones get a tighter crop of the key
 
 The tour plays muted, looped, and without browser controls; a single play/pause button sits in the corner (the video has no audio track, so there is no volume control). To protect page speed, only the lazy-loaded poster loads with the page. The video file is requested after the page has loaded, on the visitor's first scroll, tap, or key press (or 3.5 s after load), and only once the frame is on screen. It pauses when scrolled away. Desktop and tablet get the original 1080p stream untouched (full clarity); phone-width screens and Data Saver users get 720p. With reduced motion or Data Saver on, it does not autoplay; the button starts it.
 
-To replace it, encode a 1080p master with ffmpeg (`+faststart` lets playback start before the download finishes):
+All site assets live in `assets/` (css, js, fonts, img, video). `assets/video/labora-tour-v3-1080.mp4` is the original 1080p stream, so no separate master file is kept. To replace the video, encode a new 1080p master with ffmpeg (`+faststart` lets playback start before the download finishes):
 
 ```
 ffmpeg -i master.mp4 -map 0:v:0 -c copy -an -movflags +faststart assets/video/labora-tour-v4-1080.mp4

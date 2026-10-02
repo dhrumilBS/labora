@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Removed sections archive | Labora</title>
+</head>
+<body>
+<!--
+  ARCHIVE: sections and FAQ questions removed from index.html (kept for future use). Not linked from the site.
+  To reuse a section, copy its <section> block back into index.html <main>. Their styles are still in
+  assets/css/styles.css (rules for .ui, .lims-*, .eln-*, .inv-*, .wf-*, .eq-*, .an-*, .cta-band, .band).
+  The workflow mockup's step animation in main.js runs automatically when [data-workflow] is on the page.
+  FAQ: copy a <details class="faq-item"> into .faq-list AND its JSON-LD entry into the FAQPage schema.
+-->
+
+<!-- ===================== REMOVED SECTION: LIMS + ELN (id="features") ===================== -->
+<!-- ============ Core features ============ -->
+<section class="section" id="features" aria-label="Core capabilities">
+  <div class="container">
+
+    <!-- LIMS -->
+    <article class="feature" id="lims" aria-labelledby="lims-title">
+      <div class="feature-copy reveal">
+        <span class="module-tag"><span class="mt-icon"><svg class="icon" aria-hidden="true"><use href="#i-db"/></svg></span>Laboratory information management</span>
+        <h2 id="lims-title">Know where every sample, result, and record stands</h2>
+        <p>Labora's LIMS software gives every sample a complete, searchable record, from the moment it is registered to the moment its results are reported.</p>
+        <ul class="checks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Sample registration and labeling</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Status and sample tracking</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Storage locations</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Test and result management</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Search and filtering</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Chain of custody</li>
+        </ul>
+        <a class="link-arrow" href="/platform/lims/">Learn about Labora LIMS <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="feature-visual reveal" aria-hidden="true">
+        <div class="ui">
+          <div class="ui-top"><div><h4>Samples</h4><div class="sub">1,284 active</div></div><div class="ui-search"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>S-24-09</div><span class="chip is-accent"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Register</span></div>
+          <div class="ui-toolbar"><span class="chip is-on">All</span><span class="chip">In testing</span><span class="chip">Awaiting review</span><span class="chip">Approved</span><span class="chip hide-sm"><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>Filters</span></div>
+          <div class="lims-layout">
+            <div class="ui-table-wrap">
+              <table class="ui-table">
+                <thead><tr><th>Sample ID</th><th>Test</th><th>Location</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr class="is-selected"><td class="mono">S-24-0918</td><td>Panel B</td><td>F-2 / R3 / B12</td><td><span class="pill pill--amber">Review</span></td></tr>
+                  <tr><td class="mono">S-24-0917</td><td>Heavy metals</td><td>Cold room 1</td><td><span class="pill pill--green">In testing</span></td></tr>
+                  <tr><td class="mono">S-24-0915</td><td>Assay, purity</td><td>Shelf A-4</td><td><span class="pill pill--green">In testing</span></td></tr>
+                  <tr><td class="mono">S-24-0912</td><td>Histology</td><td>F-1 / R1 / B03</td><td><span class="pill pill--ink">Approved</span></td></tr>
+                  <tr><td class="mono">S-24-0910</td><td>Microbial ID</td><td>Incubator 2</td><td><span class="pill pill--green">In testing</span></td></tr>
+                  <tr><td class="mono">S-24-0907</td><td>pH, conductivity</td><td>Shelf B-1</td><td><span class="pill pill--ink">Approved</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="lims-side">
+              <h5>S-24-0918</h5><span class="muted">Chain of custody</span>
+              <ol class="custody">
+                <li><strong>Registered</strong><span>A. Mehta, 8:12 AM</span></li>
+                <li><strong>Stored at F-2 / R3</strong><span>A. Mehta, 8:20 AM</span></li>
+                <li><strong>Aliquoted (3)</strong><span>J. Ortiz, 10:05 AM</span></li>
+                <li><strong>Panel B complete</strong><span>HPLC-02, 1:41 PM</span></li>
+                <li class="is-now"><strong>Awaiting review</strong><span>R. Kapoor</span></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ELN -->
+    <article class="feature feature--flip" id="eln" aria-labelledby="eln-title">
+      <div class="feature-copy reveal">
+        <span class="module-tag"><span class="mt-icon"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span>Electronic lab notebook</span>
+        <h2 id="eln-title">Replace scattered notes with a connected digital lab notebook</h2>
+        <p>Labora's ELN software keeps experiments, protocols, and results in structured entries that link directly to the samples, reagents, and instruments you used.</p>
+        <ul class="checks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Experiments and protocols</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Observations and results</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Files and attachments</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Comments and collaboration</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Version history</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Searchable records</li>
+        </ul>
+        <a class="link-arrow" href="/platform/eln/">Explore the Labora ELN <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="feature-visual reveal" aria-hidden="true">
+        <div class="ui">
+          <div class="ui-top"><div><h4>Notebook</h4><div class="sub">Formulation team</div></div><span class="chip" style="margin-left:auto"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>4</span><span class="chip is-accent">Submit for review</span></div>
+          <div class="eln-layout">
+            <div class="eln-doc">
+              <div>
+                <div class="doc-title">EXP-412 Buffer screen for protein stability</div>
+                <div class="doc-meta"><span class="pill pill--amber">In review</span><span>Protocol P-031 v4</span><span>Linked: 12 samples, 3 reagents</span></div>
+              </div>
+              <div class="eln-block">
+                <h6>Protocol</h6>
+                <ol class="eln-steps">
+                  <li class="done"><span class="box on"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><span>Prepare buffers at pH 5.5, 6.5, 7.5</span></li>
+                  <li class="done"><span class="box on"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><span>Dilute protein stock to 1 mg/mL</span></li>
+                  <li><span class="box"></span><span>Incubate at 40 °C, sample at 0, 24, 48 h</span></li>
+                </ol>
+              </div>
+              <div class="eln-block">
+                <h6>Observations</h6>
+                <p class="eln-note">Visible turbidity in the <mark>pH 5.5</mark> condition after 24 h. pH 6.5 and 7.5 remained clear. Retest aggregation by DLS.</p>
+              </div>
+              <div class="eln-attach"><span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-clip"/></svg>dls_run_24h.csv</span><span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-clip"/></svg>plate_photo.jpg</span></div>
+              <div class="eln-comment hide-sm"><span class="ui-avatar">JO</span><span><strong>J. Ortiz</strong> Added DLS results. Suggest dropping pH 5.5 from the next round.</span></div>
+            </div>
+            <div class="eln-side hide-sm">
+              <h5>Version history</h5>
+              <ol class="versions">
+                <li class="is-current"><strong>v7 (current)</strong><span>J. Ortiz, 11:32 AM</span></li>
+                <li><strong>v6</strong><span>R. Kapoor, yesterday</span></li>
+                <li><strong>v5</strong><span>R. Kapoor, Mon</span></li>
+                <li><strong>v4, protocol change</strong><span>A. Mehta, last week</span></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== REMOVED SECTION: Inventory + workflow automation ===================== -->
+<section class="section" aria-label="Inventory and workflow automation">
+  <div class="container">
+
+    <!-- Inventory -->
+    <article class="feature" id="inventory" aria-labelledby="inventory-title">
+      <div class="feature-copy reveal">
+        <span class="module-tag"><span class="mt-icon"><svg class="icon" aria-hidden="true"><use href="#i-box"/></svg></span>Inventory management</span>
+        <h2 id="inventory-title">Know what you have, where it is, and when you need more</h2>
+        <p>Laboratory inventory management that tracks every reagent and consumable by lot, quantity, location, and expiry, so experiments never stall for a missing bottle.</p>
+        <ul class="checks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reagents and consumables</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Live stock levels</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Expiration tracking</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Storage locations</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Low-stock alerts</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Purchase management</li>
+        </ul>
+        <a class="link-arrow" href="/platform/inventory-management/">See inventory management <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="feature-visual reveal" aria-hidden="true">
+        <div class="ui">
+          <div class="ui-top"><div><h4>Inventory</h4><div class="sub">All storage locations</div></div><div class="ui-search"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>Search items or lots</div></div>
+          <div class="inv-grid">
+            <div class="inv-stat"><div class="k-label">Items tracked</div><div class="k-val">2,318</div></div>
+            <div class="inv-stat warn"><div class="k-label">Below reorder point</div><div class="k-val">7</div></div>
+            <div class="inv-stat"><div class="k-label">Expiring in 30 days</div><div class="k-val">14</div></div>
+          </div>
+          <div class="inv-items">
+            <div class="inv-item">
+              <div><div class="i-name">Acetonitrile, HPLC grade</div><div class="i-loc"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Solvent cabinet 2</div></div>
+              <div class="i-stock"><small><span>2.0 / 20 L</span><span>10%</span></small><div class="progress"><i class="amber" style="width:10%"></i></div></div>
+              <span class="pill pill--amber">Reorder</span>
+            </div>
+            <div class="inv-item">
+              <div><div class="i-name">Fetal bovine serum, lot 4471</div><div class="i-loc"><svg class="icon" aria-hidden="true"><use href="#i-thermo"/></svg>Freezer F-1</div></div>
+              <div class="i-stock"><small><span>18 / 24 bottles</span><span>75%</span></small><div class="progress"><i style="width:75%"></i></div></div>
+              <span class="pill pill--green">In stock</span>
+            </div>
+            <div class="inv-item">
+              <div><div class="i-name">Trypsin-EDTA 0.25%, lot T-88</div><div class="i-loc"><svg class="icon" aria-hidden="true"><use href="#i-thermo"/></svg>Fridge R-3</div></div>
+              <div class="i-stock"><small><span>6 / 10 bottles</span><span>Exp. 9 d</span></small><div class="progress"><i style="width:60%"></i></div></div>
+              <span class="pill pill--amber">Expiring</span>
+            </div>
+            <div class="inv-item hide-sm">
+              <div><div class="i-name">Pipette tips, 200 µL filtered</div><div class="i-loc"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Store room B</div></div>
+              <div class="i-stock"><small><span>42 / 60 racks</span><span>70%</span></small><div class="progress"><i style="width:70%"></i></div></div>
+              <span class="pill pill--green">In stock</span>
+            </div>
+          </div>
+          <div class="inv-alert"><svg class="icon" aria-hidden="true"><use href="#i-cart"/></svg><span>Acetonitrile fell below reorder point. Draft purchase request ready.</span><span class="chip">Review PO</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Workflow automation -->
+    <article class="feature feature--flip" id="workflow-automation" aria-labelledby="workflow-title">
+      <div class="feature-copy reveal">
+        <span class="module-tag"><span class="mt-icon"><svg class="icon" aria-hidden="true"><use href="#i-flow"/></svg></span>Workflow automation</span>
+        <h2 id="workflow-title">Turn repetitive laboratory processes into automated workflows</h2>
+        <p>Laboratory workflow management without code. Define the steps once, add rules and approvals, and let Labora route the work to the right people at the right time.</p>
+        <ul class="checks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Visual workflow builder</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Triggers and conditions</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Role-based approvals</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Automatic notifications</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Escalation rules</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reusable templates</li>
+        </ul>
+        <a class="link-arrow" href="/platform/workflow-automation/">Discover workflow automation <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="feature-visual reveal" aria-hidden="true">
+        <div class="ui">
+          <div class="ui-top"><div><h4>Incoming QC workflow</h4><div class="sub">Published, v3</div></div><span class="pill pill--green" style="margin-left:auto">Active</span></div>
+          <div class="wf-canvas">
+            <div class="wf-chain" data-workflow>
+              <div class="wf-node is-trigger"><span class="ui-icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-zap"/></svg></span><div style="min-width:0"><div class="wn-title">Trigger</div><div class="wn-sub">Lot received</div></div></div>
+              <div class="wf-node"><span class="ui-icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-inbox"/></svg></span><div style="min-width:0"><div class="wn-title">Sample received</div><div class="wn-sub">Auto-register</div></div></div>
+              <div class="wf-node"><span class="ui-icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-flask"/></svg></span><div style="min-width:0"><div class="wn-title">Testing</div><div class="wn-sub">3 tests</div></div></div>
+              <div class="wf-node"><span class="ui-icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg></span><div style="min-width:0"><div class="wn-title">Review</div><div class="wn-sub">Analyst lead</div></div></div>
+              <div class="wf-node"><span class="ui-icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div style="min-width:0"><div class="wn-title">Approval</div><div class="wn-sub">QA manager</div></div></div>
+              <div class="wf-node"><span class="ui-icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span><div style="min-width:0"><div class="wn-title">Result</div><div class="wn-sub">Pass / fail</div></div></div>
+              <div class="wf-node"><span class="ui-icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg></span><div style="min-width:0"><div class="wn-title">Report</div><div class="wn-sub">Certificate</div></div></div>
+            </div>
+            <div class="wf-rules">
+              <div class="wf-rule">
+                <h6><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>Rule: out-of-spec result</h6>
+                <div class="rule-line"><span class="kw">IF</span><span class="tok">Assay result</span><span class="kw">is outside</span><span class="tok">98.0–102.0%</span></div>
+                <div class="rule-line"><span class="kw">THEN</span><span class="tok">Route to QA</span><span class="kw">and</span><span class="tok">Notify lab lead</span></div>
+              </div>
+              <div class="wf-rule hide-sm">
+                <h6><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>Approvals</h6>
+                <ul class="approvers">
+                  <li><span class="ui-avatar">RK</span>R. Kapoor<span class="pill pill--green">Approved</span></li>
+                  <li><span class="ui-avatar">SL</span>S. Lin<span class="pill pill--amber">Pending</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== REMOVED SECTION: Equipment + reporting & analytics ===================== -->
+<section class="section" aria-label="Equipment management and analytics">
+  <div class="container">
+
+    <!-- Equipment -->
+    <article class="feature" id="equipment-management" aria-labelledby="equipment-title">
+      <div class="feature-copy reveal">
+        <span class="module-tag"><span class="mt-icon"><svg class="icon" aria-hidden="true"><use href="#i-micro"/></svg></span>Equipment &amp; instrument management</span>
+        <h2 id="equipment-title">Keep your instruments ready for the work that matters</h2>
+        <p>Laboratory equipment management that combines bookings, maintenance, and calibration in one calendar, with alerts before anything falls out of date.</p>
+        <ul class="checks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Availability and scheduling</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Maintenance planning</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Calibration tracking</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Usage tracking</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Service history</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Due-date alerts</li>
+        </ul>
+        <a class="link-arrow" href="/platform/equipment-management/">See equipment management <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="feature-visual reveal" aria-hidden="true">
+        <div class="ui">
+          <div class="ui-top"><div><h4>Equipment</h4><div class="sub">Week 42</div></div><span class="chip" style="margin-left:auto"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Week</span><span class="chip is-accent"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Book</span></div>
+          <div class="eq-layout">
+            <div class="eq-list">
+              <div class="eq-item is-selected"><div class="e-top"><span class="status-dot"></span>HPLC-02</div><div class="e-sub">In use until 4:00 PM</div></div>
+              <div class="eq-item"><div class="e-top"><span class="status-dot gray"></span>Plate reader PR-1</div><div class="e-sub">Available</div></div>
+              <div class="eq-item"><div class="e-top"><span class="status-dot amber"></span>Centrifuge C-4</div><div class="e-sub">Calibration due Thu</div></div>
+              <div class="eq-item hide-sm"><div class="e-top"><span class="status-dot rose"></span>Balance B-7</div><div class="e-sub">Out for service</div></div>
+            </div>
+            <div class="eq-cal hide-sm">
+              <div class="cal-head"><div></div><div>Mon</div><div class="today">Tue</div><div>Wed</div><div>Thu</div><div>Fri</div></div>
+              <div class="cal-body">
+                <div class="cal-row"><div class="t">8 AM</div><div class="cal-cell"><div class="booking b-green">Stability run</div></div><div class="cal-cell"><div class="booking b-ink tall">Batch 24 assay</div></div><div class="cal-cell"></div><div class="cal-cell"><div class="booking b-amber">Calibration</div></div><div class="cal-cell"></div></div>
+                <div class="cal-row"><div class="t">10 AM</div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell"><div class="booking b-green">Method dev</div></div><div class="cal-cell"></div><div class="cal-cell"><div class="booking b-green">QC lot 5561</div></div></div>
+                <div class="cal-row"><div class="t">12 PM</div><div class="cal-cell"><div class="booking b-green">Impurities</div></div><div class="cal-cell"></div><div class="cal-cell"></div><div class="cal-cell"><div class="booking b-green">Validation</div></div><div class="cal-cell"></div></div>
+                <div class="cal-row"><div class="t">2 PM</div><div class="cal-cell"></div><div class="cal-cell"><div class="booking b-green">EXP-412</div></div><div class="cal-cell"><div class="booking b-amber">Maintenance</div></div><div class="cal-cell"></div><div class="cal-cell"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="eq-foot"><span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg>Last calibrated Aug 12</span><span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-wrench"/></svg>Service log (14)</span><span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg>71% utilization</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Analytics -->
+    <article class="feature feature--flip" id="reporting-analytics" aria-labelledby="analytics-title">
+      <div class="feature-copy reveal">
+        <span class="module-tag"><span class="mt-icon"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span>Reporting &amp; analytics</span>
+        <h2 id="analytics-title">Turn laboratory data into actionable insights</h2>
+        <p>Because every sample, test, and instrument lives in one system, reporting is built on live data rather than exported spreadsheets. Spot bottlenecks early and plan capacity with confidence.</p>
+        <ul class="checks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Sample volume</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Turnaround time</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Test performance</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Inventory utilization</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Equipment utilization</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Quality metrics</li>
+        </ul>
+        <a class="link-arrow" href="/platform/reporting-analytics/">Explore reporting &amp; analytics <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="feature-visual reveal" aria-hidden="true">
+        <div class="ui">
+          <div class="ui-top"><div><h4>Lab performance</h4><div class="sub">Last 90 days</div></div><span class="chip" style="margin-left:auto">All sites</span><span class="chip hide-sm"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>Export</span></div>
+          <div class="an-body">
+            <div class="ui-kpis">
+              <div class="kpi"><div class="k-label">Samples processed</div><div class="k-val">11,942</div><div class="k-delta">+8% vs. prior</div></div>
+              <div class="kpi"><div class="k-label">Median turnaround</div><div class="k-val">24.9 h</div><div class="k-delta">−2.1 h</div></div>
+              <div class="kpi"><div class="k-label">Right first time</div><div class="k-val">96.4%</div><div class="k-delta">+0.9 pts</div></div>
+              <div class="kpi hide-sm"><div class="k-label">Workflows on time</div><div class="k-val">93%</div><div class="k-delta warn">3 late</div></div>
+            </div>
+            <div class="ui-row ui-row--2-1">
+              <div class="ui-card">
+                <div class="ui-card-h"><h5>Turnaround time (hours)</h5><div class="legend"><span><i style="background:#11806a"></i>Median</span><span><i style="background:#cbd6d0"></i>Target</span></div></div>
+                <svg class="chart-svg" viewBox="0 0 300 110" preserveAspectRatio="none">
+                  <g stroke="#edf2ef"><line x1="0" y1="20" x2="300" y2="20"/><line x1="0" y1="50" x2="300" y2="50"/><line x1="0" y1="80" x2="300" y2="80"/></g>
+                  <line x1="0" y1="46" x2="300" y2="46" stroke="#cbd6d0" stroke-dasharray="4 4"/>
+                  <path d="M0 30 L25 34 L50 28 L75 38 L100 42 L125 40 L150 47 L175 52 L200 50 L225 58 L250 55 L275 62 L300 60 L300 110 L0 110 Z" fill="#dcf1e8" opacity=".7"/>
+                  <path d="M0 30 L25 34 L50 28 L75 38 L100 42 L125 40 L150 47 L175 52 L200 50 L225 58 L250 55 L275 62 L300 60" fill="none" stroke="#11806a" stroke-width="2.2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
+                  <circle cx="300" cy="60" r="3.5" fill="#fff" stroke="#11806a" stroke-width="2"/>
+                </svg>
+              </div>
+              <div class="ui-card">
+                <div class="ui-card-h"><h5>Equipment utilization</h5></div>
+                <div class="donut-wrap">
+                  <svg viewBox="0 0 42 42">
+                    <circle cx="21" cy="21" r="15.9" fill="none" stroke="#edf2ef" stroke-width="6"/>
+                    <circle cx="21" cy="21" r="15.9" fill="none" stroke="#11806a" stroke-width="6" stroke-dasharray="71 29" stroke-dashoffset="25"/>
+                    <circle cx="21" cy="21" r="15.9" fill="none" stroke="#b7e2d1" stroke-width="6" stroke-dasharray="12 88" stroke-dashoffset="-46"/>
+                    <text x="21" y="23.5" text-anchor="middle" font-size="8" font-weight="800" fill="#0d3a33">71%</text>
+                  </svg>
+                  <div class="donut-legend"><span><b>71%</b> in use</span><span><b>12%</b> maintenance</span><span><b>17%</b> idle</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="ui-row ui-row--1-1 hide-sm">
+              <div class="ui-card">
+                <div class="ui-card-h"><h5>Sample volume by test</h5></div>
+                <svg class="chart-svg" viewBox="0 0 300 70" preserveAspectRatio="none">
+                  <g fill="#11806a"><rect x="0" y="4" width="250" height="10" rx="3"/><rect x="0" y="22" width="190" height="10" rx="3" fill="#2fb38f"/><rect x="0" y="40" width="140" height="10" rx="3" fill="#7dcfb3"/><rect x="0" y="58" width="95" height="10" rx="3" fill="#b7e2d1"/></g>
+                </svg>
+              </div>
+              <div class="ui-card">
+                <div class="ui-card-h"><h5>Quality metrics</h5></div>
+                <ul class="q-metrics">
+                  <li><div class="qm-top"><span>Review completed on time</span><b>94%</b></div><div class="progress"><i style="width:94%"></i></div></li>
+                  <li><div class="qm-top"><span>Deviations closed</span><b>88%</b></div><div class="progress"><i style="width:88%"></i></div></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== REMOVED SECTION: Mid-page demo band (aria-labelledby="band-title") ===================== -->
+<section class="cta-band" aria-labelledby="band-title">
+  <div class="container">
+    <div class="band reveal">
+      <div>
+        <h2 id="band-title">Put your own test menu in Labora</h2>
+        <p>Book a 20-minute demo. We set it up with your tests and price list, so you see your own lab day, not a sample account.</p>
+      </div>
+      <div class="band-ctas">
+        <a class="btn btn--primary btn--lg" href="#demo">Book a demo</a>
+        <a class="btn btn--ghost btn--lg" href="#product-tour">Watch the tour</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REMOVED FAQ QUESTIONS (visible markup) ===================== -->
+<div class="faq-list">
+      <details class="faq-item"><summary><h3>Can doctors sign reports digitally?</h3><span class="plus" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Yes. Pathologists, radiologists, and cardiologists review the report, preview it, and sign and send it in one step. Drafts save automatically while they work.</p></div></details>
+      <details class="faq-item"><summary><h3>Does Labora support home sample collection?</h3><span class="plus" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Yes. Bookings are organized by status, phlebotomists are assigned to visits, and you can follow each visit on a live map with an estimated arrival time. Patients are kept informed by SMS.</p></div></details>
+      <details class="faq-item"><summary><h3>Can Labora work with outsource or partner labs?</h3><span class="plus" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Yes. Tests sent to an outsource lab stay linked to the patient case, and business from partner labs (B2B) is tracked separately in your revenue and dues.</p></div></details>
+      <details class="faq-item"><summary><h3>What business reports does Labora provide?</h3><span class="plus" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Labora shows billing, collections, and outstanding dues, revenue by day and by center, business from partner labs and home collection, and referring doctors ranked by cases and revenue, with week-over-week trends.</p></div></details>
+      <details class="faq-item"><summary><h3>What is LIMS software?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>LIMS stands for Laboratory Information Management System. LIMS software manages the lifecycle of samples and their data: registration, labeling, storage location, assigned tests, results, review, approval, and reporting, along with chain of custody and an audit trail of who did what and when. <a href="/platform/lims/">Learn about Labora LIMS</a>.</p></div></details>
+      <details class="faq-item"><summary><h3>What is the difference between LIMS and ELN?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>A LIMS is structured around samples and repeatable testing processes, while an electronic lab notebook (ELN) is structured around experiments: protocols, observations, results, and attachments. Many labs need both. Labora connects them, so an experiment in the ELN can reference the exact samples, reagents, and instruments recorded in the LIMS.</p></div></details>
+      <details class="faq-item"><summary><h3>Can laboratory management software track samples?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Yes. Sample tracking is one of the core jobs of laboratory management software. In Labora, each sample gets a unique ID and a record that follows it from registration through processing, testing, review, approval, reporting, and archiving, including its storage location and chain of custody.</p></div></details>
+      <details class="faq-item"><summary><h3>Can Labora manage laboratory inventory?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Yes. Labora tracks reagents and consumables by lot, quantity, storage location, and expiration date. It can alert your team when stock runs low or items approach expiry, and link inventory usage to the experiments and tests that consumed it.</p></div></details>
+      <details class="faq-item"><summary><h3>Can Labora automate laboratory workflows?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Yes. You can define workflows with triggers, steps, rules, and approvals, for example routing a sample to review automatically when testing is complete, or escalating an out-of-range result to a QA reviewer. Automation reduces repetitive handoffs and keeps work consistent.</p></div></details>
+      <details class="faq-item"><summary><h3>Can Labora manage laboratory equipment?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Yes. Labora keeps a record of each instrument with its availability, bookings, maintenance and calibration schedule, usage, and service history, and alerts the right people before calibration or maintenance falls due.</p></div></details>
+      <details class="faq-item"><summary><h3>Can Labora generate laboratory reports?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Yes. Labora generates reports from the data already captured in the platform, such as sample results, turnaround time, workload, inventory usage, and equipment utilization, and presents operational metrics in dashboards your team can filter and share.</p></div></details>
+      <details class="faq-item"><summary><h3>Can Labora integrate with laboratory instruments?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Labora is designed to connect with instruments and other business systems through its integration layer and API. Supported connections depend on your instruments and setup, so the best next step is to review your equipment list with our team during a demo.</p></div></details>
+      <details class="faq-item"><summary><h3>Is Labora suitable for growing laboratories?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Yes. Labora is a cloud platform built to scale with you, from a single lab to multiple sites, more users, and higher sample volumes, without rebuilding your processes each time you grow.</p></div></details>
+      <details class="faq-item"><summary><h3>Can laboratory workflows be customized?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Yes. Workflows, sample types, fields, statuses, approval steps, and user roles can be configured to match how your lab actually works, rather than forcing your team into a fixed process.</p></div></details>
+      <details class="faq-item"><summary><h3>How does Labora improve laboratory data management?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>
+        <div class="faq-answer"><p>Labora captures laboratory data once and connects it across samples, experiments, inventory, and equipment. With structured records, permissions, and audit trails, your data stays consistent, searchable, and traceable, and reporting no longer means stitching spreadsheets together.</p></div></details>
+</div>
+
+<!-- ===================== REMOVED FAQ QUESTIONS (FAQPage JSON-LD entries) =====================
+[
+ {
+  "@type": "Question",
+  "name": "Can doctors sign reports digitally?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Yes. Pathologists, radiologists, and cardiologists review the report, preview it, and sign and send it in one step. Drafts save automatically while they work."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "Does Labora support home sample collection?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Yes. Bookings are organized by status, phlebotomists are assigned to visits, and you can follow each visit on a live map with an estimated arrival time. Patients are kept informed by SMS."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "Can Labora work with outsource or partner labs?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Yes. Tests sent to an outsource lab stay linked to the patient case, and business from partner labs (B2B) is tracked separately in your revenue and dues."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "What business reports does Labora provide?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Labora shows billing, collections, and outstanding dues, revenue by day and by center, business from partner labs and home collection, and referring doctors ranked by cases and revenue, with week-over-week trends."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "What is LIMS software?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "LIMS stands for Laboratory Information Management System. LIMS software manages the lifecycle of samples and their data: registration, labeling, storage location, assigned tests, results, review, approval, and reporting, along with chain of custody and an audit trail of who did what and when."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "What is the difference between LIMS and ELN?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "A LIMS is structured around samples and repeatable testing processes, while an electronic lab notebook (ELN) is structured around experiments: protocols, observations, results, and attachments. Many labs need both. Labora connects them, so an experiment in the ELN can reference the exact samples, reagents, and instruments recorded in the LIMS."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "Can laboratory management software track samples?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Yes. Sample tracking is one of the core jobs of laboratory management software. In Labora, each sample gets a unique ID and a record that follows it from registration through processing, testing, review, approval, reporting, and archiving, including its storage location and chain of custody."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "Can Labora manage laboratory inventory?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Yes. Labora tracks reagents and consumables by lot, quantity, storage location, and expiration date. It can alert your team when stock runs low or items approach expiry, and link inventory usage to the experiments and tests that consumed it."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "Can Labora automate laboratory workflows?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Yes. You can define workflows with triggers, steps, rules, and approvals, for example routing a sample to review automatically when testing is complete, or escalating an out-of-range result to a QA reviewer. Automation reduces repetitive handoffs and keeps work consistent."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "Can Labora manage laboratory equipment?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Yes. Labora keeps a record of each instrument with its availability, bookings, maintenance and calibration schedule, usage, and service history, and alerts the right people before calibration or maintenance falls due."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "Can Labora generate laboratory reports?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Yes. Labora generates reports from the data already captured in the platform, such as sample results, turnaround time, workload, inventory usage, and equipment utilization, and presents operational metrics in dashboards your team can filter and share."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "Can Labora integrate with laboratory instruments?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Labora is designed to connect with instruments and other business systems through its integration layer and API. Supported connections depend on your instruments and setup, so the best next step is to review your equipment list with our team during a demo."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "Is Labora suitable for growing laboratories?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Yes. Labora is a cloud platform built to scale with you, from a single lab to multiple sites, more users, and higher sample volumes, without rebuilding your processes each time you grow."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "Can laboratory workflows be customized?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Yes. Workflows, sample types, fields, statuses, approval steps, and user roles can be configured to match how your lab actually works, rather than forcing your team into a fixed process."
+  }
+ },
+ {
+  "@type": "Question",
+  "name": "How does Labora improve laboratory data management?",
+  "acceptedAnswer": {
+   "@type": "Answer",
+   "text": "Labora captures laboratory data once and connects it across samples, experiments, inventory, and equipment. With structured records, permissions, and audit trails, your data stays consistent, searchable, and traceable, and reporting no longer means stitching spreadsheets together."
+  }
+ }
+]
+-->
+</body>
+</html>

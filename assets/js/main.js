@@ -135,12 +135,104 @@
     reveals.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
+  /* ---------- Workflow builder mockup: step highlight while visible ---------- */
+  var chain = $('[data-workflow]');
+  if (chain) {
+    var wfNodes = $$('.wf-node:not(.is-trigger)', chain);
+    if (!reduceMotion && hasIO && wfNodes.length) {
+      var wfIdx = 0, wfTimer = null;
+      var wfStep = function () {
+        wfNodes.forEach(function (n) { n.classList.remove('is-active'); });
+        wfNodes[wfIdx].classList.add('is-active');
+        wfIdx = (wfIdx + 1) % wfNodes.length;
+      };
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting && !wfTimer) { wfStep(); wfTimer = setInterval(wfStep, 1500); }
+        else if (!entries[0].isIntersecting && wfTimer) { clearInterval(wfTimer); wfTimer = null; }
+      }, { threshold: 0.4 }).observe(chain);
+    } else if (wfNodes[1]) {
+      wfNodes[1].classList.add('is-active');
+    }
+  }
+
+  /* ---------- Integration network: run line animation only while on screen ---------- */
+  var net = $('.integ-net');
+  if (net && hasIO && !reduceMotion) {
+    new IntersectionObserver(function (entries) {
+      net.classList.toggle('in-view', entries[0].isIntersecting);
+    }).observe(net);
+  }
+
   /* ---------- Trusted brands slider: animate only while on screen ---------- */
   $$('[data-marquee]').forEach(function (el) {
     if (!hasIO || reduceMotion) return;
     new IntersectionObserver(function (entries) {
       el.classList.toggle('in-view', entries[0].isIntersecting);
     }).observe(el);
+  });
+
+  /* ---------- Testimonial slider: scroll-snap track + arrows, counter, gentle autoplay ----------
+     Swipe and trackpad use native scrolling. Autoplay only while on screen and not hovered,
+     focused, or touched; off for reduced motion. */
+  $$('[data-slider]').forEach(function (slider) {
+    var track = $('.t-track', slider);
+    var slides = $$('.t-slide', slider);
+    var count = $('.t-count', slider);
+    if (!track || slides.length < 2) return;
+    var current = 0, timer = null, paused = false, visible = false, scrollTick = false, anim = 0;
+
+    // Own easing instead of scrollTo({behavior:'smooth'}), which mandatory scroll-snap can cancel
+    // or redirect; snapping is paused for the 450 ms animation, then restored.
+    function animateTo(x) {
+      cancelAnimationFrame(anim);
+      if (reduceMotion) { track.scrollLeft = x; return; }
+      var from = track.scrollLeft, dist = x - from, t0 = 0;
+      track.style.scrollSnapType = 'none';
+      anim = requestAnimationFrame(function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min(1, (ts - t0) / 450);
+        track.scrollLeft = from + dist * (1 - Math.pow(1 - p, 3));
+        if (p < 1) anim = requestAnimationFrame(step); else track.style.scrollSnapType = '';
+      });
+    }
+    function go(i) {
+      current = (i + slides.length) % slides.length;
+      animateTo(slides[current].offsetLeft - slides[0].offsetLeft);
+    }
+    function update() {
+      var i = Math.round(track.scrollLeft / (track.clientWidth || 1));
+      current = Math.max(0, Math.min(slides.length - 1, i));
+      if (count) count.textContent = (current + 1) + ' / ' + slides.length;
+      scrollTick = false;
+    }
+    function stop() { clearInterval(timer); timer = null; }
+    function start() {
+      stop();
+      if (reduceMotion || paused || !visible) return;
+      timer = setInterval(function () { go(current + 1); }, 7000);
+    }
+
+    $('.t-prev', slider).addEventListener('click', function () { go(current - 1); start(); });
+    $('.t-next', slider).addEventListener('click', function () { go(current + 1); start(); });
+    track.addEventListener('scroll', function () {
+      if (!scrollTick) { scrollTick = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(current + 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); go(current - 1); }
+    });
+    ['mouseenter', 'focusin', 'touchstart'].forEach(function (t) {
+      slider.addEventListener(t, function () { paused = true; stop(); }, { passive: true });
+    });
+    ['mouseleave', 'focusout'].forEach(function (t) {
+      slider.addEventListener(t, function (e) {
+        if (t === 'focusout' && slider.contains(e.relatedTarget)) return;
+        paused = false; start();
+      });
+    });
+    if (hasIO) {
+      new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; start(); }, { threshold: 0.4 }).observe(slider);
+    }
   });
 
   /* ---------- Product tour: muted autoplay loop once on screen, custom play/pause ----------

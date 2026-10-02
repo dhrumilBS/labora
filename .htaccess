@@ -1,40 +1,34 @@
-# Labora - Apache configuration (works at the domain root and in a subfolder such as /labora/ for local tests)
 Options -Indexes
-
-# Always serve index.html for the folder URL (XAMPP lists index.php first by default)
 DirectoryIndex index.html
-# /labora -> /labora/ so relative asset paths resolve
 DirectorySlash On
 
-# 404 page: root install vs. local subfolder test
 ErrorDocument 404 /404.html
 <If "%{REQUEST_URI} =~ m#^/labora/#">
-  ErrorDocument 404 /labora/404.html
+ErrorDocument 404 /labora/404.html
 </If>
 
 <IfModule mod_headers.c>
-  # HTML always revalidates, so the browser never shows a stale or failed copy of the page
-  <FilesMatch "\.html$">
-    Header set Cache-Control "no-cache"
-  </FilesMatch>
-  # Production headers (also in _headers / deploy/nginx.conf). Uncomment on the live server.
-  # Header always set X-Content-Type-Options "nosniff"
-  # Header always set X-Frame-Options "DENY"
-  # Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  # Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-  # Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
-  # <FilesMatch "\.(css|js|woff2|webp|jpg|png|svg|mp4)$">
-  #   Header set Cache-Control "public, max-age=31536000, immutable"
-  # </FilesMatch>
+<FilesMatch "\.html$">
+Header set Cache-Control "no-cache"
+</FilesMatch>
+# Production headers (also in _headers / deploy/nginx.conf). Uncomment on the live server.
+# Header always set X-Content-Type-Options "nosniff"
+# Header always set X-Frame-Options "DENY"
+# Header always set Referrer-Policy "strict-origin-when-cross-origin"
+# Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+# Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+# Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+# <FilesMatch "\.(css|js|woff2|webp|jpg|png|svg|mp4)$">
+#   Header set Cache-Control "public, max-age=31536000, immutable"
+# </FilesMatch>
 </IfModule>
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/manifest+json application/ld+json
+AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/manifest+json application/ld+json
 </IfModule>
 
 <IfModule mod_mime.c>
-  AddType font/woff2 .woff2
-  AddType application/manifest+json .webmanifest
-  AddType video/mp4 .mp4
+AddType font/woff2 .woff2
+AddType application/manifest+json .webmanifest
+AddType video/mp4 .mp4
 </IfModule>
