@@ -1,6 +1,6 @@
 # Labora — Laboratory Management Software landing page
 
-Production-ready static site. Vanilla HTML, CSS, and JavaScript. **Zero runtime dependencies and zero third-party requests**: the Mulish font is self-hosted.
+Production-ready static site. Vanilla HTML, CSS, and JavaScript. **Zero third-party requests**: the Inter font is self-hosted, and the only bundled library is Lenis (smooth scrolling, MIT).
 
 ## Verified quality (Lighthouse, local server, uncompressed)
 
@@ -20,15 +20,15 @@ assets/css/styles.css     Source styles (design tokens at the top)
 assets/css/styles.min.css Built, minified (what the page loads)
 assets/js/main.js         Source script
 assets/js/main.min.js     Built, minified (what the page loads, deferred)
-assets/fonts/             Mulish variable font, Latin subset (30 KB woff2, preloaded)
+assets/fonts/             Inter variable font (weights 400-900), subset to Latin-1 + typographic punctuation (27 KB woff2, preloaded)
 assets/img/               og-image.png (1200×630), apple-touch-icon.png, icon-512.png
 assets/img/screens/       Product screenshots: WebP at 800/1200/1600/2320 px, phone crops (-m-), JPEG fallback
-assets/video/             Product tour: H.264 MP4 at 720p (3.3 MB) and 1080p (5.5 MB), posters (WebP 960/1600, JPEG 1280)
-deploy/nginx.conf         Nginx server block: compression, caching, video delivery, security headers
+assets/video/             Product tour v3: original 1080p stream (9.6 MB, no re-encode) and 720p for phones (4.9 MB), posters
+deploy/nginx.conf         Nginx server block (current server): compression, caching, video delivery, security headers
 favicon.svg, site.webmanifest, robots.txt, sitemap.xml
 _headers                  Netlify / Cloudflare Pages: security + cache headers
 vercel.json               Vercel: same headers
-.htaccess                 Apache: same headers, compression, 404
+.htaccess                 Apache: index, 404 (root or /labora/ subfolder), HTML no-cache, compression; production headers commented
 scripts/build.mjs         Minifies CSS/JS and stamps content hashes (?v=) on asset URLs
 ```
 
@@ -39,7 +39,7 @@ The built files are already included, so you can deploy the folder as-is.
 - **Netlify / Cloudflare Pages:** drag the folder in, or connect the repo. No build command is needed. `_headers` is picked up automatically.
 - **Vercel:** import the folder with framework preset "Other" and no build command. `vercel.json` applies the headers.
 - **Apache / cPanel:** upload everything, including `.htaccess`.
-- **Nginx (current server):** use `deploy/nginx.conf`. It sets gzip (and Brotli if the module is installed), long-term caching for hashed CSS/JS and fonts, 30-day caching for images and video, efficient large-file delivery for the video, security headers including the CSP, and the 404 page. Do not upload `labora-product-video.mp4` (the 13.7 MB master), `node_modules/`, `scripts/` or `deploy/`.
+- **Nginx (current server):** use `deploy/nginx.conf`. It carries the same headers as `_headers`, plus gzip (Brotli if the module is installed), caching, and large-file settings for the video. Do not upload `labora-product-video*.mp4` (masters), `node_modules/`, `scripts/`, or `deploy/`.
 
 ## Product screenshots
 
@@ -56,16 +56,20 @@ Each screenshot is served with `<picture>`: phones get a tighter crop of the key
 
 ## Product tour video
 
-The video section uses click-to-play: the page loads only a small poster image (lazy-loaded), and the video file starts downloading when someone presses play. Screens wider than 1280 physical pixels get 1080p; everything else, and visitors with Data Saver on, get 720p. H.264 MP4 plays in every browser; a VP9 WebM test came out larger for this screen-recording content, so it is not used.
+The tour plays muted, looped, and without browser controls; a single play/pause button sits in the corner (the video has no audio track, so there is no volume control). To protect page speed, only the lazy-loaded poster loads with the page. The video file is requested after the page has loaded, on the visitor's first scroll, tap, or key press (or 3.5 s after load), and only once the frame is on screen. It pauses when scrolled away. Desktop and tablet get the original 1080p stream untouched (full clarity); phone-width screens and Data Saver users get 720p. With reduced motion or Data Saver on, it does not autoplay; the button starts it.
 
-To replace the video, export a 1080p master and re-encode with ffmpeg (`+faststart` lets playback begin before the file finishes downloading):
+To replace it, encode a 1080p master with ffmpeg (`+faststart` lets playback start before the download finishes):
 
 ```
-ffmpeg -i master.mp4 -an -vf scale=-2:1080 -c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p -movflags +faststart assets/video/labora-product-1080.mp4
-ffmpeg -i master.mp4 -an -vf scale=-2:720  -c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p -movflags +faststart assets/video/labora-product-720.mp4
+ffmpeg -i master.mp4 -map 0:v:0 -c copy -an -movflags +faststart assets/video/labora-tour-v4-1080.mp4
+ffmpeg -i master.mp4 -an -vf scale=-2:720 -c:v libx264 -preset slow -crf 20 -tune stillimage -pix_fmt yuv420p -movflags +faststart assets/video/labora-tour-v4-720.mp4
 ```
 
-Drop `-an` if a future version has a voice-over, and remove `video.muted = true` in `main.js`. Update `duration` in the `VideoObject` JSON-LD if the length changes.
+Then update the poster images and `duration` in the `VideoObject` JSON-LD. Because `/assets/*` is cached for a year as immutable, give replacement files new names (for example `-v2`) and update the references.
+
+## Smooth scrolling
+
+Desktop mouse and trackpad scrolling is eased with [Lenis](https://github.com/darkroomengineering/lenis) (MIT, ~5 KB gzipped). It is bundled into `main.min.js` by the build, so there is no extra request, and it starts after page load. Touch devices keep native scrolling, and it is off when the visitor prefers reduced motion. Anchor links honour the CSS `scroll-padding-top` that clears the sticky header.
 
 ## Editing
 
@@ -80,7 +84,7 @@ Drop `-an` if a future version has a voice-over, and remove `video.muted = true`
 3. **CSP:** if the form endpoint or an analytics tool lives on another domain, add that domain to `connect-src` (and `script-src` for analytics) in `_headers`, `vercel.json`, or `.htaccess`. Otherwise the browser will block it. The inline `js` class script is allowed by its SHA-256 hash; if you change that one line, recompute the hash.
 4. **Internal links:** `/platform/...`, `/solutions/...`, `/pricing/`, `/login/`, `/signup/`, `/contact/`, `/privacy/`, `/terms/`, and `/cookies/` must exist.
 5. **Content truth check:** the page now follows what the product screenshots show. Still confirm the integration categories (analyzers, imaging systems, SMS, HIS/EMR, accounting) and security capabilities with the product team. The page claims no certifications, customer counts, or performance statistics. Dashboard numbers are illustrative product UI.
-6. **Trusted brands and testimonials (placeholders):** the logo slider (`.brands`) and the `#customers` quotes use sample names and quotes. Replace them with approved customer logos (SVG, single color) and verified quotes with permission, or remove the sections before launch. Keep the two logo lists in the slider identical (the second is the seamless loop copy). Do not add Review or AggregateRating schema for these.
+6. **Trusted brands and testimonials (placeholders):** the logo slider (`.brands`) uses invented lab names and the `#customers` quotes are sample text. Replace them with approved customer logos (single-color SVG) and verified quotes used with permission, or remove both sections before launch. Keep the two logo lists in the slider identical (the second is the seamless-loop copy). Do not add Review or AggregateRating schema for them.
 7. **Analytics (optional):** a successful demo request pushes `{ event: "demo_request_submitted" }` to `window.dataLayer` when it exists.
 
 ## Accessibility notes
