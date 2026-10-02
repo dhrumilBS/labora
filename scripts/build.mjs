@@ -14,6 +14,10 @@ writeFileSync('assets/css/styles.min.css', css.styles);
 const js = await minify(readFileSync('assets/js/main.js', 'utf8'), {
   compress: true, mangle: true, format: { comments: /^!/ }
 });
+// Lenis (smooth wheel scrolling, MIT) is bundled ahead of main.js so the page still makes one script request.
+const lenisPkg = JSON.parse(readFileSync('node_modules/lenis/package.json', 'utf8'));
+const lenis = readFileSync('node_modules/lenis/dist/lenis.min.js', 'utf8').replace(/\n?\/\/# sourceMappingURL=.*$/m, '');
+js.code = `/*! Lenis ${lenisPkg.version} | MIT License | (c) darkroom.engineering */\n${lenis}\n${js.code}`;
 writeFileSync('assets/js/main.min.js', js.code);
 
 const cssV = hash(css.styles), jsV = hash(js.code);

@@ -28,7 +28,9 @@
     ticking = false;
   }
   if (header) {
-    updateHeader();
+    // First read waits for a frame: reading scrollY before the initial layout forces a full
+    // synchronous layout of the page inside this script (seen as a long task on slow phones)
+    requestAnimationFrame(updateHeader);
     window.addEventListener('scroll', function () {
       if (!ticking) { ticking = true; requestAnimationFrame(updateHeader); }
     }, { passive: true });
@@ -84,6 +86,7 @@
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     doc.body.classList.toggle('menu-open', open);
+    if (lenis) { if (open) lenis.stop(); else lenis.start(); }
     background.forEach(function (el) {
       if (open) el.setAttribute('inert', ''); else el.removeAttribute('inert');
     });
@@ -132,14 +135,6 @@
     reveals.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  /* ---------- Integration network: run line animation only while on screen ---------- */
-  var net = $('.integ-net');
-  if (net && hasIO && !reduceMotion) {
-    new IntersectionObserver(function (entries) {
-      net.classList.toggle('in-view', entries[0].isIntersecting);
-    }).observe(net);
-  }
-
   /* ---------- Trusted brands slider: animate only while on screen ---------- */
   $$('[data-marquee]').forEach(function (el) {
     if (!hasIO || reduceMotion) return;
@@ -148,31 +143,78 @@
     }).observe(el);
   });
 
-  /* ---------- Product tour: swap the poster for the video only on play ---------- */
+  /* ---------- Product tour: muted autoplay loop once on screen, custom play/pause ----------
+     The file is only requested after window load and when the frame nears the viewport, so it never
+     competes with the hero (LCP). Reduced motion or Data Saver: no autoplay, the button starts it. */
   $$('[data-video]').forEach(function (frame) {
-    var btn = $('.video-play', frame);
-    if (!btn) return;
-    btn.addEventListener('click', function () {
-      var conn = navigator.connection || {};
-      var px = frame.clientWidth * (window.devicePixelRatio || 1);
-      var base = frame.getAttribute(px > 1280 && !conn.saveData ? 'data-src-1080' : 'data-src-720');
-      var img = $('img', btn);
-      var video = doc.createElement('video');
-      video.controls = true;
-      video.playsInline = true;
-      video.muted = true; // the tour has no audio track; muted also guarantees play() is allowed
+    var video = $('video', frame);
+    var btn = $('.video-toggle', frame);
+    if (!video || !btn) return;
+    var conn = navigator.connection || {};
+    var autoplay = !reduceMotion && !conn.saveData;
+    var userPaused = false, inView = false, loaded = false;
+
+    function load() {
+      if (loaded) return;
+      loaded = true;
+      // Full-clarity 1080p everywhere except phone-width frames (and Data Saver), where 720p is already sharp
+      video.src = frame.getAttribute(frame.clientWidth > 640 && !conn.saveData ? 'data-src-1080' : 'data-src-720');
       video.preload = 'auto';
-      video.width = 1600;
-      video.height = 900;
-      if (img) video.poster = img.currentSrc || img.src;
-      video.setAttribute('aria-label', btn.getAttribute('aria-label').replace(/^Play /, ''));
-      video.src = base + '.mp4';
-      btn.replaceWith(video);
-      video.focus();
+    }
+    function play() {
+      load();
       var p = video.play();
       if (p && p.catch) p.catch(function () {});
+    }
+    function sync() {
+      var playing = !video.paused;
+      frame.classList.toggle('is-playing', playing);
+      btn.setAttribute('aria-label', playing ? 'Pause product tour' : 'Play product tour');
+    }
+
+    video.muted = true; // no audio track; muted keeps autoplay allowed everywhere
+    video.addEventListener('playing', function () { frame.classList.add('is-ready'); sync(); });
+    video.addEventListener('pause', sync);
+    btn.hidden = false;
+    btn.addEventListener('click', function () {
+      if (video.paused) { userPaused = false; play(); } else { userPaused = true; video.pause(); }
     });
+
+    if (!autoplay || !hasIO) return;
+    // Arm autoplay on the visitor's first scroll/tap/key, or 3.5 s after load, so the file never
+    // downloads inside the page-load window (it would compete with the hero image on slow networks).
+    var armed = false;
+    var arm = function () {
+      if (armed) return;
+      armed = true;
+      ['wheel', 'touchstart', 'keydown', 'pointerdown', 'scroll'].forEach(function (t) { window.removeEventListener(t, arm); });
+      new IntersectionObserver(function (entries) {
+        inView = entries[0].isIntersecting;
+        if (inView && !userPaused) play();
+        else if (!inView && !video.paused) video.pause();
+      }, { threshold: 0.2 }).observe(frame);
+    };
+    var onLoad = function () {
+      ['wheel', 'touchstart', 'keydown', 'pointerdown', 'scroll'].forEach(function (t) { window.addEventListener(t, arm, { passive: true, once: true }); });
+      setTimeout(arm, 3500);
+    };
+    if (doc.readyState === 'complete') onLoad(); else window.addEventListener('load', onLoad, { once: true });
   });
+
+  /* ---------- Smooth wheel scrolling (Lenis, bundled) ----------
+     Desktop mouse/trackpad only; touch keeps native momentum. Off for reduced motion.
+     Started after load so it adds nothing to the critical path. */
+  var lenis = null;
+  if (window.Lenis && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    var startLenis = function () {
+      lenis = new window.Lenis({
+        lerp: 0.11,
+        autoRaf: true,
+        anchors: true // honours the CSS scroll-padding-top that clears the sticky header
+      });
+    };
+    if (doc.readyState === 'complete') startLenis(); else window.addEventListener('load', startLenis, { once: true });
+  }
 
   /* ---------- Mobile sticky CTA: hidden over the hero and the demo form ---------- */
   var mobileCta = $('#mobile-cta');

@@ -1,2 +1,5 @@
 node_modules/
 .DS_Store
+
+# Video masters: the site serves the encoded copies in assets/video/
+labora-product-video*.mp4
