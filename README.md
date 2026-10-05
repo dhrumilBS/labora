@@ -1,6 +1,6 @@
 # Labora — Laboratory Management Software landing page
 
-Production-ready static site. Vanilla HTML, CSS, and JavaScript. **Zero third-party requests**: the Inter font is self-hosted, and the only bundled library is Lenis (smooth scrolling, MIT).
+Production-ready static site. Vanilla HTML, CSS, and JavaScript. **Zero third-party requests**: the Figtree font is self-hosted, and the only bundled library is Lenis (smooth scrolling, MIT).
 
 ## Verified quality (Lighthouse, local server, uncompressed)
 
@@ -20,7 +20,7 @@ assets/css/styles.css     Source styles (design tokens at the top)
 assets/css/styles.min.css Built, minified (what the page loads)
 assets/js/main.js         Source script
 assets/js/main.min.js     Built, minified (what the page loads, deferred)
-assets/fonts/             Inter variable font (weights 400-900), subset to Latin-1 + typographic punctuation (27 KB woff2, preloaded)
+assets/fonts/             Figtree variable font (weights 300-900), subset to Latin-1 + typographic punctuation (17 KB woff2, preloaded)
 assets/img/               og-image.png (1200×630), apple-touch-icon.png, icon-512.png
 assets/img/screens/       Product screenshots: WebP only, at 800/1200/1600/2320 px plus phone crops (-m-); every current browser supports WebP
 assets/video/             Product tour v3: original 1080p stream (9.6 MB, no re-encode) and 720p for phones (4.9 MB), posters

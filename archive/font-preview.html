@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Font preview | Labora</title>
+<!-- ARCHIVE: typeface comparison used to choose the site font (Inter was chosen). Not linked from the site;
+     archive/ is blocked from public serving in deploy/nginx.conf. Local URL: /labora/archive/font-preview.html -->
+<link rel="stylesheet" href="../assets/css/styles.min.css">
+<style>
+  /* Inter comes from the site stylesheet (assets/fonts). The other options live in archive/fonts. */
+  @font-face { font-family: "Mulish"; font-weight: 200 1000; font-display: swap; src: url("fonts/mulish-latin-wght-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Plus Jakarta Sans"; font-weight: 200 800; font-display: swap; src: url("fonts/plus-jakarta-sans-latin-wght-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Manrope"; font-weight: 200 800; font-display: swap; src: url("fonts/manrope-latin-wght-normal.woff2") format("woff2"); }
+  @font-face { font-family: "DM Sans"; font-weight: 100 1000; font-display: swap; src: url("fonts/dm-sans-latin-wght-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Figtree"; font-weight: 300 900; font-display: swap; src: url("fonts/figtree-latin-wght-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Outfit"; font-weight: 100 900; font-display: swap; src: url("fonts/outfit-latin-wght-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Nunito Sans"; font-weight: 200 1000; font-display: swap; src: url("fonts/nunito-sans-latin-wght-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Urbanist"; font-weight: 100 900; font-display: swap; src: url("fonts/urbanist-latin-wght-normal.woff2") format("woff2"); }
+  body { background: #fff; }
+  .fp-top { padding: 2rem 0 1rem; border-bottom: 1px solid var(--line); }
+  .fp-top p { color: var(--muted); margin-top: .5rem; max-width: 60rem; }
+  .fp { padding: 3rem 0; border-bottom: 1px solid var(--line); }
+  .fp-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1rem; margin-bottom: 2rem; }
+  .fp-label strong { font-size: 1.1rem; color: var(--ink); }
+  .fp-label span { font-size: var(--fs-sm); color: var(--muted); }
+  .fp-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 3rem; align-items: start; }
+  .fp-grid h1 { font-size: clamp(2.2rem, 1.3rem + 2.6vw, 3.4rem); }
+  .fp-grid .lead { margin-top: 1.1rem; font-size: var(--fs-lead); color: var(--muted); }
+  .fp-ctas { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.6rem; }
+  .fp-ui { border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1.5rem; box-shadow: var(--shadow-ui); }
+  .fp-ui h3 { font-size: 1.05rem; }
+  .fp-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1rem 0 1.25rem; }
+  .fp-kpi { background: var(--cream); border-radius: var(--r-md); padding: .85rem; }
+  .fp-kpi b { display: block; font-size: 1.5rem; color: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+  .fp-kpi small { color: var(--muted); font-size: .78rem; }
+  .fp-row { display: flex; justify-content: space-between; gap: 1rem; padding: .55rem 0; border-top: 1px solid var(--line); font-size: .9rem; }
+  .fp-row span:last-child { font-weight: 700; color: var(--green); white-space: nowrap; }
+  .fp-h2 { margin-top: 2.25rem; font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.3rem); }
+  .fp-body { margin-top: .75rem; color: var(--muted); max-width: 40rem; }
+  .f-inter { font-family: "Inter", "Inter Fallback", system-ui, sans-serif; }
+  .f-mulish { font-family: "Mulish", system-ui, sans-serif; }
+  .f-mulish h1, .f-mulish h2 { font-weight: 800; }
+  .f-jakarta { font-family: "Plus Jakarta Sans", system-ui, sans-serif; }
+  .f-manrope { font-family: "Manrope", system-ui, sans-serif; }
+  .f-dmsans { font-family: "DM Sans", system-ui, sans-serif; }
+  .f-figtree { font-family: "Figtree", system-ui, sans-serif; }
+  .f-outfit { font-family: "Outfit", system-ui, sans-serif; }
+  .f-nunito { font-family: "Nunito Sans", system-ui, sans-serif; }
+  .f-urbanist { font-family: "Urbanist", system-ui, sans-serif; }
+  .f-mulish h2, .f-nunito h2 { font-weight: 800; }
+  .fp .btn { font-family: inherit; }
+  @media (max-width: 900px) { .fp-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+<div class="container fp-top">
+  <h1 style="font-size:1.6rem">Labora typeface options</h1>
+  <p>The same hero, product card, and section text set in each font. All self-hosted, Latin subset, variable weight; the size shown is the single font file the page would load. Colors, spacing, and components match the live site.</p>
+</div>
+</main>
+<script>
+  // Render the same sample block once per font (keeps this archive page short and identical across options)
+  (function () {
+    var fonts = [
+      ['f-inter', 'Previous: Inter', '27 KB (subset) · the standard for SaaS product UI · sharpest numbers and small text'],
+      ['f-mulish', 'Previous: Mulish', '30 KB · rounded, friendly · the design system’s original font'],
+      ['f-jakarta', 'Option: Plus Jakarta Sans', '27 KB · modern, warm, confident headlines · popular with US B2B SaaS'],
+      ['f-manrope', 'Option: Manrope', '25 KB · geometric and modern · the closest relative of Plus Jakarta Sans'],
+      ['f-dmsans', 'Option: DM Sans', '37 KB · clean, friendly, low contrast · common in B2B product sites'],
+      ['f-figtree', 'Current: Figtree', '17 KB (subset, live site) · friendly geometric with open shapes · very readable, lightest file'],
+      ['f-outfit', 'Option: Outfit', '32 KB · rounded geometric · a little more playful and brand-forward'],
+      ['f-nunito', 'Option: Nunito Sans', '31 KB · soft and humanist · the closest relative of Mulish'],
+      ['f-urbanist', 'Option: Urbanist', '28 KB · geometric with neat, compact headlines']
+    ];
+    var sample =
+      '<div class="fp-grid"><div>' +
+        '<h2 style="font-size:clamp(2.2rem,1.3rem + 2.6vw,3.4rem);line-height:1.06">Run your laboratory from first sample to signed report</h2>' +
+        '<p class="lead">Pathology, imaging, home collection, and billing in one connected platform. Track every sample and send signed reports in one click.</p>' +
+        '<div class="fp-ctas"><a class="btn btn--primary btn--lg" href="#">Book a demo</a><a class="btn btn--ghost btn--lg" href="#">Watch the 1-min tour</a></div>' +
+      '</div>' +
+      '<div class="fp-ui"><h3>Good morning, Sarah</h3>' +
+        '<div class="fp-kpis"><div class="fp-kpi"><b>248</b><small>Cases today</small></div><div class="fp-kpi"><b>$18,420</b><small>Collected today</small></div><div class="fp-kpi"><b>2h 41m</b><small>Avg. turnaround</small></div></div>' +
+        '<div class="fp-row"><span>LB-24817 · Emily Carter · CBC, Lipid</span><span>Reported</span></div>' +
+        '<div class="fp-row"><span>LB-24816 · James Walker · USG Abdomen</span><span>In testing</span></div>' +
+      '</div></div>' +
+      '<h3 class="fp-h2">Catch turnaround delays before the doctor calls</h3>' +
+      '<p class="fp-body">Every case carries a target time. Labora shows elapsed time against that target live, highlights what is at risk, and alerts the right people the moment a report runs late.</p>';
+    var main = document.querySelector('main');
+    fonts.forEach(function (f) {
+      var s = document.createElement('section');
+      s.className = 'fp ' + f[0];
+      s.setAttribute('aria-label', f[1]);
+      s.innerHTML = '<div class="container"><div class="fp-label"><strong>' + f[1] + '</strong><span>' + f[2] + '</span></div>' + sample + '</div>';
+      main.appendChild(s);
+    });
+  })();
+</script>
+</body>
+</html>
