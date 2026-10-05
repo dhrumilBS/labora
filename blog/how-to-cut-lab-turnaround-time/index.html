@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
   <link rel="preload" href="../../assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../assets/css/styles.min.css?v=2ceda7dc3f">
-  <link rel="stylesheet" href="../../assets/css/blog.min.css?v=a29d3e0a94">
+  <link rel="stylesheet" href="../../assets/css/blog.min.css?v=0bf60a6be9">
   <script>document.documentElement.classList.add('js');</script>
   <script type="application/ld+json">
 {
@@ -263,13 +263,14 @@
       <h2 id="measure-tat">Measure TAT the same way every time</h2>
       <p>If the front desk measures from registration and the lab measures from receipt, you will argue about numbers instead of fixing delays. Pick one definition, write it down, and measure every case against it.</p>
       <p>A common starting point is <strong>registration to signed report</strong>, split into three phases so you can see which one is slipping:</p>
+      <!-- [html-validate-disable-block no-redundant-role: explicit table roles keep screen-reader table semantics in Safari when the phone layout changes the table display] -->
       <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th scope="col">Phase</th><th scope="col">Starts</th><th scope="col">Ends</th><th scope="col">Typical delays</th></tr></thead>
-          <tbody>
-            <tr><td>Pre-analytical</td><td>Patient registered</td><td>Sample received in lab</td><td>Collection queues, home visits, transport, labeling errors</td></tr>
-            <tr><td>Analytical</td><td>Sample received</td><td>Result entered</td><td>Batching, reruns, instrument downtime, missing reagents</td></tr>
-            <tr><td>Post-analytical</td><td>Result entered</td><td>Report signed and sent</td><td>Waiting for review, manual typing, sign-off, delivery</td></tr>
+        <table class="data-table" role="table">
+          <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Phase</th><th scope="col" role="columnheader">Starts</th><th scope="col" role="columnheader">Ends</th><th scope="col" role="columnheader">Typical delays</th></tr></thead>
+          <tbody role="rowgroup">
+            <tr role="row"><td role="cell" data-label="Phase">Pre-analytical</td><td role="cell" data-label="Starts">Patient registered</td><td role="cell" data-label="Ends">Sample received in lab</td><td role="cell" data-label="Typical delays">Collection queues, home visits, transport, labeling errors</td></tr>
+            <tr role="row"><td role="cell" data-label="Phase">Analytical</td><td role="cell" data-label="Starts">Sample received</td><td role="cell" data-label="Ends">Result entered</td><td role="cell" data-label="Typical delays">Batching, reruns, instrument downtime, missing reagents</td></tr>
+            <tr role="row"><td role="cell" data-label="Phase">Post-analytical</td><td role="cell" data-label="Starts">Result entered</td><td role="cell" data-label="Ends">Report signed and sent</td><td role="cell" data-label="Typical delays">Waiting for review, manual typing, sign-off, delivery</td></tr>
           </tbody>
         </table>
       </div>
