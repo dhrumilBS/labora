@@ -86,6 +86,7 @@
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     doc.body.classList.toggle('menu-open', open);
+    doc.documentElement.classList.toggle('menu-open', open);
     if (lenis) { if (open) lenis.stop(); else lenis.start(); }
     background.forEach(function (el) {
       if (open) el.setAttribute('inert', ''); else el.removeAttribute('inert');
