@@ -1,45 +1,13 @@
 """Generate the blog hub and article pages from one template.
 
-Shared chrome (icon sprite, floating header, mobile menu, footer) is copied from index.html,
-so the blog always matches the homepage. Run after editing posts or the homepage chrome:
+Shared chrome (icon sprite, floating header, mobile menu, footer) comes from scripts/site.py,
+which copies it from index.html, so the blog always matches the homepage. Run after editing posts or the homepage chrome:
     python scripts/build-blog.py && npm run build
 """
-import io, os, re, html, json
-
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = "https://www.labora.example"   # replace with the production domain before launch
-home_html = io.open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
-
-def block(start, end):
-    a = home_html.index(start)
-    return home_html[a:home_html.index(end, a) + len(end)]
-
-SPRITE = block('<svg width="0" height="0"', '</svg>\n')
-HEADER = block('<header class="site-header"', '</header>')
-MENU = block('<nav class="mobile-menu"', '</nav>')
-FOOTER = block('<footer class="site-footer">', '</footer>')
-INLINE_JS = "<script>document.documentElement.classList.add('js');</script>"
-
-# Brand marks for social sharing (filled, not part of the outline icon set)
-SPRITE = SPRITE.replace('</defs>', '''  <symbol id="b-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></symbol>
-    <symbol id="b-x" viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></symbol>
-  </defs>''') if '</defs>' in SPRITE else SPRITE
-
-def chrome(prefix, hub_href):
-    """Header/menu/footer with links rewritten for a page `prefix` levels below the site root."""
-    h, m, f = HEADER, MENU, FOOTER
-    for frag in ['#home-collection', '#demo', '#faq', '#product-tour']:
-        h = h.replace(f'href="{frag}"', f'href="{prefix}{frag}"')
-        m = m.replace(f'href="{frag}"', f'href="{prefix}{frag}"')
-        f = f.replace(f'href="{frag}"', f'href="{prefix}{frag}"')
-    h = h.replace('<a class="logo" href="/"', f'<a class="logo" href="{prefix}"')
-    f = f.replace('<a class="logo" href="/"', f'<a class="logo" href="{prefix}"')
-    # "Resources" points to the blog hub and is marked as the current section
-    h = h.replace('<a class="nav-link" href="/resources/">Resources</a>', f'<a class="nav-link" href="{hub_href}" aria-current="page">Resources</a>')
-    m = m.replace('<a class="m-link" href="/resources/">Resources</a>', f'<a class="m-link" href="{hub_href}" aria-current="page">Resources</a>')
-    # the homepage footer links to the blog relatively ("blog/"); point it at the hub from here
-    f = f.replace('<li><a href="blog/">Blog</a></li>', f'<li><a href="{hub_href}">Blog</a></li>')
-    return h, m, f
+import io, os, re, html, json, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import site_chrome as shared          # shared header/menu/footer/sprite for generated pages
+ROOT, SITE = shared.ROOT, shared.SITE
 
 # ---------------------------------------------------------------------------
 # Posts (sample entries; every card links to the article template for now)
@@ -122,53 +90,10 @@ def newsletter():
       </div>
     </section>'''
 
-def page(prefix, title, desc, canonical, og_image, jsonld, body, hub_href):
-    h, m, f = chrome(prefix, hub_href)
-    return f'''<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>{html.escape(title)}</title>
-  <meta name="description" content="{html.escape(desc)}">
-  <link rel="canonical" href="{canonical}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="theme-color" content="#0d3a33">
-  <meta property="og:type" content="{'article' if 'BlogPosting' in jsonld else 'website'}">
-  <meta property="og:site_name" content="Labora">
-  <meta property="og:title" content="{html.escape(title)}">
-  <meta property="og:description" content="{html.escape(desc)}">
-  <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="{og_image}">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="{prefix}favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="{prefix}assets/img/apple-touch-icon.png">
-  <link rel="preload" href="{prefix}assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="{prefix}assets/css/styles.min.css">
-  <link rel="stylesheet" href="{prefix}assets/css/blog.min.css">
-  {INLINE_JS}
-  <script type="application/ld+json">
-{jsonld}
-  </script>
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-{SPRITE}
-{h}
-
-{m}
-
-<main id="main" class="blog-main">
-{body}
-</main>
-
-{f}
-
-<script src="{prefix}assets/js/main.min.js" defer></script>
-<script src="{prefix}assets/js/blog.min.js" defer></script>
-</body>
-</html>
-'''
+def page(prefix, title, desc, canonical, og_image, jsonld, body, hub_href=None):
+    og_type = 'article' if 'BlogPosting' in jsonld and '"@type": "Blog"' not in jsonld else 'website'
+    return shared.page(prefix, 'blog', title, desc, canonical, og_image, jsonld, body,
+                       css=('blog.min.css',), js=('blog.min.js',), og_type=og_type)
 
 # ---------------------------------------------------------------------------
 # Hub: /blog/
