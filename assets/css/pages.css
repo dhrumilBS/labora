@@ -261,6 +261,21 @@ mark.hl { background: #fdf0c8; color: inherit; border-radius: 3px; padding: 0 1p
 .toast { position: fixed; left: 50%; bottom: 1.5rem; z-index: 130; transform: translate(-50%, 140%); padding: .7rem 1.1rem; border-radius: var(--r-pill); background: var(--ink); color: #fff; font-size: var(--fs-sm); font-weight: 700; box-shadow: var(--shadow-float); visibility: hidden; opacity: 0; transition: transform .3s var(--ease), opacity .3s var(--ease), visibility 0s .3s; }
 .toast.is-visible { transform: translate(-50%, 0); visibility: visible; opacity: 1; transition-delay: 0s; }
 
+/* ---------- 404 ---------- */
+.nf-hero { padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem) clamp(1.5rem, 1rem + 2vw, 2.5rem); text-align: center; }
+.nf-hero h1 { font-size: clamp(2.4rem, 1.4rem + 3.4vw, 4rem); margin-inline: auto; max-width: 16ch; }
+.nf-hero .lead { margin: 1rem auto 0; font-size: var(--fs-lead); color: var(--muted); max-width: 38rem; }
+.nf-path { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .5rem; margin-top: 1.25rem; font-size: var(--fs-sm); color: var(--muted); }
+.nf-path code { max-width: 100%; padding: .3rem .7rem; border-radius: var(--r-pill); background: var(--cream); color: var(--ink); font: 600 var(--fs-sm)/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; overflow-wrap: anywhere; }
+.nf-soon { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.1rem; max-width: 40rem; margin: 2rem auto 0; padding: 1.5rem; border-radius: var(--r-xl); background: var(--mint-soft); text-align: left; }
+.nf-soon h2 { margin-top: .75rem; font-size: 1.3rem; }
+.nf-soon p { margin-top: .4rem; color: var(--text); }
+.nf-soon .btn { margin-top: 1.1rem; }
+.nf-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: 2rem; }
+.nf-links { padding-bottom: var(--section); }
+.nf-links h2 { font-size: 1.35rem; text-align: center; }
+.nf-links .help-cards { margin-top: 1.5rem; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .vgrid, .t-row, .t-row--flip, .comp-hl { grid-template-columns: minmax(0, 1fr); }
@@ -290,4 +305,6 @@ mark.hl { background: #fdf0c8; color: inherit; border-radius: 3px; padding: 0 1p
   .comp-status .status { grid-column: 2; justify-self: start; }
   .badge-mark { width: 44px; height: 44px; border-radius: 13px; }
   .faq-tools { padding-right: 0; }
+  .nf-soon { grid-template-columns: 1fr; gap: .75rem; padding: 1.25rem; }
+  .nf-ctas .btn { flex: 1 1 100%; }
 }

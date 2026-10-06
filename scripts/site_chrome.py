@@ -7,7 +7,7 @@ for the page's folder depth, so pages work at the domain root and in a subfolder
 import io, os, html
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = "https://www.labora.example"   # replace with the production domain before launch
+SITE = "https://www.labora.example"   # placeholder; change with `npm run set-domain -- https://www.yourdomain.com`
 INLINE_JS = "<script>document.documentElement.classList.add('js');</script>"
 
 _home = io.open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()

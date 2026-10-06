@@ -51,6 +51,38 @@
     });
   }
 
+  /* ---------- 404: name the missing page; for planned pages, point to the closest live content ---------- */
+  var planned = $('#nf-planned');
+  if (planned) {
+    // The page has <base href="/"> (any depth), so "#main" would point at the homepage: keep the skip link on this page
+    var skip = $('[data-skip]');
+    if (skip) skip.setAttribute('href', location.pathname + location.search + '#main');
+    var base = doc.querySelector('base');
+    var basePath = base ? new URL(base.href).pathname : '/';
+    var path = location.pathname.indexOf(basePath) === 0 ? location.pathname.slice(basePath.length) : location.pathname.replace(/^\/+/, '');
+    var tried = $('[data-nf-path]');
+    if (tried && path && path !== '404.html') {
+      $('code', tried).textContent = '/' + decodeURIComponent(path);
+      tried.hidden = false;
+    }
+    var map = {};
+    try { map = JSON.parse(planned.textContent); } catch (e) {}
+    var hit = map[path.toLowerCase().replace(/\/?$/, '/')];
+    var soon = $('[data-nf-soon]');
+    if (hit && soon) {
+      $('[data-nf-name]', soon).textContent = hit[0];
+      var alt = $('[data-nf-alt]', soon);
+      alt.setAttribute('href', hit[1]);
+      alt.textContent = hit[2];
+      soon.hidden = false;
+      var lead = $('[data-nf-lead]');
+      if (lead) lead.textContent = 'This part of the site is not published yet. Here is where to find the same information today.';
+      // one primary action: the closest page; the homepage button steps back
+      var home = $('[data-nf-home]');
+      if (home) home.className = 'btn btn--ghost btn--lg';
+    }
+  }
+
   /* ---------- FAQ: open a question from the URL hash (e.g. /faq/#q-hipaa) ---------- */
   function openFromHash() {
     var id = decodeURIComponent(location.hash.slice(1));

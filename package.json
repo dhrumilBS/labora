@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "validate": "html-validate index.html 404.html blog/index.html blog/how-to-cut-lab-turnaround-time/index.html security/index.html faq/index.html",
-    "serve": "npx --yes serve ."
+    "serve": "npx --yes serve .",
+    "set-domain": "node scripts/set-domain.mjs"
   },
   "devDependencies": {
     "clean-css": "^5.3.3",

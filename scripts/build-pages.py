@@ -11,7 +11,7 @@ import site_chrome as shared
 SITE, ROOT = shared.SITE, shared.ROOT
 
 UPDATED = ("Oct 5, 2026", "2026-10-05")       # "Last updated" date shown on the Trust Center
-SECURITY_EMAIL = "security@labora.example"    # replace with the real security contact before launch
+SECURITY_EMAIL = "wordpressdev@bigscal.com"  # security contact; swap for a dedicated address (e.g. security@ your domain) when one exists
 
 def esc(s): return html.escape(s, quote=True)
 def icon(name, cls="icon"): return f'<svg class="{cls}" aria-hidden="true"><use href="#i-{name}"/></svg>'
@@ -481,9 +481,142 @@ def build_faq():
         "Answers to common questions about Labora: sample tracking, turnaround time, pathology and radiology reporting, security, setup, data migration, and pricing.",
         url, f"{SITE}/assets/img/og-image.png", jsonld, body, css=("pages.min.css",), js=("pages.min.js",)))
 
+# ---------------------------------------------------------------------------
+# 404 page: /404.html (served by the server for every missing URL)
+# Planned pages that are linked from the menu and footer but not built yet get a "coming soon" note
+# and a link to the closest content that exists today. Remove an entry once its page is live.
+# ---------------------------------------------------------------------------
+PLANNED = {  # path (no leading slash): (page name, closest existing URL, link label)
+    "platform/pathology-lab/": ("Pathology lab", "#reporting", "See pathology and imaging reporting"),
+    "platform/sample-tracking/": ("Sample tracking", "#sample-tracking", "See sample tracking"),
+    "platform/turnaround-tracking/": ("Turnaround tracking", "#turnaround-tracking", "See turnaround tracking"),
+    "platform/radiology-reporting/": ("Radiology reporting", "#reporting", "See pathology and imaging reporting"),
+    "platform/ecg-cardiology/": ("ECG and cardiology", "#platform", "See the platform overview"),
+    "platform/home-collection/": ("Home collection", "#home-collection", "See home collection"),
+    "platform/centers/": ("Centers and outsource labs", "#platform", "See the platform overview"),
+    "platform/reports-e-signature/": ("Reports and e-signature", "#reporting", "See reporting and sign-off"),
+    "platform/business-insights/": ("Business insights", "#business-insights", "See business insights"),
+    "platform/integrations/": ("Integrations and API", "#integrations", "See integrations"),
+    "platform/sample-management/": ("Sample management", "#sample-management", "See sample management"),
+    "platform/quality-compliance/": ("Quality and compliance", "security/", "Visit the Trust Center"),
+    "platform/lims/": ("LIMS", "#platform", "See the platform overview"),
+    "platform/eln/": ("ELN", "#platform", "See the platform overview"),
+    "platform/inventory-management/": ("Inventory", "#platform", "See the platform overview"),
+    "platform/workflow-automation/": ("Workflow automation", "#platform", "See the platform overview"),
+    "platform/equipment-management/": ("Equipment", "#platform", "See the platform overview"),
+    "platform/reporting-analytics/": ("Reporting and analytics", "#business-insights", "See business insights"),
+    **{f"solutions/{k}/": (v, "#solutions", "See who Labora is built for") for k, v in [
+        ("pathology-labs", "Pathology labs"), ("diagnostic-imaging-centers", "Diagnostic and imaging centers"),
+        ("multi-center-lab-chains", "Multi-center lab chains"), ("hospital-laboratories", "Hospital laboratories"),
+        ("home-collection-services", "Home collection services"), ("cardiology-clinics", "Cardiology and ECG clinics"),
+        ("research-development", "Research and development"), ("clinical-laboratories", "Clinical laboratories"),
+        ("quality-control", "Quality control"), ("pharmaceutical", "Pharmaceutical"), ("biotechnology", "Biotechnology"),
+        ("contract-research", "Contract research"), ("manufacturing", "Manufacturing"), ("academic", "Academic laboratories")]},
+    "resources/": ("Resource center", "blog/", "Read the blog"),
+    "resources/guides/": ("Guides", "blog/", "Read the blog"),
+    "docs/api/": ("API documentation", "#integrations", "See integrations"),
+    "pricing/": ("Pricing", "faq/#q-how-is-labora-priced", "See how Labora is priced"),
+    "contact/": ("Contact", "#demo", "Book a demo or ask a question"),
+    "about/": ("About Labora", "#why-labora", "See why labs choose Labora"),
+    "login/": ("Sign in", "#demo", "Book a demo to get access"),
+    "signup/": ("Sign up", "#demo", "Book a demo to get started"),
+    "privacy/": ("Privacy policy", "security/", "See how we protect data"),
+    "terms/": ("Terms of service", "#demo", "Contact our team"),
+    "cookies/": ("Cookie policy", "security/", "See how we protect data"),
+}
+
+# The page is served at any depth (/platform/lims/, /a/b/c), so every URL resolves against <base href="/">.
+# For local previews in the /labora/ subfolder, the inline script moves the base before any asset loads.
+# Its SHA-256 is allowed in the CSP (deploy/nginx.conf, _headers, vercel.json, .htaccess).
+DEV_FOLDER = "/labora/"
+BASE_FIX_JS = f"if(location.pathname.indexOf('{DEV_FOLDER}')===0)document.querySelector('base').href='{DEV_FOLDER}';"
+
+LINKS_404 = [  # (icon, title, text, href, link label)
+    ("play", "Product tour", "See Labora in action, from registration to signed report.", "#product-tour", "Watch the tour"),
+    ("layers", "Platform overview", "Sample tracking, reporting, home collection, and billing.", "#platform", "Explore the platform"),
+    ("shield", "Trust Center", "How we protect patient data, and our compliance program.", "security/", "Visit the Trust Center"),
+    ("message", "FAQ", "Answers about features, security, setup, and pricing.", "faq/", "Read the FAQ"),
+    ("book", "Blog", "Practical guides for running a faster diagnostic lab.", "blog/", "Read the blog"),
+]
+
+def build_404():
+    prefix = "./"  # resolves against <base>, so it works at any depth; "./#demo" also skips same-page anchor scrolling
+    h, m, f = shared.chrome(prefix)
+    def href(u): return prefix + u
+    cards = "".join(f'<a class="help-card" href="{href(u)}"><span class="t-ic">{icon(ic)}</span><h3>{esc(t)}</h3><p>{esc(x)}</p>'
+                    f'<span class="link-arrow">{esc(l)} {icon("arrow", "icon icon-sm")}</span></a>' for ic, t, x, u, l in LINKS_404)
+    cards += (f'<a class="help-card help-card--dark" href="{href("#demo")}"><span class="t-ic">{icon("calendar")}</span><h3>Book a demo</h3>'
+              f'<p>See Labora set up with your own tests and price list.</p><span class="link-arrow">Book a demo {icon("arrow", "icon icon-sm")}</span></a>')
+    planned = json.dumps({k: [n, href(u), l] for k, (n, u, l) in PLANNED.items()}, ensure_ascii=False, separators=(",", ":"))
+    out = f'''<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <base href="/">
+  <script>{BASE_FIX_JS}</script>
+  <title>Page not found | Labora</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0d3a33">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.min.css">
+  <link rel="stylesheet" href="assets/css/pages.min.css">
+  {shared.INLINE_JS}
+</head>
+<body>
+<a class="skip-link" href="#main" data-skip>Skip to content</a>
+{shared.SPRITE}
+{h}
+
+{m}
+
+<main id="main" class="nf-main">
+<section class="nf-hero" aria-labelledby="nf-title">
+  <div class="container">
+    <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Error 404</p>
+    <h1 id="nf-title">This page isn't here</h1>
+    <p class="lead" data-nf-lead>The link may be out of date, or the page has moved. Here are the best places to go next.</p>
+    <p class="nf-path" data-nf-path hidden><span>You tried</span> <code></code></p>
+    <div class="nf-soon" data-nf-soon hidden>
+      <span class="t-ic">{icon("clock")}</span>
+      <div>
+        <span class="status status--progress">Coming soon</span>
+        <h2>We're still building the <span data-nf-name></span> page</h2>
+        <p>Until it's ready, the closest information is one click away.</p>
+        <a class="btn btn--primary" href="{href("")}" data-nf-alt>Go to the homepage</a>
+      </div>
+    </div>
+    <div class="nf-ctas">
+      <a class="btn btn--primary btn--lg" href="{href("")}" data-nf-home>Go to homepage</a>
+      <a class="btn btn--ghost btn--lg" href="{href("#demo")}">Book a demo</a>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <section class="nf-links" aria-labelledby="nf-links-title">
+    <h2 id="nf-links-title">Popular pages</h2>
+    <div class="help-cards">{cards}</div>
+  </section>
+</div>
+<script type="application/json" id="nf-planned">{planned}</script>
+</main>
+
+{f}
+
+<script src="assets/js/main.min.js" defer></script>
+<script src="assets/js/pages.min.js" defer></script>
+</body>
+</html>
+'''
+    shared.write("404.html", out)
+    return len(PLANNED)
+
 if __name__ == "__main__":
     missing = [q for g in FAQ for q, a in g["items"] if a is FROM_HOME and q not in HOME_FAQ]
     if missing: raise SystemExit(f"Homepage FAQ answers not found for: {missing}")
     build_security()
     build_faq()
+    print(f"wrote 404.html ({build_404()} planned pages mapped)")
     print(f"wrote security/index.html and faq/index.html ({sum(len(g['items']) for g in FAQ)} questions in {len(FAQ)} categories)")
