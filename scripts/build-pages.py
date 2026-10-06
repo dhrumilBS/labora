@@ -573,23 +573,29 @@ def build_404():
 
 <main id="main" class="nf-main">
 <section class="nf-hero" aria-labelledby="nf-title">
-  <div class="container">
-    <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Error 404</p>
-    <h1 id="nf-title">This page isn't here</h1>
-    <p class="lead" data-nf-lead>The link may be out of date, or the page has moved. Here are the best places to go next.</p>
-    <p class="nf-path" data-nf-path hidden><span>You tried</span> <code></code></p>
-    <div class="nf-soon" data-nf-soon hidden>
-      <span class="t-ic">{icon("clock")}</span>
-      <div>
-        <span class="status status--progress">Coming soon</span>
-        <h2>We're still building the <span data-nf-name></span> page</h2>
-        <p>Until it's ready, the closest information is one click away.</p>
-        <a class="btn btn--primary" href="{href("")}" data-nf-alt>Go to the homepage</a>
+  <div class="container nf-grid">
+    <div class="nf-copy">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-nf-eyebrow>Error 404</span></p>
+      <h1 id="nf-title">This page isn't here</h1>
+      <p class="lead" data-nf-lead>The link may be out of date, or the page has moved. Here are the best places to go next.</p>
+      <div class="nf-ctas">
+        <a class="btn btn--primary btn--lg" href="{href("")}" data-nf-primary>Go to homepage</a>
+        <a class="btn btn--ghost btn--lg" href="{href("#demo")}">Book a demo</a>
       </div>
+      <a class="link-arrow nf-home" href="{href("")}" data-nf-home hidden>Or go to the homepage {icon("arrow", "icon icon-sm")}</a>
     </div>
-    <div class="nf-ctas">
-      <a class="btn btn--primary btn--lg" href="{href("")}" data-nf-home>Go to homepage</a>
-      <a class="btn btn--ghost btn--lg" href="{href("#demo")}">Book a demo</a>
+    <!-- A sample-tracking search that comes back empty: the product's own language for "not found" -->
+    <div class="nf-visual" aria-hidden="true">
+      <div class="nf-card">
+        <div class="nf-card-head"><span>{icon("barcode")}Sample tracking</span><span class="nf-live">Live</span></div>
+        <div class="nf-search">{icon("search")}<span data-nf-query>/unknown-page</span></div>
+        <ol class="nf-steps">
+          <li class="done"><span class="nf-dot">{icon("check")}</span><span><b>Request received</b><small>Just now</small></span></li>
+          <li class="done"><span class="nf-dot">{icon("check")}</span><span><b>Searched every rack</b><small>All centers</small></span></li>
+          <li class="miss"><span class="nf-dot">{icon("alert", "icon is-miss")}{icon("clock", "icon is-soon")}</span><span><b data-nf-result>No match found</b><small data-nf-result-note>Check the address or start over</small></span></li>
+        </ol>
+        <div class="nf-card-foot"><span class="nf-tube">{icon("tube")}LB-404</span><span class="status status--progress" data-nf-status>Not found</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -610,6 +616,15 @@ def build_404():
 </body>
 </html>
 '''
+    # With <base href="/">, some browsers resolve <use href="#i-x"> against the base (another document), so icons
+    # could vanish. Draw each icon inline instead and drop the sprite: nothing on this page depends on a #fragment.
+    symbols = {m.group(1): (m.group(2), m.group(3)) for m in re.finditer(r'<symbol id="([^"]+)" viewBox="([^"]+)"[^>]*>(.*?)</symbol>', shared.SPRITE, re.S)}
+    def inline(m):
+        attrs, ref = m.group(1), m.group(2)
+        vb, inner = symbols[ref]
+        return f'<svg{attrs} viewBox="{vb}">{inner}</svg>'
+    out = re.sub(r'<svg([^>]*)>\s*<use href="#([^"]+)"\s*/>\s*</svg>', inline, out.replace(shared.SPRITE, ""))
+    if "<use " in out: raise SystemExit("404.html: an icon still uses <use href>, which can break under <base href>")
     shared.write("404.html", out)
     return len(PLANNED)
 

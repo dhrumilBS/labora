@@ -60,26 +60,25 @@
     var base = doc.querySelector('base');
     var basePath = base ? new URL(base.href).pathname : '/';
     var path = location.pathname.indexOf(basePath) === 0 ? location.pathname.slice(basePath.length) : location.pathname.replace(/^\/+/, '');
-    var tried = $('[data-nf-path]');
-    if (tried && path && path !== '404.html') {
-      $('code', tried).textContent = '/' + decodeURIComponent(path);
-      tried.hidden = false;
-    }
+    var setText = function (sel, text) { var el = $(sel); if (el) el.textContent = text; };
+    if (path && path !== '404.html') setText('[data-nf-query]', '/' + decodeURIComponent(path));
     var map = {};
     try { map = JSON.parse(planned.textContent); } catch (e) {}
     var hit = map[path.toLowerCase().replace(/\/?$/, '/')];
-    var soon = $('[data-nf-soon]');
-    if (hit && soon) {
-      $('[data-nf-name]', soon).textContent = hit[0];
-      var alt = $('[data-nf-alt]', soon);
-      alt.setAttribute('href', hit[1]);
-      alt.textContent = hit[2];
-      soon.hidden = false;
-      var lead = $('[data-nf-lead]');
-      if (lead) lead.textContent = 'This part of the site is not published yet. Here is where to find the same information today.';
-      // one primary action: the closest page; the homepage button steps back
+    if (hit) {
+      // A planned page: say so plainly, and make the closest live content the main action
+      setText('[data-nf-eyebrow]', 'Coming soon');
+      setText('#nf-title', 'The ' + hit[0] + ' page is on its way');
+      setText('[data-nf-lead]', 'We are still building this page. Until it is ready, the same information is one click away.');
+      var primary = $('[data-nf-primary]');
+      if (primary) { primary.setAttribute('href', hit[1]); primary.textContent = hit[2]; }
       var home = $('[data-nf-home]');
-      if (home) home.className = 'btn btn--ghost btn--lg';
+      if (home) home.hidden = false;
+      setText('[data-nf-result]', hit[0] + ' page in progress');
+      setText('[data-nf-result-note]', 'Publishing soon');
+      setText('[data-nf-status]', 'Coming soon');
+      document.title = hit[0] + ': coming soon | Labora';
+      doc.documentElement.classList.add('nf-planned');
     }
   }
 
