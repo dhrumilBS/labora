@@ -82,6 +82,101 @@
     }
   }
 
+  /* ---------- Legal pages: highlight the section in view ---------- */
+  spy($$('.lg-toc ol a[href^="#"]'), '-20% 0px -70% 0px');
+
+  /* ---------- Pricing: build a plan from modules, then hand it to the contact form ---------- */
+  var builder = $('[data-plan-builder]');
+  if (builder) {
+    var names = {};
+    try { names = JSON.parse($('#pb-names').textContent); } catch (e) {}
+    var pbPlan = $('[data-pb-plan]', builder), pbCount = $('[data-pb-count]', builder), pbCenters = $('[data-pb-centers]', builder);
+    var pbList = $('[data-pb-list]', builder), pbQuote = $('[data-pb-quote]', builder);
+    var quoteBase = pbQuote.getAttribute('href');
+    var update = function () {
+      var mods = $$('input[name="modules[]"]:checked', builder).map(function (i) { return i.value; });
+      var centers = ($('input[name="centers"]:checked', builder) || {}).value || '1';
+      // Suggest the plan the choices fit: integrations or 20+ centers -> Enterprise; any multi-site need -> Multi-center
+      var plan = (mods.indexOf('integrations') !== -1 || centers === 'More than 20') ? 'Enterprise'
+        : (centers !== '1' || mods.indexOf('centers') !== -1 || mods.indexOf('home-collection') !== -1) ? 'Multi-center' : 'Single center';
+      pbPlan.textContent = plan;
+      pbCount.textContent = mods.length + (mods.length === 1 ? ' module' : ' modules');
+      pbCenters.textContent = centers === '1' ? '1 center' : centers.replace('More than 20', '20+') + ' centers';
+      pbList.innerHTML = '';
+      mods.forEach(function (m) { var li = doc.createElement('li'); li.textContent = names[m] || m; pbList.appendChild(li); });
+      pbQuote.setAttribute('href', quoteBase + '?plan=' + encodeURIComponent(plan.toLowerCase().replace(/\s+/g, '-')) +
+        '&centers=' + encodeURIComponent(centers) + '&modules=' + encodeURIComponent(mods.join(',')) + '#form');
+    };
+    builder.addEventListener('change', update);
+    update();
+  }
+
+  /* ---------- Contact: validation, demo mode until data-endpoint is set, and prefill from Pricing ---------- */
+  var lead = $('[data-lead-form]');
+  if (lead) {
+    var leadStatus = $('[data-lead-status]');
+    var leadError = $('#' + lead.getAttribute('aria-describedby'));
+    var mailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    var required = $$('input[required], select[required]', lead);
+    var submit = $('button[type="submit"]', lead), submitText = submit.textContent;
+    var check = function (el) {
+      var v = el.value.trim();
+      var ok = v !== '' && (el.type !== 'email' || mailRe.test(v));
+      var err = $('#' + el.id + '-err');
+      el.closest('.field').classList.toggle('has-error', !ok);
+      el.setAttribute('aria-invalid', String(!ok));
+      if (err) { if (ok) el.removeAttribute('aria-describedby'); else el.setAttribute('aria-describedby', err.id); }
+      return ok;
+    };
+    required.forEach(function (el) {
+      el.addEventListener('blur', function () { if (el.value) check(el); });
+      el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', function () { if (el.closest('.field').classList.contains('has-error')) check(el); });
+    });
+
+    // Arriving from Pricing: ?plan=multi-center&centers=2–5&modules=a,b
+    var params = new URLSearchParams(location.search);
+    var plan = params.get('plan'), modules = (params.get('modules') || '').split(',').filter(Boolean);
+    if (plan || modules.length) {
+      var label = function (s) { return s.replace(/-/g, ' ').replace(/^./, function (c) { return c.toUpperCase(); }); };
+      lead.elements.topic.value = 'Pricing and a quote';
+      if (params.get('centers')) lead.elements.centers.value = params.get('centers');
+      lead.elements.plan.value = plan || '';
+      lead.elements.modules.value = modules.join(',');
+      var from = $('[data-ct-from]', lead);
+      if (from) {
+        from.textContent = 'Quote request: ' + (plan ? label(plan) + ' plan' : 'custom plan') +
+          (modules.length ? ', ' + modules.length + (modules.length === 1 ? ' module' : ' modules') : '') + '. Add anything else below.';
+        from.hidden = false;
+      }
+    }
+
+    lead.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (leadError) leadError.classList.remove('is-visible');
+      var bad = null;
+      required.forEach(function (el) { if (!check(el) && !bad) bad = el; });
+      if (bad) { bad.focus(); return; }
+      var done = function () {
+        lead.hidden = true;
+        leadStatus.classList.add('is-visible');
+        leadStatus.focus();
+        if (window.dataLayer) window.dataLayer.push({ event: 'contact_submitted', topic: lead.elements.topic.value });
+      };
+      if (lead.elements.website && lead.elements.website.value) { done(); return; } // honeypot: pretend success
+      submit.disabled = true;
+      submit.textContent = 'Sending…';
+      var endpoint = lead.getAttribute('data-endpoint');
+      if (!endpoint) { setTimeout(done, 500); return; } // demo mode until a form handler is connected
+      fetch(endpoint, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(lead) })
+        .then(function (r) { if (!r.ok) throw new Error(); done(); })
+        .catch(function () {
+          submit.disabled = false;
+          submit.textContent = submitText;
+          if (leadError) { leadError.textContent = 'Your message was not sent. Check your connection and try again.'; leadError.classList.add('is-visible'); }
+        });
+    });
+  }
+
   /* ---------- FAQ: open a question from the URL hash (e.g. /faq/#q-hipaa) ---------- */
   function openFromHash() {
     var id = decodeURIComponent(location.hash.slice(1));

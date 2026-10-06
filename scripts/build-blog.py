@@ -81,8 +81,8 @@ def card(prefix, p, href, sizes="(max-width: 720px) calc(100vw - 40px), (max-wid
           {byline(p["read"], p["date"], p["iso"])}
         </a>'''
 
-def newsletter():
-    return '''<section class="newsletter reveal" aria-labelledby="nl-title">
+def newsletter(prefix):
+    return f'''<section class="newsletter reveal" aria-labelledby="nl-title">
       <div>
         <h2 id="nl-title">Lab operations, in your inbox</h2>
         <p>One practical email a month on turnaround, sample tracking, reporting, and growing a multi-center lab. No spam, unsubscribe anytime.</p>
@@ -95,7 +95,7 @@ def newsletter():
           <button class="btn btn--lg" type="submit">Subscribe</button>
         </form>
         <p class="nl-msg" role="status" aria-live="polite"></p>
-        <p class="nl-note">By subscribing, you agree to our <a href="/privacy/" style="color:inherit">privacy policy</a>.</p>
+        <p class="nl-note">By subscribing, you agree to our <a href="{prefix}privacy/" style="color:inherit">privacy policy</a>.</p>
       </div>
     </section>'''
 
@@ -170,7 +170,7 @@ def build_hub():
     {pager(len(rest))}
   </section>
 
-  {newsletter()}
+  {newsletter(prefix)}
 </div>'''
     jsonld = json.dumps({
         "@context": "https://schema.org",
@@ -373,7 +373,7 @@ def build_article():
     </div>
   </section>
 
-  {newsletter()}
+  {newsletter(prefix)}
 </div>
 
 <div class="toast" role="status" aria-live="polite"></div>'''

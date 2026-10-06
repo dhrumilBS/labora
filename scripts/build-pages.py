@@ -64,7 +64,7 @@ FAQ = [
         ("Can we start with one center and add more later?", P("Yes. Many labs start with one center and add the rest once the team is comfortable. Your setup, tests, and templates carry over to each new center.")),
     ]),
     dict(id="support", label="Support", icon="message", intro="Getting help when you need it.", items=[
-        ("How do I get help?", P('Contact our team from the <a href="/contact/">contact page</a>, or book a call. Implementation questions are handled by the team that set up your lab.')),
+        ("How do I get help?", P('Contact our team from the <a href="../contact/">contact page</a>, or book a call. Implementation questions are handled by the team that set up your lab.')),
         ("Where can I learn more about running a faster lab?", P('Our <a href="../blog/">blog</a> has practical guides on turnaround time, sample tracking, reporting, and growing a multi-center lab.')),
     ]),
 ]
@@ -449,7 +449,7 @@ def build_faq():
   <nav class="faq-cats" aria-label="Question categories">
     <h2>Categories</h2>
     <ul>{cats}</ul>
-    <div class="help"><strong>Can't find an answer?</strong>Our team replies to every question.<br><a class="link-arrow" href="/contact/">Contact us {icon("arrow", "icon icon-sm")}</a></div>
+    <div class="help"><strong>Can't find an answer?</strong>Our team replies to every question.<br><a class="link-arrow" href="{prefix}contact/">Contact us {icon("arrow", "icon icon-sm")}</a></div>
   </nav>
   <div>
 {groups}
@@ -482,21 +482,186 @@ def build_faq():
         url, f"{SITE}/assets/img/og-image.png", jsonld, body, css=("pages.min.css",), js=("pages.min.js",)))
 
 # ---------------------------------------------------------------------------
+# About page: /about/
+# Everything here restates what the product and the rest of the site already say. No founding year, headcount,
+# customer numbers, funding, or names are invented: add those to COMPANY / TEAM when they are real and approved.
+# ---------------------------------------------------------------------------
+AT_A_GLANCE = [  # (label, value)
+    ("Built for", "Diagnostic labs, from a single center to a multi-center chain"),
+    ("Covers", "Registration, collection, testing, reporting, and delivery"),
+    ("Specialties", "Pathology, radiology, and ECG in one patient case"),
+    ("Runs on", "Secured, monitored cloud infrastructure"),
+]
+
+JOURNEY = [  # (icon, role, what Labora does at that step)
+    ("users", "Front desk", "Registers the patient, tests, and payment on one screen."),
+    ("truck", "Collection", "Labels each tube at the point of collection. Home visits are tracked on a live map."),
+    ("barcode", "Lab", "Scans every sample into a rack and slot, with a turnaround timer on every case."),
+    ("edit", "Reporting", "Uses templates for pathology, radiology, and ECG. Reports release after an authorized doctor signs."),
+    ("send", "Delivery", "Sends the signed PDF to the patient and the referring doctor the moment it is approved."),
+]
+
+BELIEFS = [  # (title, text)
+    ("Time is a patient outcome.", "A faster report means an earlier answer for a patient and their doctor. We judge our product by the minutes it removes from a lab's day."),
+    ("One record, entered once.", "Every role works in the same patient case, so nothing is retyped, and nothing is lost between a register, a spreadsheet, and a phone call."),
+    ("Fit the lab, not the other way around.", "Tests, price lists, report templates, and workflows are set up to match how each lab already works, so teams keep their habits and lose the paperwork."),
+    ("Trust is shown, not claimed.", 'Role-based access, audit trails, and signed releases make every action visible to the people responsible for it. <a href="../security/">See how we protect patient data</a>.'),
+]
+
+LAB_TYPES = [  # (icon, name)
+    ("flask", "Independent pathology labs"), ("scan", "Imaging and diagnostic centers"), ("building", "Multi-center lab chains"),
+    ("hospital", "Hospital laboratories"), ("home", "Home collection services"), ("heart", "Cardiology and ECG clinics"),
+]
+
+COMMITMENTS = [  # (icon, title, text): from the implementation answers on the FAQ page
+    ("sliders", "Guided rollout", "We set Labora up one center at a time, so your team keeps working while the switch happens."),
+    ("refresh", "Your data, moved for you", "We migrate your tests, price lists, report templates, and referring doctors, so you start with your own setup."),
+    ("users", "Training for every role", "Front desk, phlebotomists, technicians, and pathologists each learn the parts of Labora they use every day."),
+]
+
+COMPANY = []  # optional facts, e.g. ("Founded", "2024"), ("Headquarters", "Austin, Texas"); shown only when filled in
+TEAM = []     # optional leadership, e.g. ("Full name", "Role", "assets/img/team/name.webp"); shown only when filled in
+
+def build_about():
+    prefix = "../"
+    glance = "".join(f'<div><dt>{esc(k)}</dt><dd>{esc(v)}</dd></div>' for k, v in AT_A_GLANCE + COMPANY)
+    journey = "".join(f'<li class="reveal"><span class="ab-step">{i:02d}</span><span class="t-ic">{icon(ic)}</span><h3>{esc(r)}</h3><p>{esc(t)}</p></li>'
+                      for i, (ic, r, t) in enumerate(JOURNEY, 1))
+    beliefs = "".join(f'<li class="reveal"><span class="ab-num">{i:02d}</span><h3>{esc(t)}</h3><p>{x}</p></li>' for i, (t, x) in enumerate(BELIEFS, 1))
+    labs = "".join(f'<li>{icon(ic)}<span>{esc(n)}</span></li>' for ic, n in LAB_TYPES)
+    commits = "".join(f'<li class="reveal"><span class="t-ic">{icon(ic)}</span><h3>{esc(t)}</h3><p>{esc(x)}</p></li>' for ic, t, x in COMMITMENTS)
+    team = ""
+    if TEAM:
+        people = "".join(f'<li><img src="{prefix}{p}" width="320" height="320" alt="{esc(n)}" loading="lazy" decoding="async"><h3>{esc(n)}</h3><p>{esc(r)}</p></li>' for n, r, p in TEAM)
+        team = f'''
+<section class="page-section ab-team" aria-labelledby="ab-team-title">
+  <div class="container">
+    <div class="split-head reveal"><h2 id="ab-team-title">The people behind Labora</h2></div>
+    <ul class="ab-people">{people}</ul>
+  </div>
+</section>
+'''
+    shot = "assets/img/screens/dashboard"
+    body = f'''<section class="ab-hero" aria-labelledby="ab-title">
+  <div class="container">
+    <p class="eyebrow"><span class="dot" aria-hidden="true"></span>About Labora</p>
+    <h1 id="ab-title">We build the software diagnostic labs run on.</h1>
+    <div class="ab-intro">
+      <div>
+        <p class="lead">Labora connects the front desk, the collection team, the bench, and the reporting doctor in one patient case. Results reach patients and doctors sooner, and every step leaves a record.</p>
+        <div class="ab-ctas">
+          <a class="btn btn--primary btn--lg" href="{prefix}#demo">Book a demo</a>
+          <a class="btn btn--ghost btn--lg" href="{prefix}#product-tour">Watch the product tour</a>
+        </div>
+      </div>
+      <dl class="ab-glance">{glance}</dl>
+    </div>
+    <figure class="ab-shot">
+      <picture>
+        <source media="(max-width: 640px)" type="image/webp" srcset="{prefix}{shot}-m-640.webp 640w, {prefix}{shot}-m-800.webp 800w, {prefix}{shot}-m-1080.webp 985w" sizes="calc(100vw - 40px)" width="640" height="684">
+        <img src="{prefix}{shot}-1200.webp" srcset="{prefix}{shot}-800.webp 800w, {prefix}{shot}-1200.webp 1200w, {prefix}{shot}-1600.webp 1600w" sizes="(max-width: 1240px) calc(100vw - 40px), 1200px" width="2320" height="2000" alt="Labora dashboard with today's cases, collections, average turnaround, reports ready to sign, and recent cases across centers" fetchpriority="high" decoding="async">
+      </picture>
+      <figcaption>The Labora dashboard: every center's cases, turnaround, and reports in one view.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="page-section ab-story" aria-labelledby="ab-story-title">
+  <div class="container ab-split">
+    <div class="ab-side reveal">
+      <p class="ab-label">Why we exist</p>
+      <h2 id="ab-story-title">Labs rarely lose time at the analyzer. They lose it between people.</h2>
+    </div>
+    <div class="ab-prose reveal">
+      <p>In a diagnostic lab, one test passes through many hands. The front desk registers the patient, a phlebotomist collects the sample, a technician runs and validates it, a doctor reviews and signs, and someone sends the report.</p>
+      <p>When each of those steps lives in a different register, spreadsheet, or phone call, the work itself is not the problem. The handoffs are. Samples get searched for, results get retyped, and patients call to ask whether their report is ready.</p>
+      <p>Labora exists to close those gaps: one patient case that every role works in, with the status of every sample visible to everyone who needs it.</p>
+      <blockquote class="ab-quote">
+        <p>“The analyzer is rarely the bottleneck. The wait is almost always in the handoff between two people.”</p>
+        <a class="link-arrow" href="{prefix}blog/how-to-cut-lab-turnaround-time/">From our guide to cutting turnaround time {icon("arrow", "icon icon-sm")}</a>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="page-section ab-journey" aria-labelledby="ab-journey-title">
+  <div class="container">
+    <div class="ab-head reveal">
+      <p class="ab-label">How it fits together</p>
+      <h2 id="ab-journey-title">One patient case, five roles</h2>
+      <p>Each person sees the step that is theirs, and everyone sees where the case stands.</p>
+    </div>
+    <ol class="ab-track">{journey}</ol>
+  </div>
+</section>
+
+<section class="page-section ab-beliefs" aria-labelledby="ab-beliefs-title">
+  <div class="container ab-split">
+    <div class="ab-side reveal">
+      <p class="ab-label">What we believe</p>
+      <h2 id="ab-beliefs-title">The principles behind every screen</h2>
+    </div>
+    <ol class="ab-list">{beliefs}</ol>
+  </div>
+</section>
+
+<section class="page-section ab-labs" aria-labelledby="ab-labs-title">
+  <div class="container ab-split">
+    <div class="ab-side reveal">
+      <p class="ab-label">Who we build for</p>
+      <h2 id="ab-labs-title">Labs where every hour shows up in a patient's wait</h2>
+    </div>
+    <div class="reveal">
+      <ul class="ab-labs-list">{labs}</ul>
+      <p class="ab-note">Front desk staff, phlebotomists, technicians, reporting doctors, and owners all work in the same system, each with access suited to their role.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-section ab-work" aria-labelledby="ab-work-title">
+  <div class="container">
+    <div class="ab-band on-dark">
+      <div class="ab-head reveal">
+        <p class="ab-label">How we work with labs</p>
+        <h2 id="ab-work-title">We stay with you until the switch is done</h2>
+        <p>Changing lab software is a big decision for any team. These are the parts we take on, so yours can keep serving patients.</p>
+      </div>
+      <ul class="ab-commit">{commits}</ul>
+    </div>
+  </div>
+</section>
+{team}
+<section class="page-section ab-cta" aria-labelledby="ab-cta-title">
+  <div class="container">
+    <div class="ab-cta-card reveal">
+      <div>
+        <h2 id="ab-cta-title">See Labora set up for your lab</h2>
+        <p>Bring your test menu and price list. We will show you a patient case from registration to signed report, configured the way your team works.</p>
+      </div>
+      <div class="ab-ctas">
+        <a class="btn btn--primary btn--lg" href="{prefix}#demo">Book a demo</a>
+        <a class="btn btn--ghost btn--lg" href="{prefix}security/">Visit the Trust Center</a>
+      </div>
+    </div>
+  </div>
+</section>'''
+    url = f"{SITE}/about/"
+    desc = "Labora builds laboratory management software for diagnostic labs: one patient case for the front desk, collection, lab, reporting doctors, and delivery."
+    jsonld = json.dumps({"@context": "https://schema.org", "@graph": [
+        {"@type": "AboutPage", "@id": f"{url}#webpage", "url": url, "name": "About Labora", "description": desc,
+         "mainEntity": {"@type": "Organization", "@id": f"{SITE}/#organization", "name": "Labora", "url": f"{SITE}/", "logo": f"{SITE}/assets/img/icon-512.png"}},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE}/"},
+            {"@type": "ListItem", "position": 2, "name": "About", "item": url}]}]}, indent=1, ensure_ascii=False)
+    shared.write("about/index.html", shared.page(prefix, "about", "About Labora | Software for Diagnostic Labs", desc,
+        url, f"{SITE}/assets/img/og-image.png", jsonld, body, css=("pages.min.css",), js=("pages.min.js",)))
+
+# ---------------------------------------------------------------------------
 # 404 page: /404.html (served by the server for every missing URL)
 # Planned pages that are linked from the menu and footer but not built yet get a "coming soon" note
 # and a link to the closest content that exists today. Remove an entry once its page is live.
 # ---------------------------------------------------------------------------
 PLANNED = {  # path (no leading slash): (page name, closest existing URL, link label)
-    "platform/pathology-lab/": ("Pathology lab", "#reporting", "See pathology and imaging reporting"),
-    "platform/sample-tracking/": ("Sample tracking", "#sample-tracking", "See sample tracking"),
-    "platform/turnaround-tracking/": ("Turnaround tracking", "#turnaround-tracking", "See turnaround tracking"),
-    "platform/radiology-reporting/": ("Radiology reporting", "#reporting", "See pathology and imaging reporting"),
-    "platform/ecg-cardiology/": ("ECG and cardiology", "#platform", "See the platform overview"),
-    "platform/home-collection/": ("Home collection", "#home-collection", "See home collection"),
-    "platform/centers/": ("Centers and outsource labs", "#platform", "See the platform overview"),
-    "platform/reports-e-signature/": ("Reports and e-signature", "#reporting", "See reporting and sign-off"),
-    "platform/business-insights/": ("Business insights", "#business-insights", "See business insights"),
-    "platform/integrations/": ("Integrations and API", "#integrations", "See integrations"),
     "platform/sample-management/": ("Sample management", "#sample-management", "See sample management"),
     "platform/quality-compliance/": ("Quality and compliance", "security/", "Visit the Trust Center"),
     "platform/lims/": ("LIMS", "#platform", "See the platform overview"),
@@ -506,23 +671,13 @@ PLANNED = {  # path (no leading slash): (page name, closest existing URL, link l
     "platform/equipment-management/": ("Equipment", "#platform", "See the platform overview"),
     "platform/reporting-analytics/": ("Reporting and analytics", "#business-insights", "See business insights"),
     **{f"solutions/{k}/": (v, "#solutions", "See who Labora is built for") for k, v in [
-        ("pathology-labs", "Pathology labs"), ("diagnostic-imaging-centers", "Diagnostic and imaging centers"),
-        ("multi-center-lab-chains", "Multi-center lab chains"), ("hospital-laboratories", "Hospital laboratories"),
-        ("home-collection-services", "Home collection services"), ("cardiology-clinics", "Cardiology and ECG clinics"),
         ("research-development", "Research and development"), ("clinical-laboratories", "Clinical laboratories"),
         ("quality-control", "Quality control"), ("pharmaceutical", "Pharmaceutical"), ("biotechnology", "Biotechnology"),
         ("contract-research", "Contract research"), ("manufacturing", "Manufacturing"), ("academic", "Academic laboratories")]},
-    "resources/": ("Resource center", "blog/", "Read the blog"),
     "resources/guides/": ("Guides", "blog/", "Read the blog"),
     "docs/api/": ("API documentation", "#integrations", "See integrations"),
-    "pricing/": ("Pricing", "faq/#q-how-is-labora-priced", "See how Labora is priced"),
-    "contact/": ("Contact", "#demo", "Book a demo or ask a question"),
-    "about/": ("About Labora", "#why-labora", "See why labs choose Labora"),
     "login/": ("Sign in", "#demo", "Book a demo to get access"),
     "signup/": ("Sign up", "#demo", "Book a demo to get started"),
-    "privacy/": ("Privacy policy", "security/", "See how we protect data"),
-    "terms/": ("Terms of service", "#demo", "Contact our team"),
-    "cookies/": ("Cookie policy", "security/", "See how we protect data"),
 }
 
 # The page is served at any depth (/platform/lims/, /a/b/c), so every URL resolves against <base href="/">.
@@ -633,5 +788,7 @@ if __name__ == "__main__":
     if missing: raise SystemExit(f"Homepage FAQ answers not found for: {missing}")
     build_security()
     build_faq()
+    build_about()
+    print("wrote about/index.html")
     print(f"wrote 404.html ({build_404()} planned pages mapped)")
     print(f"wrote security/index.html and faq/index.html ({sum(len(g['items']) for g in FAQ)} questions in {len(FAQ)} categories)")

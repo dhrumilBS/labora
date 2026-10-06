@@ -28,11 +28,12 @@ SPRITE = SPRITE.replace('</defs>', '''  <symbol id="b-linkedin" viewBox="0 0 24 
 
 # In-page anchors on the homepage, and site pages linked relatively from the homepage
 HOME_ANCHORS = ['#home-collection', '#demo', '#faq', '#product-tour', '#security']
-SITE_PAGES = ['blog/', 'security/', 'faq/']
+SITE_PAGES = ['blog/', 'security/', 'faq/', 'about/', 'pricing/', 'contact/', 'privacy/', 'terms/', 'cookies/',
+              'platform/pathology-lab/', 'platform/sample-tracking/', 'platform/turnaround-tracking/', 'platform/radiology-reporting/', 'platform/ecg-cardiology/', 'platform/home-collection/', 'platform/centers/', 'platform/reports-e-signature/', 'platform/business-insights/', 'platform/integrations/', 'solutions/pathology-labs/', 'solutions/diagnostic-imaging-centers/', 'solutions/multi-center-lab-chains/', 'solutions/hospital-laboratories/', 'solutions/home-collection-services/', 'solutions/cardiology-clinics/']
 
 def chrome(prefix, current=None):
     """Header, mobile menu, and footer for a page `prefix` (e.g. "../") below the site root.
-    `current` marks the section the page belongs to: "blog", "security", or "faq"."""
+    `current` marks the footer link of the page itself (e.g. "about", "pricing"); "blog" also marks Resources."""
     h, m, f = HEADER, MENU, FOOTER
     for frag in HOME_ANCHORS:
         h, m, f = (x.replace(f'href="{frag}"', f'href="{prefix}{frag}"') for x in (h, m, f))
@@ -42,11 +43,34 @@ def chrome(prefix, current=None):
     f = f.replace('<a class="logo" href="/"', f'<a class="logo" href="{prefix}"')
     if current == "blog":
         # "Resources" leads to the blog hub and is marked as the current section
-        h = h.replace('<a class="nav-link" href="/resources/">Resources</a>', f'<a class="nav-link" href="{prefix}blog/" aria-current="page">Resources</a>')
-        m = m.replace('<a class="m-link" href="/resources/">Resources</a>', f'<a class="m-link" href="{prefix}blog/" aria-current="page">Resources</a>')
+        h = h.replace(f'<a class="nav-link" href="{prefix}blog/">Resources</a>', f'<a class="nav-link" href="{prefix}blog/" aria-current="page">Resources</a>')
+        m = m.replace(f'<a class="m-link" href="{prefix}blog/">Resources</a>', f'<a class="m-link" href="{prefix}blog/" aria-current="page">Resources</a>')
     if current:
         f = f.replace(f'href="{prefix}{current}/"', f'href="{prefix}{current}/" aria-current="page"', 1)
     return h, m, f
+
+def esc(s): return html.escape(s, quote=True)
+def icon(name, cls="icon"): return f'<svg class="{cls}" aria-hidden="true"><use href="#i-{name}"/></svg>'
+
+def breadcrumbs_ld(items):
+    """items: [(name, absolute url), ...] -> schema.org BreadcrumbList"""
+    return {"@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i, "name": n, "item": u} for i, (n, u) in enumerate(items, 1)]}
+
+def screenshot(prefix, name, alt, eager=False, mobile=True):
+    """Product screenshot as <picture>: portrait crop on phones when one exists, 800-1600w otherwise."""
+    base = f"{prefix}assets/img/screens/{name}"
+    load = 'fetchpriority="high" decoding="async"' if eager else 'loading="lazy" decoding="async"'
+    m = os.path.join(ROOT, "assets", "img", "screens", f"{name}-m-640.webp")
+    src = ""
+    if mobile and os.path.exists(m):
+        ws = [w for w in (640, 800, 1080) if os.path.exists(os.path.join(ROOT, "assets", "img", "screens", f"{name}-m-{w}.webp"))]
+        from PIL import Image  # real size of the phone crop, so the layout reserves the right space (no shift)
+        mw, mh = Image.open(m).size
+        src = (f'<source media="(max-width: 640px)" type="image/webp" srcset="'
+               + ", ".join(f"{base}-m-{w}.webp {w}w" for w in ws) + f'" sizes="calc(100vw - 40px)" width="{mw}" height="{mh}">')
+    return (f'<picture>{src}<img src="{base}-1200.webp" srcset="{base}-800.webp 800w, {base}-1200.webp 1200w, {base}-1600.webp 1600w" '
+            f'sizes="(max-width: 1240px) calc(100vw - 40px), 1200px" width="2320" height="2000" alt="{esc(alt)}" {load}></picture>')
 
 OG_ALT = "Labora laboratory management software dashboard"
 

@@ -5,7 +5,7 @@
   "description": "Labora laboratory management software landing page (static, vanilla HTML/CSS/JS).",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "validate": "html-validate index.html 404.html blog/index.html blog/how-to-cut-lab-turnaround-time/index.html security/index.html faq/index.html",
+    "validate": "html-validate index.html 404.html blog security faq about platform solutions pricing contact privacy terms cookies",
     "serve": "npx --yes serve .",
     "set-domain": "node scripts/set-domain.mjs"
   },
