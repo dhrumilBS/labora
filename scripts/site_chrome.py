@@ -48,7 +48,9 @@ def chrome(prefix, current=None):
         f = f.replace(f'href="{prefix}{current}/"', f'href="{prefix}{current}/" aria-current="page"', 1)
     return h, m, f
 
-def head(prefix, title, desc, canonical, og_image, jsonld, css=(), og_type="website"):
+OG_ALT = "Labora laboratory management software dashboard"
+
+def head(prefix, title, desc, canonical, og_image, jsonld, css=(), og_type="website", og_alt=OG_ALT, og_size=(1200, 630)):
     links = '\n  '.join(f'<link rel="stylesheet" href="{prefix}assets/css/{c}">' for c in ('styles.min.css', *css))
     return f'''<!doctype html>
 <html lang="en">
@@ -60,15 +62,23 @@ def head(prefix, title, desc, canonical, og_image, jsonld, css=(), og_type="webs
   <link rel="canonical" href="{canonical}">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#0d3a33">
+  <meta name="format-detection" content="telephone=no">
   <meta property="og:type" content="{og_type}">
   <meta property="og:site_name" content="Labora">
   <meta property="og:title" content="{html.escape(title)}">
   <meta property="og:description" content="{html.escape(desc)}">
   <meta property="og:url" content="{canonical}">
   <meta property="og:image" content="{og_image}">
+  <meta property="og:image:width" content="{og_size[0]}">
+  <meta property="og:image:height" content="{og_size[1]}">
+  <meta property="og:image:alt" content="{html.escape(og_alt)}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{html.escape(title)}">
+  <meta name="twitter:description" content="{html.escape(desc)}">
+  <meta name="twitter:image" content="{og_image}">
   <link rel="icon" href="{prefix}favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="{prefix}assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="{prefix}site.webmanifest">
   <link rel="preload" href="{prefix}assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   {links}
   {INLINE_JS}
@@ -77,10 +87,10 @@ def head(prefix, title, desc, canonical, og_image, jsonld, css=(), og_type="webs
   </script>
 </head>'''
 
-def page(prefix, current, title, desc, canonical, og_image, jsonld, body, css=(), js=(), og_type="website"):
+def page(prefix, current, title, desc, canonical, og_image, jsonld, body, css=(), js=(), og_type="website", og_alt=OG_ALT):
     h, m, f = chrome(prefix, current)
     scripts = '\n'.join(f'<script src="{prefix}assets/js/{s}" defer></script>' for s in ('main.min.js', *js))
-    return f'''{head(prefix, title, desc, canonical, og_image, jsonld, css, og_type)}
+    return f'''{head(prefix, title, desc, canonical, og_image, jsonld, css, og_type, og_alt)}
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 {SPRITE}

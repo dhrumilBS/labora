@@ -65,7 +65,7 @@ ffmpeg -i master.mp4 -map 0:v:0 -c copy -an -movflags +faststart assets/video/la
 ffmpeg -i master.mp4 -an -vf scale=-2:720 -c:v libx264 -preset slow -crf 20 -tune stillimage -pix_fmt yuv420p -movflags +faststart assets/video/labora-tour-v4-720.mp4
 ```
 
-Then update the poster images and `duration` in the `VideoObject` JSON-LD. Because `/assets/*` is cached for a year as immutable, give replacement files new names (for example `-v2`) and update the references.
+Then update the poster images and `duration` in the `VideoObject` JSON-LD, and run `npm run build`: it stamps a content hash (`?v=`) on every relative image and video URL, so replaced files are fetched fresh even though hashed media is cached for a year.
 
 ## Smooth scrolling
 
@@ -94,15 +94,15 @@ Desktop mouse and trackpad scrolling is eased with [Lenis](https://github.com/da
 ## Editing
 
 1. Edit `assets/css/styles.css` or `assets/js/main.js`. Never edit the `.min` files by hand.
-2. Run `npm install` once, then `npm run build`. This regenerates the minified files and updates the `?v=` hashes in the HTML, so the one-year immutable cache stays safe.
+2. Run `npm install` once, then `npm run build`. This regenerates the minified files, updates the `?v=` hashes on CSS, JS, images, and video in the HTML (so the one-year immutable cache stays safe), and rewrites `sitemap.xml` from each page's canonical URL with its last-changed date. Pages marked `noindex` are left out. If you change a generated page, run its generator (`python scripts/build-blog.py`, `python scripts/build-pages.py`) before the build.
 3. Optionally run `npm run validate` to check the HTML, and `npm run serve` to preview locally.
 
 ## Launch checklist
 
-1. **Domain:** replace `https://www.labora.example` in `index.html` (canonical, Open Graph, JSON-LD), `robots.txt`, and `sitemap.xml`.
+1. **Domain:** replace `https://www.labora.example` in `index.html` (canonical, Open Graph, JSON-LD), `scripts/site_chrome.py` (`SITE`), `robots.txt`, and `deploy/nginx.conf`, then rerun the generators and `npm run build` (the sitemap is rebuilt from the canonical URLs). On the server, run `nginx -t` before reloading; the TLS certificate must cover both `www.` and the bare domain.
 2. **Demo form:** set `data-endpoint` on `<form id="demo-form">` to your form handler. It POSTs `FormData` and expects a 2xx response. Without an endpoint it runs in demo mode and only shows the confirmation. Spam protection is a hidden honeypot field (`website`).
 3. **CSP:** if the form endpoint or an analytics tool lives on another domain, add that domain to `connect-src` (and `script-src` for analytics) in `_headers`, `vercel.json`, or `.htaccess`. Otherwise the browser will block it. The inline `js` class script is allowed by its SHA-256 hash; if you change that one line, recompute the hash.
-4. **Internal links:** `/platform/...`, `/solutions/...`, `/pricing/`, `/login/`, `/signup/`, `/contact/`, `/privacy/`, `/terms/`, and `/cookies/` must exist.
+4. **Internal links:** `/platform/...`, `/solutions/...`, `/resources/...`, `/docs/api/`, `/pricing/`, `/about/`, `/login/`, `/signup/`, `/contact/`, `/privacy/`, `/terms/`, and `/cookies/` must exist. Until they do, these links return 404, which wastes crawl budget and looks broken to visitors.
 5. **Content truth check:** the page now follows what the product screenshots show. Still confirm the integration categories (analyzers, imaging systems, SMS, HIS/EMR, accounting) and security capabilities with the product team. The page claims no certifications, customer counts, or performance statistics. Dashboard numbers are illustrative product UI.
 6. **Trusted brands and testimonials (placeholders):** the logo slider (`.brands`) uses invented lab names and the `#customers` quotes are sample text. Replace them with approved customer logos (single-color SVG) and verified quotes used with permission, or remove both sections before launch. Keep the two logo lists in the slider identical (the second is the seamless-loop copy). Do not add Review or AggregateRating schema for them.
 7. **Analytics (optional):** a successful demo request pushes `{ event: "demo_request_submitted" }` to `window.dataLayer` when it exists.

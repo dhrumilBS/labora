@@ -8,18 +8,26 @@
   <link rel="canonical" href="https://www.labora.example/blog/how-to-cut-lab-turnaround-time/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#0d3a33">
+  <meta name="format-detection" content="telephone=no">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Labora">
   <meta property="og:title" content="How to Cut Lab Turnaround Time (TAT): A Practical Guide | Labora">
   <meta property="og:description" content="A practical guide to measuring TAT the same way every time, finding where the hours really go, and catching delays before the doctor calls.">
   <meta property="og:url" content="https://www.labora.example/blog/how-to-cut-lab-turnaround-time/">
-  <meta property="og:image" content="https://www.labora.example/assets/img/screens/turnaround-tracking-1200.webp">
+  <meta property="og:image" content="https://www.labora.example/assets/img/og/how-to-cut-lab-turnaround-time.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Labora turnaround tracker showing on-time rate, average turnaround, and cases at risk">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Cut Lab Turnaround Time (TAT): A Practical Guide | Labora">
+  <meta name="twitter:description" content="A practical guide to measuring TAT the same way every time, finding where the hours really go, and catching delays before the doctor calls.">
+  <meta name="twitter:image" content="https://www.labora.example/assets/img/og/how-to-cut-lab-turnaround-time.jpg">
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png?v=d346c7f3">
+  <link rel="manifest" href="../../site.webmanifest">
   <link rel="preload" href="../../assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../assets/css/styles.min.css?v=2ceda7dc3f">
-  <link rel="stylesheet" href="../../assets/css/blog.min.css?v=0bf60a6be9">
+  <link rel="stylesheet" href="../../assets/css/blog.min.css?v=9f9004af5a">
   <script>document.documentElement.classList.add('js');</script>
   <script type="application/ld+json">
 {
@@ -30,7 +38,10 @@
    "@id": "https://www.labora.example/blog/how-to-cut-lab-turnaround-time/#article",
    "headline": "How to cut turnaround time in a diagnostic lab",
    "description": "A practical guide to measuring TAT the same way every time, finding where the hours really go, and catching delays before the doctor calls.",
-   "image": "https://www.labora.example/assets/img/screens/turnaround-tracking-1200.webp",
+   "image": [
+    "https://www.labora.example/assets/img/og/how-to-cut-lab-turnaround-time.jpg",
+    "https://www.labora.example/assets/img/screens/turnaround-tracking-1200.webp"
+   ],
    "datePublished": "2026-10-05",
    "dateModified": "2026-10-05",
    "author": {
@@ -219,7 +230,7 @@
         </div>
       </div>
       <div class="article-cover">
-        <div class="cover cover--ink"><img src="../../assets/img/screens/turnaround-tracking-800.webp" srcset="../../assets/img/screens/turnaround-tracking-800.webp 800w, ../../assets/img/screens/turnaround-tracking-1200.webp 1200w" sizes="(max-width: 1260px) calc(100vw - 40px), 1200px" width="800" height="690" alt="" fetchpriority="high" decoding="async"></div>
+        <div class="cover cover--ink"><img src="../../assets/img/screens/turnaround-tracking-800.webp?v=062b7f82" srcset="../../assets/img/screens/turnaround-tracking-480.webp?v=23bf92b3 480w, ../../assets/img/screens/turnaround-tracking-640.webp?v=507b0bf1 640w, ../../assets/img/screens/turnaround-tracking-800.webp?v=062b7f82 800w, ../../assets/img/screens/turnaround-tracking-1200.webp?v=6576323d 1200w" sizes="(max-width: 1260px) calc(100vw - 40px), 1200px" width="800" height="690" alt="" fetchpriority="high" decoding="async"></div>
       </div>
     </div>
   </header>
@@ -263,14 +274,13 @@
       <h2 id="measure-tat">Measure TAT the same way every time</h2>
       <p>If the front desk measures from registration and the lab measures from receipt, you will argue about numbers instead of fixing delays. Pick one definition, write it down, and measure every case against it.</p>
       <p>A common starting point is <strong>registration to signed report</strong>, split into three phases so you can see which one is slipping:</p>
-      <!-- [html-validate-disable-block no-redundant-role: explicit table roles keep screen-reader table semantics in Safari when the phone layout changes the table display] -->
       <div class="table-wrap">
-        <table class="data-table" role="table">
-          <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Phase</th><th scope="col" role="columnheader">Starts</th><th scope="col" role="columnheader">Ends</th><th scope="col" role="columnheader">Typical delays</th></tr></thead>
-          <tbody role="rowgroup">
-            <tr role="row"><td role="cell" data-label="Phase">Pre-analytical</td><td role="cell" data-label="Starts">Patient registered</td><td role="cell" data-label="Ends">Sample received in lab</td><td role="cell" data-label="Typical delays">Collection queues, home visits, transport, labeling errors</td></tr>
-            <tr role="row"><td role="cell" data-label="Phase">Analytical</td><td role="cell" data-label="Starts">Sample received</td><td role="cell" data-label="Ends">Result entered</td><td role="cell" data-label="Typical delays">Batching, reruns, instrument downtime, missing reagents</td></tr>
-            <tr role="row"><td role="cell" data-label="Phase">Post-analytical</td><td role="cell" data-label="Starts">Result entered</td><td role="cell" data-label="Ends">Report signed and sent</td><td role="cell" data-label="Typical delays">Waiting for review, manual typing, sign-off, delivery</td></tr>
+        <table class="data-table">
+          <thead><tr><th scope="col">Phase</th><th scope="col">Starts</th><th scope="col">Ends</th><th scope="col">Typical delays</th></tr></thead>
+          <tbody>
+            <tr><td>Pre-analytical</td><td>Patient registered</td><td>Sample received in lab</td><td>Collection queues, home visits, transport, labeling errors</td></tr>
+            <tr><td>Analytical</td><td>Sample received</td><td>Result entered</td><td>Batching, reruns, instrument downtime, missing reagents</td></tr>
+            <tr><td>Post-analytical</td><td>Result entered</td><td>Report signed and sent</td><td>Waiting for review, manual typing, sign-off, delivery</td></tr>
           </tbody>
         </table>
       </div>
@@ -290,7 +300,7 @@
       <h2 id="find-delays">Find where the hours actually go</h2>
       <p>You cannot fix what you cannot see. The fastest way to see it is to timestamp every handoff: registration, collection, receipt in the lab, rack placement, result entry, review, signature, and delivery. A barcode scan at each step does this automatically, without asking anyone to write down times.</p>
       <figure>
-        <img src="../../assets/img/screens/turnaround-tracking-1200.webp" srcset="../../assets/img/screens/turnaround-tracking-800.webp 800w, ../../assets/img/screens/turnaround-tracking-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 40px), 720px" width="1200" height="1034" alt="Labora turnaround view: cases at risk and past target, with elapsed time against each target" loading="lazy" decoding="async" style="border-radius:20px">
+        <img src="../../assets/img/screens/turnaround-tracking-1200.webp?v=6576323d" srcset="../../assets/img/screens/turnaround-tracking-480.webp?v=23bf92b3 480w, ../../assets/img/screens/turnaround-tracking-640.webp?v=507b0bf1 640w, ../../assets/img/screens/turnaround-tracking-800.webp?v=062b7f82 800w, ../../assets/img/screens/turnaround-tracking-1200.webp?v=6576323d 1200w" sizes="(max-width: 760px) calc(100vw - 40px), 720px" width="1200" height="1034" alt="Labora turnaround view: cases at risk and past target, with elapsed time against each target" loading="lazy" decoding="async" style="border-radius:20px">
         <figcaption>Every case carries a target. Green is on time, amber is at risk, and red is past target, so the team knows what to do next.</figcaption>
       </figure>
       <p>Once the timestamps exist, sort cases by the longest phase. Patterns appear quickly: one collection center that batches transport twice a day, one test that waits for a weekly run, one reviewer who signs everything in the evening.</p>
@@ -360,21 +370,21 @@
     <div class="posts-head"><h2 id="related-title">Keep reading</h2><a class="link-arrow" href="../">All articles <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
     <div class="post-grid">
         <a class="post reveal" href="./" data-topic="operations">
-          <div class="cover cover--mint"><img src="../../assets/img/screens/sample-tracking-800.webp" srcset="../../assets/img/screens/sample-tracking-800.webp 800w, ../../assets/img/screens/sample-tracking-1200.webp 1200w" sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1024px) 46vw, 380px" width="800" height="690" alt="" loading="lazy" decoding="async"></div>
+          <div class="cover cover--mint"><img src="../../assets/img/screens/sample-tracking-800.webp?v=f80f823c" srcset="../../assets/img/screens/sample-tracking-480.webp?v=8f68eefb 480w, ../../assets/img/screens/sample-tracking-640.webp?v=a17d5e6d 640w, ../../assets/img/screens/sample-tracking-800.webp?v=f80f823c 800w, ../../assets/img/screens/sample-tracking-1200.webp?v=5a38b144 1200w" sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1024px) 46vw, 380px" width="800" height="690" alt="" loading="lazy" decoding="async"></div>
           <span class="meta"><span>Lab operations</span><span class="dot-sep" aria-hidden="true"></span><span>7 min read</span></span>
           <h3>Barcode sample tracking, from front desk to rack slot</h3>
           <p>What to scan, when to scan it, and how a single tube record ends the daily hunt for a missing sample.</p>
           <span class="byline"><span class="avatar" aria-hidden="true"><svg><use href="#logo-mark"/></svg></span><span><strong>Labora Team</strong><span><time datetime="2026-09-29">Sep 29, 2026</time> · 7 min read</span></span></span>
         </a>
         <a class="post reveal" href="./" data-topic="reporting">
-          <div class="cover cover--soft"><img src="../../assets/img/screens/pathology-imaging-reporting-800.webp" srcset="../../assets/img/screens/pathology-imaging-reporting-800.webp 800w, ../../assets/img/screens/pathology-imaging-reporting-1200.webp 1200w" sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1024px) 46vw, 380px" width="800" height="690" alt="" loading="lazy" decoding="async"></div>
+          <div class="cover cover--soft"><img src="../../assets/img/screens/pathology-imaging-reporting-800.webp?v=47669b28" srcset="../../assets/img/screens/pathology-imaging-reporting-480.webp?v=4872a091 480w, ../../assets/img/screens/pathology-imaging-reporting-640.webp?v=897d0603 640w, ../../assets/img/screens/pathology-imaging-reporting-800.webp?v=47669b28 800w, ../../assets/img/screens/pathology-imaging-reporting-1200.webp?v=2dc70399 1200w" sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1024px) 46vw, 380px" width="800" height="690" alt="" loading="lazy" decoding="async"></div>
           <span class="meta"><span>Reporting</span><span class="dot-sep" aria-hidden="true"></span><span>8 min read</span></span>
           <h3>Pathology and radiology in one system: what changes for reporting doctors</h3>
           <p>Why one patient case across lab and imaging makes review, sign-off, and delivery faster for everyone involved.</p>
           <span class="byline"><span class="avatar" aria-hidden="true"><svg><use href="#logo-mark"/></svg></span><span><strong>Labora Team</strong><span><time datetime="2026-09-15">Sep 15, 2026</time> · 8 min read</span></span></span>
         </a>
         <a class="post reveal" href="./" data-topic="growth">
-          <div class="cover cover--mint"><img src="../../assets/img/screens/business-insights-800.webp" srcset="../../assets/img/screens/business-insights-800.webp 800w, ../../assets/img/screens/business-insights-1200.webp 1200w" sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1024px) 46vw, 380px" width="800" height="690" alt="" loading="lazy" decoding="async"></div>
+          <div class="cover cover--mint"><img src="../../assets/img/screens/business-insights-800.webp?v=aea1cc7f" srcset="../../assets/img/screens/business-insights-480.webp?v=25fa961f 480w, ../../assets/img/screens/business-insights-640.webp?v=04f684f2 640w, ../../assets/img/screens/business-insights-800.webp?v=aea1cc7f 800w, ../../assets/img/screens/business-insights-1200.webp?v=cfb6fa45 1200w" sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1024px) 46vw, 380px" width="800" height="690" alt="" loading="lazy" decoding="async"></div>
           <span class="meta"><span>Business growth</span><span class="dot-sep" aria-hidden="true"></span><span>6 min read</span></span>
           <h3>Reading your revenue by center, day, and referring doctor</h3>
           <p>The handful of numbers a lab owner should check every week, and what each one tells you to do next.</p>

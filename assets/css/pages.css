@@ -221,7 +221,7 @@ body:has(.security-main) .site-header .header-inner { background: rgba(255, 255,
 .faq-cats ul a.is-active .n { background: rgba(255, 255, 255, .12); color: #fff; }
 .faq-cats .help { margin-top: 1.5rem; padding: 1.1rem; border-radius: var(--r-lg); background: var(--mint-soft); font-size: var(--fs-sm); }
 .faq-cats .help strong { display: block; color: var(--ink); margin-bottom: .25rem; }
-.faq-cats .help .link-arrow { margin-top: .5rem; font-size: var(--fs-sm); }
+.faq-cats .help .link-arrow { margin-top: .5rem; font-size: var(--fs-sm); color: var(--green-hover); } /* 4.5:1 needs the darker green on mint */
 
 .faq-group + .faq-group { margin-top: clamp(2.5rem, 2rem + 2vw, 3.5rem); }
 .faq-group-head { display: flex; align-items: center; gap: .8rem; margin-bottom: .5rem; }

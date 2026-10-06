@@ -151,7 +151,7 @@ a.chip:hover { color: var(--ink); background: #cdeadf; }
 .toc ol a.is-active { color: var(--ink); border-left-color: var(--green); }
 .toc-cta { margin-top: 1.5rem; padding: 1.1rem; border-radius: var(--r-lg); background: var(--mint-soft); font-size: var(--fs-sm); color: var(--text); }
 .toc-cta strong { display: block; color: var(--ink); margin-bottom: .25rem; }
-.toc-cta .link-arrow { margin-top: .5rem; font-size: var(--fs-sm); }
+.toc-cta .link-arrow { margin-top: .5rem; font-size: var(--fs-sm); color: var(--green-hover); } /* 4.5:1 needs the darker green on mint */
 
 /* Long-form typography */
 .prose { font-size: 1.125rem; line-height: 1.75; color: var(--text); }

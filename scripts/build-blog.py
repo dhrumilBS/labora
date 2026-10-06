@@ -52,8 +52,17 @@ TOPICS = [("all", "All"), ("turnaround", "Turnaround time"), ("operations", "Lab
 
 def img_tag(prefix, name, sizes, eager=False, alt=""):
     load = 'fetchpriority="high" decoding="async"' if eager else 'loading="lazy" decoding="async"'
-    return (f'<img src="{prefix}assets/img/screens/{name}-800.webp" srcset="{prefix}assets/img/screens/{name}-800.webp 800w, '
-            f'{prefix}assets/img/screens/{name}-1200.webp 1200w" sizes="{sizes}" width="800" height="690" alt="{html.escape(alt)}" {load}>')
+    # 480w/640w let phones and 1x laptops skip the 800w file; 1200w covers 2x screens
+    srcset = ", ".join(f"{prefix}assets/img/screens/{name}-{w}.webp {w}w" for w in (480, 640, 800, 1200))
+    return (f'<img src="{prefix}assets/img/screens/{name}-800.webp" srcset="{srcset}" sizes="{sizes}" width="800" height="690" alt="{html.escape(alt)}" {load}>')
+
+PER_PAGE = 12  # articles per hub page before pagination appears
+
+def pager(n):
+    # Every article fits on one page for now, so no pagination links (links to pages that don't exist hurt crawling).
+    # When there are more than PER_PAGE articles, generate /blog/page/2/ etc. and link them here.
+    if n <= PER_PAGE: return ""
+    raise SystemExit(f"{n} articles: add paginated hub pages (/blog/page/N/) before publishing more than {PER_PAGE}")
 
 def cover(prefix, p, sizes, eager=False, extra=""):
     right = " cover--right" if p.get("right") else ""
@@ -90,10 +99,10 @@ def newsletter():
       </div>
     </section>'''
 
-def page(prefix, title, desc, canonical, og_image, jsonld, body, hub_href=None):
+def page(prefix, title, desc, canonical, og_image, jsonld, body, hub_href=None, og_alt=shared.OG_ALT):
     og_type = 'article' if 'BlogPosting' in jsonld and '"@type": "Blog"' not in jsonld else 'website'
     return shared.page(prefix, 'blog', title, desc, canonical, og_image, jsonld, body,
-                       css=('blog.min.css',), js=('blog.min.js',), og_type=og_type)
+                       css=('blog.min.css',), js=('blog.min.js',), og_type=og_type, og_alt=og_alt)
 
 # ---------------------------------------------------------------------------
 # Hub: /blog/
@@ -158,13 +167,7 @@ def build_hub():
       <p>Try another word, or browse every topic.</p>
       <button class="btn btn--ghost" type="button" data-reset>Show all articles</button>
     </div>
-    <nav class="pager" aria-label="Pagination">
-      <span class="is-disabled" aria-hidden="true">←</span>
-      <a href="./" aria-current="page">1</a>
-      <a href="./">2</a>
-      <a href="./">3</a>
-      <a href="./" aria-label="Next page">→</a>
-    </nav>
+    {pager(len(rest))}
   </section>
 
   {newsletter()}
@@ -206,7 +209,7 @@ def build_article():
     toc = '\n          '.join(f'<li><a href="#{i}">{t}</a></li>' for i, t in SECTIONS)
     related = [POSTS[1], POSTS[3], POSTS[4]]
     rel_cards = '\n        '.join(card(prefix, r, "./", "(max-width: 720px) calc(100vw - 40px), (max-width: 1024px) 46vw, 380px") for r in related)
-    figure_img = (f'<img src="{prefix}assets/img/screens/turnaround-tracking-1200.webp" srcset="{prefix}assets/img/screens/turnaround-tracking-800.webp 800w, '
+    figure_img = (f'<img src="{prefix}assets/img/screens/turnaround-tracking-1200.webp" srcset="{prefix}assets/img/screens/turnaround-tracking-480.webp 480w, {prefix}assets/img/screens/turnaround-tracking-640.webp 640w, {prefix}assets/img/screens/turnaround-tracking-800.webp 800w, '
                   f'{prefix}assets/img/screens/turnaround-tracking-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 40px), 720px" width="1200" height="1034" '
                   f'alt="Labora turnaround view: cases at risk and past target, with elapsed time against each target" loading="lazy" decoding="async" style="border-radius:20px">')
     body = f'''<div class="read-progress" aria-hidden="true"><span></span></div>
@@ -379,7 +382,7 @@ def build_article():
         "@context": "https://schema.org",
         "@graph": [
             {"@type": "BlogPosting", "@id": f"{url}#article", "headline": p["title"], "description": p["excerpt"],
-             "image": f"{SITE}/assets/img/screens/turnaround-tracking-1200.webp", "datePublished": p["iso"], "dateModified": p["iso"],
+             "image": [f"{SITE}/assets/img/og/{p['slug']}.jpg", f"{SITE}/assets/img/screens/turnaround-tracking-1200.webp"], "datePublished": p["iso"], "dateModified": p["iso"],
              "author": {"@type": "Organization", "name": "Labora Team", "url": f"{SITE}/"},
              "publisher": {"@type": "Organization", "name": "Labora", "logo": {"@type": "ImageObject", "url": f"{SITE}/assets/img/icon-512.png"}},
              "mainEntityOfPage": url, "articleSection": p["label"], "wordCount": 1250,
@@ -390,7 +393,8 @@ def build_article():
                 {"@type": "ListItem", "position": 3, "name": p["title"], "item": url}]}]
     }, indent=1, ensure_ascii=False)
     out = page(prefix, "How to Cut Lab Turnaround Time (TAT): A Practical Guide | Labora", p["excerpt"], url,
-               f"{SITE}/assets/img/screens/turnaround-tracking-1200.webp", jsonld, body, "../")
+               f"{SITE}/assets/img/og/{p['slug']}.jpg", jsonld, body, "../",
+               og_alt="Labora turnaround tracker showing on-time rate, average turnaround, and cases at risk")
     d = os.path.join(ROOT, "blog", p["slug"])
     os.makedirs(d, exist_ok=True)
     io.open(os.path.join(d, "index.html"), "w", encoding="utf-8", newline="").write(out)
