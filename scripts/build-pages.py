@@ -662,6 +662,16 @@ def build_about():
 # and a link to the closest content that exists today. Remove an entry once its page is live.
 # ---------------------------------------------------------------------------
 PLANNED = {  # path (no leading slash): (page name, closest existing URL, link label)
+    "platform/pathology-lab/": ("Pathology lab", "#reporting", "See pathology and imaging reporting"),
+    "platform/sample-tracking/": ("Sample tracking", "#sample-tracking", "See sample tracking"),
+    "platform/turnaround-tracking/": ("Turnaround tracking", "#turnaround-tracking", "See turnaround tracking"),
+    "platform/radiology-reporting/": ("Radiology reporting", "#reporting", "See pathology and imaging reporting"),
+    "platform/ecg-cardiology/": ("ECG and cardiology", "#platform", "See the platform overview"),
+    "platform/home-collection/": ("Home collection", "#home-collection", "See home collection"),
+    "platform/centers/": ("Centers and outsource labs", "#platform", "See the platform overview"),
+    "platform/reports-e-signature/": ("Reports and e-signature", "#reporting", "See reporting and sign-off"),
+    "platform/business-insights/": ("Business insights", "#business-insights", "See business insights"),
+    "platform/integrations/": ("Integrations and API", "#integrations", "See integrations"),
     "platform/sample-management/": ("Sample management", "#sample-management", "See sample management"),
     "platform/quality-compliance/": ("Quality and compliance", "security/", "Visit the Trust Center"),
     "platform/lims/": ("LIMS", "#platform", "See the platform overview"),
@@ -671,6 +681,9 @@ PLANNED = {  # path (no leading slash): (page name, closest existing URL, link l
     "platform/equipment-management/": ("Equipment", "#platform", "See the platform overview"),
     "platform/reporting-analytics/": ("Reporting and analytics", "#business-insights", "See business insights"),
     **{f"solutions/{k}/": (v, "#solutions", "See who Labora is built for") for k, v in [
+        ("pathology-labs", "Pathology labs"), ("diagnostic-imaging-centers", "Diagnostic and imaging centers"),
+        ("multi-center-lab-chains", "Multi-center lab chains"), ("hospital-laboratories", "Hospital laboratories"),
+        ("home-collection-services", "Home collection services"), ("cardiology-clinics", "Cardiology and ECG clinics"),
         ("research-development", "Research and development"), ("clinical-laboratories", "Clinical laboratories"),
         ("quality-control", "Quality control"), ("pharmaceutical", "Pharmaceutical"), ("biotechnology", "Biotechnology"),
         ("contract-research", "Contract research"), ("manufacturing", "Manufacturing"), ("academic", "Academic laboratories")]},
