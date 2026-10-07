@@ -136,34 +136,6 @@
     reveals.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  /* ---------- Workflow builder mockup: step highlight while visible ---------- */
-  var chain = $('[data-workflow]');
-  if (chain) {
-    var wfNodes = $$('.wf-node:not(.is-trigger)', chain);
-    if (!reduceMotion && hasIO && wfNodes.length) {
-      var wfIdx = 0, wfTimer = null;
-      var wfStep = function () {
-        wfNodes.forEach(function (n) { n.classList.remove('is-active'); });
-        wfNodes[wfIdx].classList.add('is-active');
-        wfIdx = (wfIdx + 1) % wfNodes.length;
-      };
-      new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting && !wfTimer) { wfStep(); wfTimer = setInterval(wfStep, 1500); }
-        else if (!entries[0].isIntersecting && wfTimer) { clearInterval(wfTimer); wfTimer = null; }
-      }, { threshold: 0.4 }).observe(chain);
-    } else if (wfNodes[1]) {
-      wfNodes[1].classList.add('is-active');
-    }
-  }
-
-  /* ---------- Integration network: run line animation only while on screen ---------- */
-  var net = $('.integ-net');
-  if (net && hasIO && !reduceMotion) {
-    new IntersectionObserver(function (entries) {
-      net.classList.toggle('in-view', entries[0].isIntersecting);
-    }).observe(net);
-  }
-
   /* ---------- Trusted brands slider: animate only while on screen ---------- */
   $$('[data-marquee]').forEach(function (el) {
     if (!hasIO || reduceMotion) return;
@@ -366,6 +338,16 @@
       status.classList.add('is-visible');
       status.focus();
       if (window.dataLayer) window.dataLayer.push({ event: 'demo_request_submitted' });
+      // Let the confirmation register for a moment, then open the thank-you page. Details travel in
+      // sessionStorage, never the URL, so no personal data reaches server logs or analytics.
+      var thanks = form.getAttribute('data-thanks');
+      if (!thanks) return;
+      try {
+        sessionStorage.setItem('labora_thanks', JSON.stringify({
+          form: 'demo', name: form.elements.namedItem('name').value.trim().split(/\s+/)[0].slice(0, 40), ts: Date.now()
+        }));
+      } catch (e) {}
+      setTimeout(function () { location.assign(thanks); }, 1500);
     };
     var resetButton = function () {
       submitBtn.disabled = false;
@@ -409,6 +391,163 @@
       });
     });
   }
+
+  /* ---------- Cookie consent ----------
+     One first-party cookie (labora_consent) stores the visitor's choice. Nothing else is set today.
+     Future scripts that need consent are added as <script type="text/plain" data-consent="analytics" src="...">
+     and only run once that category is allowed. API: window.laboraConsent.get() / .has('analytics') / .open() */
+  var consent = (function () {
+    var NAME = 'labora_consent', VERSION = 1, MAX_AGE = 180 * 24 * 3600;
+    // What each category is for and exactly what it stores. Keep in sync with the cookie policy page.
+    var CATS = [
+      { id: 'necessary', title: 'Strictly necessary', locked: true,
+        desc: 'Needed for the site to work. They cannot be switched off.',
+        items: [['labora_consent', 'Remembers the cookie choices you make here', '6 months']] },
+      { id: 'analytics', title: 'Analytics',
+        desc: 'Help us understand which pages are useful, through visit statistics.', items: [] },
+      { id: 'marketing', title: 'Marketing',
+        desc: 'Measure our advertising and show relevant ads on other sites.', items: [] }
+    ];
+    var box = null, lastFocus = null;
+
+    function read() {
+      var m = document.cookie.match(new RegExp('(?:^|; )' + NAME + '=([^;]*)'));
+      if (!m) return null;
+      try { var v = JSON.parse(decodeURIComponent(m[1])); return v && v.v === VERSION ? v : null; } catch (e) { return null; }
+    }
+    function write(choice) {
+      choice.v = VERSION;
+      choice.ts = new Date().toISOString();
+      document.cookie = NAME + '=' + encodeURIComponent(JSON.stringify(choice)) + '; Max-Age=' + MAX_AGE +
+        '; Path=/; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '');
+    }
+    function apply(choice) {
+      // Run scripts held back until their category was allowed
+      $$('script[type="text/plain"][data-consent]').forEach(function (old) {
+        if (!choice[old.getAttribute('data-consent')]) return;
+        var s = document.createElement('script');
+        Array.prototype.forEach.call(old.attributes, function (a) { if (a.name !== 'type' && a.name !== 'data-consent') s.setAttribute(a.name, a.value); });
+        s.text = old.text;
+        old.parentNode.replaceChild(s, old);
+      });
+      // Remove cookies of categories that were switched off
+      CATS.forEach(function (c) {
+        if (c.locked || choice[c.id]) return;
+        c.items.forEach(function (it) { document.cookie = it[0] + '=; Max-Age=0; Path=/'; });
+      });
+      if (window.dataLayer) window.dataLayer.push({ event: 'consent_update', analytics: !!choice.analytics, marketing: !!choice.marketing });
+      document.dispatchEvent(new CustomEvent('labora:consent', { detail: choice }));
+    }
+    function save(choice) { write(choice); apply(choice); close(); }
+
+    function policyHref() {
+      var a = document.querySelector('a[href$="cookies/"]');
+      return a ? a.getAttribute('href') : 'cookies/';
+    }
+    function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
+    function button(cls, label, action) { var b = el('button', 'btn ' + cls, label); b.type = 'button'; b.setAttribute('data-cc', action); return b; }
+
+    function build(current) {
+      box = el('section', 'cc');
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-modal', 'false');
+      box.setAttribute('aria-labelledby', 'cc-title');
+      box.setAttribute('aria-describedby', 'cc-desc');
+
+      var main = el('div', 'cc-main');
+      var h = el('h2', null, 'Your privacy choices'); h.id = 'cc-title'; h.tabIndex = -1;
+      var p = el('p', null, 'We use one cookie to remember this choice. With your permission, we may also use analytics and marketing cookies. ');
+      p.id = 'cc-desc';
+      var link = el('a', null, 'Cookie policy'); link.href = policyHref(); p.appendChild(link);
+      var actions = el('div', 'cc-actions');
+      actions.appendChild(button('btn--ghost', 'Customize', 'customize'));
+      actions.appendChild(button('btn--ghost', 'Deny all', 'deny'));
+      actions.appendChild(button('btn--primary', 'Accept all', 'accept'));
+      main.appendChild(h); main.appendChild(p); main.appendChild(actions);
+
+      var prefs = el('div', 'cc-prefs'); prefs.hidden = true;
+      var ph = el('h2', null, 'Customize cookies'); ph.id = 'cc-prefs-title'; ph.tabIndex = -1;
+      prefs.appendChild(ph);
+      prefs.appendChild(el('p', 'cc-sub', 'Choose what we may store. You can change this at any time from "Cookie settings" at the bottom of every page.'));
+      var list = el('ul', 'cc-cats');
+      CATS.forEach(function (c) {
+        var li = el('li', 'cc-cat');
+        var head = el('div', 'cc-cat-head');
+        var label = el('label', 'cc-switch');
+        var input = el('input'); input.type = 'checkbox'; input.setAttribute('role', 'switch'); input.name = c.id;
+        input.checked = c.locked || !!(current && current[c.id]);
+        if (c.locked) { input.disabled = true; input.checked = true; }
+        var t = el('span', 'cc-cat-title', c.title);
+        label.appendChild(t);
+        if (c.locked) label.appendChild(el('span', 'cc-always', 'Always on'));
+        label.appendChild(input); label.appendChild(el('span', 'cc-track'));
+        head.appendChild(label);
+        li.appendChild(head);
+        li.appendChild(el('p', 'cc-cat-desc', c.desc));
+        var det = el('details', 'cc-store');
+        det.appendChild(el('summary', null, 'What we store'));
+        if (c.items.length) {
+          var tbl = el('table'); var tb = el('tbody');
+          var hr = el('tr'); ['Cookie', 'Purpose', 'Kept for'].forEach(function (x) { var th = el('th', null, x); th.scope = 'col'; hr.appendChild(th); });
+          var thead = el('thead'); thead.appendChild(hr); tbl.appendChild(thead);
+          c.items.forEach(function (it) { var tr = el('tr'); it.forEach(function (x) { tr.appendChild(el('td', null, x)); }); tb.appendChild(tr); });
+          tbl.appendChild(tb); det.appendChild(tbl);
+        } else {
+          det.appendChild(el('p', null, 'Nothing today. This site does not use any ' + c.title.toLowerCase() + ' tools. If we add one, it will run only with your permission.'));
+        }
+        li.appendChild(det);
+        list.appendChild(li);
+      });
+      prefs.appendChild(list);
+      var pa = el('div', 'cc-actions');
+      pa.appendChild(button('btn--ghost', 'Deny all', 'deny'));
+      pa.appendChild(button('btn--ghost', 'Save choices', 'save'));
+      pa.appendChild(button('btn--primary', 'Accept all', 'accept'));
+      prefs.appendChild(pa);
+
+      box.appendChild(main); box.appendChild(prefs);
+      box.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-cc]'); if (!b) return;
+        var act = b.getAttribute('data-cc');
+        if (act === 'accept') save({ necessary: true, analytics: true, marketing: true });
+        else if (act === 'deny') save({ necessary: true, analytics: false, marketing: false });
+        else if (act === 'save') save({ necessary: true, analytics: prefs.querySelector('[name="analytics"]').checked, marketing: prefs.querySelector('[name="marketing"]').checked });
+        else if (act === 'customize') { main.hidden = true; prefs.hidden = false; box.setAttribute('aria-labelledby', 'cc-prefs-title'); ph.focus(); }
+      });
+      box.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !prefs.hidden && read()) { close(); }
+        else if (e.key === 'Escape' && !prefs.hidden) { prefs.hidden = true; main.hidden = false; box.setAttribute('aria-labelledby', 'cc-title'); h.focus(); }
+      });
+      document.body.appendChild(box);
+      requestAnimationFrame(function () { box.classList.add('is-in'); });
+    }
+    function open(opts) {
+      if (box) box.remove();
+      lastFocus = document.activeElement;
+      build(read());
+      if (opts && opts.customize) box.querySelector('[data-cc="customize"]').click();
+      else if (opts && opts.focus) box.querySelector('#cc-title').focus();
+    }
+    function close() {
+      if (!box) return;
+      var b = box; box = null;
+      b.classList.remove('is-in');
+      setTimeout(function () { b.remove(); }, 250);
+      if (lastFocus && lastFocus.focus && lastFocus !== document.body) lastFocus.focus();
+    }
+
+    var saved = read();
+    if (saved) apply(saved);
+    else if (navigator.globalPrivacyControl) { write({ necessary: true, analytics: false, marketing: false, gpc: true }); apply(read()); }
+    else window.addEventListener('load', function () { setTimeout(function () { if (!read()) open(); }, 600); }, { once: true });
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-cookie-settings]');
+      if (t) { e.preventDefault(); open({ customize: true }); }
+    });
+    return { get: read, has: function (c) { var v = read(); return !!(v && v[c]); }, open: function () { open({ customize: true }); } };
+  })();
+  window.laboraConsent = consent;
 
   /* ---------- Footer year ---------- */
   var year = $('[data-year]');
