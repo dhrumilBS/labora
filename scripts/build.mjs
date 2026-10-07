@@ -36,7 +36,7 @@ for (const name of ['blog', 'pages']) {
 }
 
 // Every page that loads built assets: homepage, 404, and every generated page folder
-const sub = ['blog', 'security', 'faq', 'about', 'platform', 'solutions', 'pricing', 'contact', 'privacy', 'terms', 'cookies'].flatMap((dir) => existsSync(dir)
+const sub = ['blog', 'security', 'faq', 'about', 'platform', 'solutions', 'pricing', 'contact', 'privacy', 'terms', 'cookies', 'thank-you'].flatMap((dir) => existsSync(dir)
   ? readdirSync(dir, { recursive: true }).filter((f) => f.endsWith('index.html')).map((f) => join(dir, f))
   : []);
 const stamp = (html, file, v) => html.replace(new RegExp(file.replaceAll('.', '\\.') + '(\\?v=[a-f0-9]+)?', 'g'), `${file}?v=${v}`);

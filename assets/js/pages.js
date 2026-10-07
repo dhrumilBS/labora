@@ -69,16 +69,12 @@
       // A planned page: say so plainly, and make the closest live content the main action
       setText('[data-nf-eyebrow]', 'Coming soon');
       setText('#nf-title', 'The ' + hit[0] + ' page is on its way');
-      setText('[data-nf-lead]', 'We are still building this page. Until it is ready, the same information is one click away.');
+      setText('[data-nf-lead]', 'We are still writing this page. Until it is ready, the same information is one click away.');
       var primary = $('[data-nf-primary]');
       if (primary) { primary.setAttribute('href', hit[1]); primary.textContent = hit[2]; }
-      var home = $('[data-nf-home]');
-      if (home) home.hidden = false;
-      setText('[data-nf-result]', hit[0] + ' page in progress');
-      setText('[data-nf-result-note]', 'Publishing soon');
-      setText('[data-nf-status]', 'Coming soon');
+      var alt = $('[data-nf-alt]');
+      if (alt) { alt.setAttribute('href', './'); alt.textContent = 'Go to the homepage'; }
       document.title = hit[0] + ': coming soon | Labora';
-      doc.documentElement.classList.add('nf-planned');
     }
   }
 
@@ -161,6 +157,14 @@
         leadStatus.classList.add('is-visible');
         leadStatus.focus();
         if (window.dataLayer) window.dataLayer.push({ event: 'contact_submitted', topic: lead.elements.topic.value });
+        // A moment to read the confirmation, then the thank-you page (details in sessionStorage, not the URL)
+        var thanks = lead.getAttribute('data-thanks');
+        if (!thanks) return;
+        try {
+          sessionStorage.setItem('labora_thanks', JSON.stringify({ form: 'contact', topic: lead.elements.topic.value,
+            name: lead.elements.namedItem('name').value.trim().split(/\s+/)[0].slice(0, 40), ts: Date.now() }));
+        } catch (e) {}
+        setTimeout(function () { location.assign(thanks); }, 1500);
       };
       if (lead.elements.website && lead.elements.website.value) { done(); return; } // honeypot: pretend success
       submit.disabled = true;
@@ -175,6 +179,32 @@
           if (leadError) { leadError.textContent = 'Your message was not sent. Check your connection and try again.'; leadError.classList.add('is-visible'); }
         });
     });
+  }
+
+  /* ---------- Thank-you page: fill in what was sent (left in sessionStorage by the form) ---------- */
+  if ($('.ty')) {
+    var sent = null;
+    try { sent = JSON.parse(sessionStorage.getItem('labora_thanks')); } catch (e) {}
+    if (sent && sent.form) {
+      var put = function (sel, text) { var el = $(sel); if (el) el.textContent = text; };
+      var demo = sent.form === 'demo' || sent.topic === 'Book a demo';
+      var kind = demo ? 'Demo request' : sent.topic === 'Pricing and a quote' ? 'Quote request'
+        : sent.topic === 'Partnership' ? 'Partnership inquiry' : 'Message';
+      put('[data-ty-kind]', kind);
+      if (sent.name) put('[data-ty-hello]', 'Thank you, ' + sent.name + '.');
+      if (demo) {
+        put('[data-ty-label]', 'Request received');
+        put('[data-ty-title]', 'Your demo request is in.');
+        put('[data-ty-lead]', "We'll reply by email to find a time for a walkthrough with your own tests. There's nothing else you need to do.");
+        $$('[data-ty-steps]').forEach(function (ol) { ol.hidden = ol.getAttribute('data-ty-steps') !== 'demo'; });
+      }
+      if (sent.ts) {
+        var t = new Date(sent.ts), time = $('[data-ty-time]');
+        time.setAttribute('datetime', t.toISOString());
+        time.textContent = t.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+        $('[data-ty-sent]').hidden = false;
+      }
+    }
   }
 
   /* ---------- FAQ: open a question from the URL hash (e.g. /faq/#q-hipaa) ---------- */

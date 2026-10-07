@@ -78,8 +78,7 @@ def build_pricing():
         items = "".join(f'<li>{icon("check")}<span>{esc(i)}</span></li>' for i in p["items"])
         cls = " pc--featured" if p.get("featured") else ""
         cards += (f'<article class="pc{cls} reveal"><h3>{esc(p["name"])}</h3><p class="pc-who">{esc(p["who"])}</p>'
-                  f'<p class="pc-price"><b>Tailored quote</b><span>Priced by centers, users, and modules</span></p>'
-                  f'<a class="btn {"btn--primary" if p.get("featured") else "btn--ghost"}" href="{prefix}contact/?plan={p["id"]}">Get a quote</a>'
+                  f'<a class="btn btn--ghost" href="{prefix}contact/?plan={p["id"]}">Get a quote</a>'
                   f'{base}<ul class="checks">{items}</ul></article>')
     mods = "".join(
         f'<label class="pb-mod"><input type="checkbox" name="modules[]" value="{s}"{" checked" if core else ""}>'
@@ -97,6 +96,7 @@ def build_pricing():
 <section class="pc-plans-wrap" aria-labelledby="pc-plans-title">
   <div class="container">
     <h2 class="sr-only" id="pc-plans-title">Plans</h2>
+    <p class="pc-quote">Every plan is a tailored quote, priced by centers, users, and modules</p>
     <div class="pc-plans">{cards}</div>
   </div>
 </section>
@@ -203,7 +203,7 @@ def build_contact():
       </ul>
     </div>
     <div class="form-card ct-card" id="form">
-      <form id="contact-form" novalidate data-endpoint="" data-lead-form aria-describedby="ct-error">
+      <form id="contact-form" novalidate data-endpoint="" data-thanks="{prefix}thank-you/" data-lead-form aria-describedby="ct-error">
         <h2>Send us a message</h2>
         <p>All fields are required unless marked optional.</p>
         <p class="ct-from" data-ct-from hidden></p>
@@ -254,7 +254,7 @@ PRIVACY = [
         f"It does not cover the patient and laboratory data that our customers store in the Labora service. That data belongs to the lab that collects it. We process it only on the lab's behalf and under our agreement with that lab, which {C('includes a Business Associate Agreement where HIPAA applies')}. Patients with questions about their records should contact their lab.")),
     ("collect", "Information we collect", P("<strong>Information you give us.</strong> When you request a demo, ask for a quote, or send a message, we collect what you enter: your name, work email, phone number if you add it, your lab or organization, the type of lab, the number of centers, the modules you are interested in, and your message.",
         "<strong>Information collected automatically.</strong> Like most websites, our servers record basic technical information for each request, such as your IP address, browser type, the page requested, and the date and time. We use it to keep the site running and secure.",
-        'Cookies: this website does not currently set advertising or analytics cookies. See our <a href="../cookies/">cookie policy</a>.')),
+        'Cookies: this website sets one strictly necessary cookie to remember your cookie choices, and no advertising or analytics cookies. See our <a href="../cookies/">cookie policy</a>.')),
     ("use", "How we use it", UL("To answer your message and schedule demos", "To prepare quotes and proposals you ask for",
         "To run, protect, and improve this website", "To comply with law and enforce our terms")),
     ("share", "How we share it", P("We do not sell your personal information, and we do not share it for cross-context behavioral advertising.",
@@ -289,13 +289,16 @@ TERMS = [
 
 COOKIES = [
     ("what", "What cookies are", P("Cookies are small files a website stores in your browser. Similar technologies, such as local storage, work in a similar way. They can be needed for a site to work, or used for analytics and advertising.")),
-    ("ours", "What this website uses today", P("This website does not currently set cookies or use local storage to track you. It does not use advertising cookies or third-party analytics, and every file it loads comes from our own server."),
-        ) ,
+    ("ours", "What this website uses today", P("This website sets one cookie: <code>labora_consent</code>, which remembers the choices you make in our cookie banner, for 6 months. It is strictly necessary and contains only those choices, not who you are.",
+        "The site does not use advertising cookies or third-party analytics, and every file it loads comes from our own server. Analytics and marketing tools, if we ever add them, run only after you allow them.")),
     ("types", "Types of cookies", '<div class="lg-table"><table><thead><tr><th scope="col">Type</th><th scope="col">Purpose</th><th scope="col">Used on this site</th></tr></thead><tbody>'
-        '<tr><td>Strictly necessary</td><td>Needed for the site to work, for example security features</td><td>None at present</td></tr>'
+        '<tr><td>Strictly necessary</td><td>Needed for the site to work, such as remembering your cookie choices</td><td><code>labora_consent</code> (6 months)</td></tr>'
         '<tr><td>Analytics</td><td>Understanding how visitors use the site</td><td>None</td></tr>'
         '<tr><td>Advertising</td><td>Showing ads based on your browsing</td><td>None</td></tr></tbody></table></div>'),
-    ("future", "If this changes", P("If we add analytics or other cookies in the future, we will update this policy first and, where the law requires it, ask for your consent before setting any that are not strictly necessary.")),
+    ("choices", "Your choices", P("When you first visit, you can accept all cookies, deny all non-essential cookies, or choose by category. You can change your mind at any time:",
+        ) + '<p><button class="btn btn--ghost" type="button" data-cookie-settings>Open cookie settings</button></p>'
+        + P("If your browser sends a Global Privacy Control signal, we treat it as a choice to deny all non-essential cookies.")),
+    ("future", "If this changes", P("If we add analytics or other cookies in the future, we will list them here first, and they will run only for visitors who allow that category.")),
     ("control", "How to control cookies", P("You can block or delete cookies in your browser settings. Blocking strictly necessary cookies may stop parts of a website from working.")),
     ("contact", "Contact us", P(f'Questions about this policy: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>.')),
 ]
@@ -328,9 +331,71 @@ def build_legal(slug, title, h1, intro, sections, desc):
     shared.write(f"{slug}/index.html", shared.page(prefix, slug, f"{title} | Labora", desc, url, f"{SITE}/assets/img/og-image.png",
         page_ld(url, title, desc, [(title, url)]), body, css=("pages.min.css",), js=("pages.min.js",)))
 
+# ---------------------------------------------------------------------------
+# Thank-you page: /thank-you/ (forms go here about 1.5s after a successful send)
+# The form leaves {form, topic, name, ts} in sessionStorage (never in the URL); pages.js fills the page from it.
+# Without it (a direct visit), the page reads as a general "message received".
+# ---------------------------------------------------------------------------
+TY_STEPS = {  # form: [(title, text, state)]
+    "contact": [("Message received", "Your topic and number of centers came through with it.", "Received"),
+                ("We reply by email", "Someone from our team answers and, if it helps, suggests a time to talk.", "Next"),
+                ("A demo or a quote, if you want one", "Set up for the modules and centers you need, with no commitment.", "Then")],
+    "demo": [("Request received", "Your lab type and number of centers came through with it.", "Received"),
+             ("We email you to pick a time", "Someone from our team replies to the work email you gave us.", "Next"),
+             ("A 20-minute walkthrough", "Set up with your tests, departments, and price list, so you see your own lab day.", "Then")],
+}
+TY_READING = [  # (title, text, href)
+    ("Product tour", "From registration to a signed report.", "#product-tour"),
+    ("Trust Center", "How patient data is protected.", "security/"),
+    ("How to cut lab turnaround time", "A practical guide from our blog.", "blog/how-to-cut-lab-turnaround-time/"),
+    ("Pricing", "How plans are put together for your lab.", "pricing/"),
+]
+
+def build_thanks():
+    prefix = "../"
+    def steps(kind):
+        return (f'<ol class="ty-steps" data-ty-steps="{kind}"{" hidden" if kind != "contact" else ""}>' + "".join(
+            f'<li class="{"is-done" if i == 0 else ""}"><span class="ty-num">{i + 1:02d}</span><div><h3>{esc(t)}</h3><p>{esc(x)}</p></div>'
+            f'<span class="ty-state">{s}</span></li>' for i, (t, x, s) in enumerate(TY_STEPS[kind])) + '</ol>').replace(' class=""', '')
+    reading = "".join(f'<li><a href="{prefix}{u}"><span class="nf-i-t">{esc(t)}</span><span class="nf-i-d">{esc(x)}</span>'
+                      f'{icon("arrow", "icon icon-sm")}</a></li>' for t, x, u in TY_READING)
+    body = f'''<section class="ty" aria-labelledby="ty-title">
+  <div class="container">
+    <div class="ty-head">
+      <p class="hm-label" data-ty-label>Message received</p>
+      <h1 id="ty-title"><span data-ty-hello>Thank you.</span> <span data-ty-title>Your message is with our team.</span></h1>
+      <p class="ty-lead" data-ty-lead>We'll reply by email to the address you gave us. There's nothing else you need to do.</p>
+    </div>
+    <dl class="ty-meta">
+      <div><dt>Request</dt><dd data-ty-kind>Message</dd></div>
+      <div data-ty-sent hidden><dt>Sent</dt><dd><time data-ty-time></time></dd></div>
+      <div><dt>Replies from</dt><dd><a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></dd></div>
+    </dl>
+    <div class="ty-grid">
+      <section aria-labelledby="ty-next">
+        <h2 class="ty-h2" id="ty-next">What happens next</h2>
+        {steps("contact")}
+        {steps("demo")}
+      </section>
+      <nav class="nf-index ty-read" aria-labelledby="ty-wait">
+        <h2 id="ty-wait">While you wait</h2>
+        <ul>{reading}</ul>
+        <p class="ty-back"><a class="nf-alt" href="{prefix}">Back to the homepage</a></p>
+      </nav>
+    </div>
+  </div>
+</section>'''
+    url = f"{SITE}/thank-you/"
+    out = shared.page(prefix, "thank-you", "Thank you | Labora", "Your message has reached the Labora team.", url,
+                      f"{SITE}/assets/img/og-image.png", page_ld(url, "Thank you", "Your message has reached the Labora team.", [("Thank you", url)]),
+                      body, css=("pages.min.css",), js=("pages.min.js",))
+    # A confirmation page: keep it out of search results and the sitemap
+    shared.write("thank-you/index.html", out.replace('content="index, follow, max-image-preview:large"', 'content="noindex, follow"'))
+
 if __name__ == "__main__":
     build_pricing()
     build_contact()
+    build_thanks()
     build_legal("privacy", "Privacy Policy", "Privacy policy", "How Labora collects, uses, and protects personal information on this website.", PRIVACY,
                 "How Labora collects, uses, shares, and protects personal information on its website, and the choices and rights you have.")
     build_legal("terms", "Terms of Service", "Terms of service", "The terms for using this website and the Labora service.", TERMS,
