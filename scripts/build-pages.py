@@ -722,10 +722,6 @@ PLANNED = {  # path (no leading slash): (page name, closest existing URL, link l
     "platform/reports-e-signature/": ("Reports and e-signature", "#reporting", "See reporting and sign-off"),
     "platform/business-insights/": ("Business insights", "#business-insights", "See business insights"),
     "platform/integrations/": ("Integrations and API", "faq/#q-can-labora-connect-with-lab-analyzers-and-other-systems", "See how integrations work"),
-    **{f"solutions/{k}/": (v, "faq/#q-who-is-labora-built-for", "See who Labora is built for") for k, v in [
-        ("pathology-labs", "Pathology labs"), ("diagnostic-imaging-centers", "Diagnostic and imaging centers"),
-        ("multi-center-lab-chains", "Multi-center lab chains"), ("hospital-laboratories", "Hospital laboratories"),
-        ("home-collection-services", "Home collection services"), ("cardiology-clinics", "Cardiology and ECG clinics"),]},
     "resources/guides/": ("Guides", "blog/", "Read the blog"),
     "docs/api/": ("API documentation", "faq/#q-can-labora-connect-with-lab-analyzers-and-other-systems", "See how integrations work"),
     "login/": ("Sign in", "#demo", "Book a demo to get access"),

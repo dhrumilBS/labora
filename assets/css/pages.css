@@ -315,10 +315,10 @@ mark.hl { background: #fdf0c8; color: inherit; border-radius: 3px; padding: 0 1p
 .pr-crumbs a:hover { color: var(--green); }
 .pr-crumbs .icon { width: 14px; height: 14px; transform: rotate(-90deg); }
 .pr-crumbs [aria-current] { color: var(--ink); font-weight: 600; }
-.pr-intro h1 { max-width: 18ch; font-size: clamp(2.3rem, 1.3rem + 3.4vw, 4rem); line-height: 1.06; letter-spacing: -.03em; }
+.pr-intro h1 { max-width: 18ch; }
 .pr-intro .lead { margin-top: 1.1rem; font-size: var(--fs-lead); color: var(--muted); max-width: 40rem; }
 .pr-shot { margin: clamp(2.25rem, 1.5rem + 3vw, 3.5rem) 0 0; }
-.pr-shot picture { display: block; overflow: hidden; aspect-ratio: 2 / 1; border-radius: 32px; background: var(--ink); box-shadow: var(--shadow-ui); }
+.pr-shot picture { display: block; overflow: hidden; aspect-ratio: 2 / 1; border-radius: var(--r-lg); background: var(--panel); border: 1px solid var(--line); }
 .pr-shot img { display: block; width: 100%; height: auto; }
 .pr-connect { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(1.5rem, 1rem + 3vw, 3.5rem); align-items: center; padding: clamp(1.5rem, 1rem + 3vw, 3.5rem); border-radius: 32px; background: var(--ink); color: rgba(230, 241, 237, .8); }
 .pr-hub { display: grid; justify-items: start; gap: .35rem; }
