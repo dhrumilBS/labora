@@ -10,8 +10,8 @@
   <meta name="theme-color" content="#0d3a33">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.min.css?v=07ed593ea9">
-  <link rel="stylesheet" href="assets/css/pages.min.css?v=ef2d062893">
+  <link rel="stylesheet" href="assets/css/styles.min.css?v=e32b12717f">
+  <link rel="stylesheet" href="assets/css/pages.min.css?v=97163f6e4c">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -58,26 +58,40 @@
 </nav>
 
 <main id="main" class="nf-main">
-<section class="nf" aria-labelledby="nf-title">
+<section class="nf-hero" aria-labelledby="nf-title">
   <div class="container nf-grid">
     <div class="nf-copy">
-      <p class="nf-code" aria-hidden="true"><span>4</span><span class="nf-zero">0</span><span>4</span></p>
-      <p class="hm-label" data-nf-eyebrow>Error 404</p>
-      <h1 id="nf-title">We couldn't find that page</h1>
-      <p class="nf-lead" data-nf-lead>The link may be out of date, or the page may have moved. The pages people look for most are listed here.</p>
-      <dl class="nf-addr"><dt>Address</dt><dd data-nf-query>/unknown-page</dd></dl>
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-nf-eyebrow>Error 404</span></p>
+      <h1 id="nf-title">This page isn't here</h1>
+      <p class="lead" data-nf-lead>The link may be out of date, or the page has moved. Here are the best places to go next.</p>
       <div class="nf-ctas">
-        <a class="btn btn--primary" href="./" data-nf-primary>Go to the homepage</a>
-        <a class="nf-alt" href="./#demo" data-nf-alt>Book a demo</a>
+        <a class="btn btn--primary btn--lg" href="./" data-nf-primary>Go to homepage</a>
+        <a class="btn btn--ghost btn--lg" href="./#demo">Book a demo</a>
+      </div>
+      <a class="link-arrow nf-home" href="./" data-nf-home hidden>Or go to the homepage <svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <!-- A sample-tracking search that comes back empty: the product's own language for "not found" -->
+    <div class="nf-visual" aria-hidden="true">
+      <div class="nf-card">
+        <div class="nf-card-head"><span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 5v14M7 5v14M10 5v14M14 5v14M17 5v14M21 5v14"/></svg>Sample tracking</span><span class="nf-live">Live</span></div>
+        <div class="nf-search"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span data-nf-query>/unknown-page</span></div>
+        <ol class="nf-steps">
+          <li class="done"><span class="nf-dot"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Request received</b><small>Just now</small></span></li>
+          <li class="done"><span class="nf-dot"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Searched every rack</b><small>All centers</small></span></li>
+          <li class="miss"><span class="nf-dot"><svg class="icon is-miss" aria-hidden="true" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg><svg class="icon is-soon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><b data-nf-result>No match found</b><small data-nf-result-note>Check the address or start over</small></span></li>
+        </ol>
+        <div class="nf-card-foot"><span class="nf-tube"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M14.5 2v17.5a2.5 2.5 0 0 1-5 0V2"/><path d="M8.5 2h7"/><path d="M9.5 14h5"/></svg>LB-404</span><span class="status status--progress" data-nf-status>Not found</span></div>
       </div>
     </div>
-    <nav class="nf-index" aria-labelledby="nf-links-title">
-      <h2 id="nf-links-title">Where to go instead</h2>
-      <ul><li><a href="./#product-tour"><span class="nf-i-t">Product tour</span><span class="nf-i-d">From registration to a signed report.</span><svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="./#home-collection"><span class="nf-i-t">Product features</span><span class="nf-i-d">Sample tracking, reporting, home collection, billing.</span><svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="./pricing/"><span class="nf-i-t">Pricing</span><span class="nf-i-d">How plans are put together for your lab.</span><svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="./security/"><span class="nf-i-t">Trust Center</span><span class="nf-i-d">How patient data is protected.</span><svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="./faq/"><span class="nf-i-t">FAQ</span><span class="nf-i-d">Features, security, setup, and pricing.</span><svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li><a href="./blog/"><span class="nf-i-t">Blog</span><span class="nf-i-d">Practical guides for running a faster lab.</span><svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li></ul>
-      <p class="nf-note">Followed a broken link from another site? <a href="./contact/">Tell us where</a> and we'll fix it.</p>
-    </nav>
   </div>
 </section>
+
+<div class="container">
+  <section class="nf-links" aria-labelledby="nf-links-title">
+    <h2 id="nf-links-title">Popular pages</h2>
+    <div class="help-cards"><a class="help-card" href="./#product-tour"><span class="t-ic"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><h3>Product tour</h3><p>See Labora in action, from registration to signed report.</p><span class="link-arrow">Watch the tour <svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="help-card" href="./#home-collection"><span class="t-ic"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7l10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></span><h3>Product features</h3><p>Sample tracking, reporting, home collection, and billing.</p><span class="link-arrow">Explore the features <svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="help-card" href="./security/"><span class="t-ic"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Trust Center</h3><p>How we protect patient data, and our compliance program.</p><span class="link-arrow">Visit the Trust Center <svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="help-card" href="./faq/"><span class="t-ic"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><h3>FAQ</h3><p>Answers about features, security, setup, and pricing.</p><span class="link-arrow">Read the FAQ <svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="help-card" href="./blog/"><span class="t-ic"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M9 7h7M9 11h5"/></svg></span><h3>Blog</h3><p>Practical guides for running a faster diagnostic lab.</p><span class="link-arrow">Read the blog <svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="help-card help-card--dark" href="./#demo"><span class="t-ic"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><h3>Book a demo</h3><p>See Labora set up with your own tests and price list.</p><span class="link-arrow">Book a demo <svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+  </section>
+</div>
 <script type="application/json" id="nf-planned">{"platform/pathology-lab/":["Pathology lab","./#reporting","See pathology and imaging reporting"],"platform/sample-tracking/":["Sample tracking","./#sample-tracking","See sample tracking"],"platform/turnaround-tracking/":["Turnaround tracking","./#turnaround-tracking","See turnaround tracking"],"platform/radiology-reporting/":["Radiology reporting","./#reporting","See pathology and imaging reporting"],"platform/ecg-cardiology/":["ECG and cardiology","./#home-collection","See the product features"],"platform/home-collection/":["Home collection","./#home-collection","See home collection"],"platform/centers/":["Centers and outsource labs","./#home-collection","See the product features"],"platform/reports-e-signature/":["Reports and e-signature","./#reporting","See reporting and sign-off"],"platform/business-insights/":["Business insights","./#business-insights","See business insights"],"platform/integrations/":["Integrations and API","./faq/#q-can-labora-connect-with-lab-analyzers-and-other-systems","See how integrations work"],"solutions/pathology-labs/":["Pathology labs","./faq/#q-who-is-labora-built-for","See who Labora is built for"],"solutions/diagnostic-imaging-centers/":["Diagnostic and imaging centers","./faq/#q-who-is-labora-built-for","See who Labora is built for"],"solutions/multi-center-lab-chains/":["Multi-center lab chains","./faq/#q-who-is-labora-built-for","See who Labora is built for"],"solutions/hospital-laboratories/":["Hospital laboratories","./faq/#q-who-is-labora-built-for","See who Labora is built for"],"solutions/home-collection-services/":["Home collection services","./faq/#q-who-is-labora-built-for","See who Labora is built for"],"solutions/cardiology-clinics/":["Cardiology and ECG clinics","./faq/#q-who-is-labora-built-for","See who Labora is built for"],"resources/guides/":["Guides","./blog/","Read the blog"],"docs/api/":["API documentation","./faq/#q-can-labora-connect-with-lab-analyzers-and-other-systems","See how integrations work"],"login/":["Sign in","./#demo","Book a demo to get access"],"signup/":["Sign up","./#demo","Book a demo to get started"]}</script>
 </main>
 
@@ -100,7 +114,7 @@
   </div>
 </footer>
 
-<script src="assets/js/main.min.js?v=1fd8c2da99" defer></script>
-<script src="assets/js/pages.min.js?v=54ca3a2367" defer></script>
+<script src="assets/js/main.min.js?v=065c62b9df" defer></script>
+<script src="assets/js/pages.min.js?v=00ec828c3d" defer></script>
 </body>
 </html>

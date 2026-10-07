@@ -254,7 +254,7 @@ def build_security():
     <p class="lead">Every action in Labora is attributed and recorded, access follows each person's role, and every report is released by an authorized doctor. Here is how we protect your lab's data, and what we are building next.</p>
     <div class="trust-ctas">
       <a class="btn btn--primary btn--lg" href="#documentation">Request security details</a>
-      <a class="btn btn--outline-light btn--lg" href="#disclosure">Report a vulnerability</a>
+      <a class="btn btn--ghost btn--lg" href="#disclosure">Report a vulnerability</a>
     </div>
     <ul class="marks">{marks_html}</ul>
     <p class="trust-updated">Last updated <time datetime="{UPDATED[1]}">{UPDATED[0]}</time></p>
@@ -399,7 +399,7 @@ def build_security():
     <p>Our team can walk your IT or compliance lead through how Labora handles access, audit trails, and patient data, and help with your security questionnaire.</p>
     <div class="trust-ctas">
       <a class="btn btn--primary btn--lg" href="mailto:{SECURITY_EMAIL}?subject=Security%20details%20request">Request security details</a>
-      <a class="btn btn--outline-light btn--lg mail-chip" href="{prefix}#demo">{icon("calendar")}Book a demo</a>
+      <a class="btn btn--ghost btn--lg" href="{prefix}#demo">Book a demo</a>
     </div>
   </div>
 </section>
@@ -519,6 +519,18 @@ COMMITMENTS = [  # (icon, title, text): from the implementation answers on the F
     ("users", "Training for every role", "Front desk, phlebotomists, technicians, and pathologists each learn the parts of Labora they use every day."),
 ]
 
+SCALE_POINTS = ["Switch between centers in one click", "Compare cases, turnaround, and revenue by center",
+                "One test menu, price list, and template library for every center", "Partner and B2B work on the same record"]
+SECURITY_POINTS = ["Each person signs in as themselves", "Access set by role and by center",
+                   "Every registration, edit, signature, and payment recorded", "Secured, monitored cloud with regular backups"]
+ABOUT_FAQ = [  # answers restate the FAQ page and the Trust Center
+    ("Who is Labora for?", "Diagnostic labs: independent pathology labs, imaging and diagnostic centers, multi-center lab chains, hospital laboratories, home collection services, and cardiology and ECG clinics."),
+    ("How is Labora different from a LIMS?", "A LIMS is usually sample-centered and built for research and industrial labs. Labora is built around the patient case for diagnostic labs: it covers what a LIS does and adds radiology reporting, home collection, multi-center management, and business insights."),
+    ("How long does it take to get started?", "Rollout is guided, one center at a time, so your team keeps working while Labora is set up. Most of the work is configuring your tests, price list, and report templates, which we help with."),
+    ("Where is our data, and who can see it?", "Labora runs on secured, monitored cloud infrastructure with regular backups. Inside your lab, each person sees only what their role allows, and every action is recorded. The details are in our Trust Center."),
+    ("Can we see Labora with our own tests first?", "Yes. Book a demo and bring your test menu and price list. We will walk through a patient case configured the way your team works."),
+]
+
 COMPANY = []  # optional facts, e.g. ("Founded", "2024"), ("Headquarters", "Austin, Texas"); shown only when filled in
 TEAM = []     # optional leadership, e.g. ("Full name", "Role", "assets/img/team/name.webp"); shown only when filled in
 
@@ -530,6 +542,10 @@ def build_about():
     beliefs = "".join(f'<li class="reveal"><span class="ab-num">{i:02d}</span><h3>{esc(t)}</h3><p>{x}</p></li>' for i, (t, x) in enumerate(BELIEFS, 1))
     labs = "".join(f'<li>{icon(ic)}<span>{esc(n)}</span></li>' for ic, n in LAB_TYPES)
     commits = "".join(f'<li class="reveal"><span class="t-ic">{icon(ic)}</span><h3>{esc(t)}</h3><p>{esc(x)}</p></li>' for ic, t, x in COMMITMENTS)
+    scale = "".join(f'<li>{icon("check")}{esc(x)}</li>' for x in SCALE_POINTS)
+    security = "".join(f'<li>{icon("check")}{esc(x)}</li>' for x in SECURITY_POINTS)
+    about_faq = "".join(f'<details class="faq-item"><summary><h3>{esc(q)}</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary>'
+                        f'<div class="faq-answer"><p>{esc(a)}</p></div></details>' for q, a in ABOUT_FAQ)
     team = ""
     if TEAM:
         people = "".join(f'<li><img src="{prefix}{p}" width="320" height="320" alt="{esc(n)}" loading="lazy" decoding="async"><h3>{esc(n)}</h3><p>{esc(r)}</p></li>' for n, r, p in TEAM)
@@ -541,7 +557,6 @@ def build_about():
   </div>
 </section>
 '''
-    shot = "assets/img/screens/dashboard"
     body = f'''<section class="ab-hero" aria-labelledby="ab-title">
   <div class="container">
     <p class="eyebrow"><span class="dot" aria-hidden="true"></span>About Labora</p>
@@ -557,11 +572,8 @@ def build_about():
       <dl class="ab-glance">{glance}</dl>
     </div>
     <figure class="ab-shot">
-      <picture>
-        <source media="(max-width: 640px)" type="image/webp" srcset="{prefix}{shot}-m-640.webp 640w, {prefix}{shot}-m-800.webp 800w, {prefix}{shot}-m-1080.webp 985w" sizes="calc(100vw - 40px)" width="640" height="684">
-        <img src="{prefix}{shot}-1200.webp" srcset="{prefix}{shot}-800.webp 800w, {prefix}{shot}-1200.webp 1200w, {prefix}{shot}-1600.webp 1600w" sizes="(max-width: 1240px) calc(100vw - 40px), 1200px" width="2320" height="2000" alt="Labora dashboard with today's cases, collections, average turnaround, reports ready to sign, and recent cases across centers" fetchpriority="high" decoding="async">
-      </picture>
-      <figcaption>The Labora dashboard: every center's cases, turnaround, and reports in one view.</figcaption>
+      {shared.screenshot(prefix, "patient-case", "A Labora patient case: Emily Carter's tests across hematology, biochemistry, radiology, and cardiology, with each role's step from registration to delivery", eager=True)}
+      <figcaption>One patient case in Labora: every role's step, every test, and the activity behind it.</figcaption>
     </figure>
   </div>
 </section>
@@ -618,6 +630,32 @@ def build_about():
   </div>
 </section>
 
+<section class="page-section ab-feature" aria-labelledby="ab-scale-title">
+  <div class="container ab-row">
+    <div class="ab-row-copy reveal">
+      <p class="ab-label">As you grow</p>
+      <h2 id="ab-scale-title">From one lab to many centers, on one system</h2>
+      <p>Most labs do not stay at one center for long. Labora runs branches, collection points, home collection, and partner labs together, with one setup shared by all of them.</p>
+      <ul class="checks ab-checks">{scale}</ul>
+      <a class="link-arrow" href="{prefix}pricing/">See plans for multi-center labs {icon("arrow", "icon icon-sm")}</a>
+    </div>
+    <figure class="ab-media  reveal">{shared.screenshot(prefix, "centers-overview", "Labora centers overview: cases, on-time rate, and status for each center, with a setup shared by every center")}</figure>
+  </div>
+</section>
+
+<section class="page-section ab-feature" aria-labelledby="ab-sec-title">
+  <div class="container ab-row ab-row--flip">
+    <div class="ab-row-copy reveal">
+      <p class="ab-label">Security and access</p>
+      <h2 id="ab-sec-title">Patient data deserves more than a shared password</h2>
+      <p>Everyone works under their own account and sees only what their role needs. Reports are released only after an authorized doctor signs them, and every action leaves a record.</p>
+      <ul class="checks ab-checks">{security}</ul>
+      <a class="link-arrow" href="{prefix}security/">Visit the Trust Center {icon("arrow", "icon icon-sm")}</a>
+    </div>
+    <figure class="ab-media  reveal">{shared.screenshot(prefix, "roles-access", "Labora users and roles: each person with a role and center, and the permissions for the front desk role")}</figure>
+  </div>
+</section>
+
 <section class="page-section ab-work" aria-labelledby="ab-work-title">
   <div class="container">
     <div class="ab-band on-dark">
@@ -631,6 +669,17 @@ def build_about():
   </div>
 </section>
 {team}
+<section class="page-section faq-block" aria-labelledby="ab-faq-title">
+  <div class="container faq-wrap">
+    <div class="faq-aside reveal">
+      <h2 id="ab-faq-title">Questions about Labora</h2>
+      <p>What lab owners and IT teams usually ask us first.</p>
+      <a class="link-arrow faq-more" href="{prefix}faq/">See all FAQs {icon("arrow", "icon icon-sm")}</a>
+    </div>
+    <div class="faq-list">{about_faq}</div>
+  </div>
+</section>
+
 <section class="page-section ab-cta" aria-labelledby="ab-cta-title">
   <div class="container">
     <div class="ab-cta-card reveal">
@@ -650,6 +699,7 @@ def build_about():
     jsonld = json.dumps({"@context": "https://schema.org", "@graph": [
         {"@type": "AboutPage", "@id": f"{url}#webpage", "url": url, "name": "About Labora", "description": desc,
          "mainEntity": {"@type": "Organization", "@id": f"{SITE}/#organization", "name": "Labora", "url": f"{SITE}/", "logo": f"{SITE}/assets/img/icon-512.png"}},
+        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in ABOUT_FAQ]},
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE}/"},
             {"@type": "ListItem", "position": 2, "name": "About", "item": url}]}]}, indent=1, ensure_ascii=False)
@@ -666,29 +716,18 @@ PLANNED = {  # path (no leading slash): (page name, closest existing URL, link l
     "platform/sample-tracking/": ("Sample tracking", "#sample-tracking", "See sample tracking"),
     "platform/turnaround-tracking/": ("Turnaround tracking", "#turnaround-tracking", "See turnaround tracking"),
     "platform/radiology-reporting/": ("Radiology reporting", "#reporting", "See pathology and imaging reporting"),
-    "platform/ecg-cardiology/": ("ECG and cardiology", "#platform", "See the platform overview"),
+    "platform/ecg-cardiology/": ("ECG and cardiology", "#home-collection", "See the product features"),
     "platform/home-collection/": ("Home collection", "#home-collection", "See home collection"),
-    "platform/centers/": ("Centers and outsource labs", "#platform", "See the platform overview"),
+    "platform/centers/": ("Centers and outsource labs", "#home-collection", "See the product features"),
     "platform/reports-e-signature/": ("Reports and e-signature", "#reporting", "See reporting and sign-off"),
     "platform/business-insights/": ("Business insights", "#business-insights", "See business insights"),
-    "platform/integrations/": ("Integrations and API", "#integrations", "See integrations"),
-    "platform/sample-management/": ("Sample management", "#sample-management", "See sample management"),
-    "platform/quality-compliance/": ("Quality and compliance", "security/", "Visit the Trust Center"),
-    "platform/lims/": ("LIMS", "#platform", "See the platform overview"),
-    "platform/eln/": ("ELN", "#platform", "See the platform overview"),
-    "platform/inventory-management/": ("Inventory", "#platform", "See the platform overview"),
-    "platform/workflow-automation/": ("Workflow automation", "#platform", "See the platform overview"),
-    "platform/equipment-management/": ("Equipment", "#platform", "See the platform overview"),
-    "platform/reporting-analytics/": ("Reporting and analytics", "#business-insights", "See business insights"),
-    **{f"solutions/{k}/": (v, "#solutions", "See who Labora is built for") for k, v in [
+    "platform/integrations/": ("Integrations and API", "faq/#q-can-labora-connect-with-lab-analyzers-and-other-systems", "See how integrations work"),
+    **{f"solutions/{k}/": (v, "faq/#q-who-is-labora-built-for", "See who Labora is built for") for k, v in [
         ("pathology-labs", "Pathology labs"), ("diagnostic-imaging-centers", "Diagnostic and imaging centers"),
         ("multi-center-lab-chains", "Multi-center lab chains"), ("hospital-laboratories", "Hospital laboratories"),
-        ("home-collection-services", "Home collection services"), ("cardiology-clinics", "Cardiology and ECG clinics"),
-        ("research-development", "Research and development"), ("clinical-laboratories", "Clinical laboratories"),
-        ("quality-control", "Quality control"), ("pharmaceutical", "Pharmaceutical"), ("biotechnology", "Biotechnology"),
-        ("contract-research", "Contract research"), ("manufacturing", "Manufacturing"), ("academic", "Academic laboratories")]},
+        ("home-collection-services", "Home collection services"), ("cardiology-clinics", "Cardiology and ECG clinics"),]},
     "resources/guides/": ("Guides", "blog/", "Read the blog"),
-    "docs/api/": ("API documentation", "#integrations", "See integrations"),
+    "docs/api/": ("API documentation", "faq/#q-can-labora-connect-with-lab-analyzers-and-other-systems", "See how integrations work"),
     "login/": ("Sign in", "#demo", "Book a demo to get access"),
     "signup/": ("Sign up", "#demo", "Book a demo to get started"),
 }
@@ -699,22 +738,21 @@ PLANNED = {  # path (no leading slash): (page name, closest existing URL, link l
 DEV_FOLDER = "/labora/"
 BASE_FIX_JS = f"if(location.pathname.indexOf('{DEV_FOLDER}')===0)document.querySelector('base').href='{DEV_FOLDER}';"
 
-LINKS_404 = [  # (icon, title, text, href, link label)
-    ("play", "Product tour", "See Labora in action, from registration to signed report.", "#product-tour", "Watch the tour"),
-    ("layers", "Platform overview", "Sample tracking, reporting, home collection, and billing.", "#platform", "Explore the platform"),
-    ("shield", "Trust Center", "How we protect patient data, and our compliance program.", "security/", "Visit the Trust Center"),
-    ("message", "FAQ", "Answers about features, security, setup, and pricing.", "faq/", "Read the FAQ"),
-    ("book", "Blog", "Practical guides for running a faster diagnostic lab.", "blog/", "Read the blog"),
+LINKS_404 = [  # (title, text, href)
+    ("Product tour", "From registration to a signed report.", "#product-tour"),
+    ("Product features", "Sample tracking, reporting, home collection, billing.", "#home-collection"),
+    ("Pricing", "How plans are put together for your lab.", "pricing/"),
+    ("Trust Center", "How patient data is protected.", "security/"),
+    ("FAQ", "Features, security, setup, and pricing.", "faq/"),
+    ("Blog", "Practical guides for running a faster lab.", "blog/"),
 ]
 
 def build_404():
     prefix = "./"  # resolves against <base>, so it works at any depth; "./#demo" also skips same-page anchor scrolling
     h, m, f = shared.chrome(prefix)
     def href(u): return prefix + u
-    cards = "".join(f'<a class="help-card" href="{href(u)}"><span class="t-ic">{icon(ic)}</span><h3>{esc(t)}</h3><p>{esc(x)}</p>'
-                    f'<span class="link-arrow">{esc(l)} {icon("arrow", "icon icon-sm")}</span></a>' for ic, t, x, u, l in LINKS_404)
-    cards += (f'<a class="help-card help-card--dark" href="{href("#demo")}"><span class="t-ic">{icon("calendar")}</span><h3>Book a demo</h3>'
-              f'<p>See Labora set up with your own tests and price list.</p><span class="link-arrow">Book a demo {icon("arrow", "icon icon-sm")}</span></a>')
+    rows = "".join(f'<li><a href="{href(u)}"><span class="nf-i-t">{esc(t)}</span><span class="nf-i-d">{esc(x)}</span>'
+                   f'{icon("arrow", "icon icon-sm")}</a></li>' for t, x, u in LINKS_404)
     planned = json.dumps({k: [n, href(u), l] for k, (n, u, l) in PLANNED.items()}, ensure_ascii=False, separators=(",", ":"))
     out = f'''<!doctype html>
 <html lang="en">
@@ -740,40 +778,26 @@ def build_404():
 {m}
 
 <main id="main" class="nf-main">
-<section class="nf-hero" aria-labelledby="nf-title">
+<section class="nf" aria-labelledby="nf-title">
   <div class="container nf-grid">
     <div class="nf-copy">
-      <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-nf-eyebrow>Error 404</span></p>
-      <h1 id="nf-title">This page isn't here</h1>
-      <p class="lead" data-nf-lead>The link may be out of date, or the page has moved. Here are the best places to go next.</p>
+      <p class="nf-code" aria-hidden="true"><span>4</span><span class="nf-zero">0</span><span>4</span></p>
+      <p class="hm-label" data-nf-eyebrow>Error 404</p>
+      <h1 id="nf-title">We couldn't find that page</h1>
+      <p class="nf-lead" data-nf-lead>The link may be out of date, or the page may have moved. The pages people look for most are listed here.</p>
+      <dl class="nf-addr"><dt>Address</dt><dd data-nf-query>/unknown-page</dd></dl>
       <div class="nf-ctas">
-        <a class="btn btn--primary btn--lg" href="{href("")}" data-nf-primary>Go to homepage</a>
-        <a class="btn btn--ghost btn--lg" href="{href("#demo")}">Book a demo</a>
-      </div>
-      <a class="link-arrow nf-home" href="{href("")}" data-nf-home hidden>Or go to the homepage {icon("arrow", "icon icon-sm")}</a>
-    </div>
-    <!-- A sample-tracking search that comes back empty: the product's own language for "not found" -->
-    <div class="nf-visual" aria-hidden="true">
-      <div class="nf-card">
-        <div class="nf-card-head"><span>{icon("barcode")}Sample tracking</span><span class="nf-live">Live</span></div>
-        <div class="nf-search">{icon("search")}<span data-nf-query>/unknown-page</span></div>
-        <ol class="nf-steps">
-          <li class="done"><span class="nf-dot">{icon("check")}</span><span><b>Request received</b><small>Just now</small></span></li>
-          <li class="done"><span class="nf-dot">{icon("check")}</span><span><b>Searched every rack</b><small>All centers</small></span></li>
-          <li class="miss"><span class="nf-dot">{icon("alert", "icon is-miss")}{icon("clock", "icon is-soon")}</span><span><b data-nf-result>No match found</b><small data-nf-result-note>Check the address or start over</small></span></li>
-        </ol>
-        <div class="nf-card-foot"><span class="nf-tube">{icon("tube")}LB-404</span><span class="status status--progress" data-nf-status>Not found</span></div>
+        <a class="btn btn--primary" href="{href("")}" data-nf-primary>Go to the homepage</a>
+        <a class="nf-alt" href="{href("#demo")}" data-nf-alt>Book a demo</a>
       </div>
     </div>
+    <nav class="nf-index" aria-labelledby="nf-links-title">
+      <h2 id="nf-links-title">Where to go instead</h2>
+      <ul>{rows}</ul>
+      <p class="nf-note">Followed a broken link from another site? <a href="{href("contact/")}">Tell us where</a> and we'll fix it.</p>
+    </nav>
   </div>
 </section>
-
-<div class="container">
-  <section class="nf-links" aria-labelledby="nf-links-title">
-    <h2 id="nf-links-title">Popular pages</h2>
-    <div class="help-cards">{cards}</div>
-  </section>
-</div>
 <script type="application/json" id="nf-planned">{planned}</script>
 </main>
 

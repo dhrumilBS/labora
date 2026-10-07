@@ -26,8 +26,8 @@
   <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png?v=d346c7f3">
   <link rel="manifest" href="../site.webmanifest">
   <link rel="preload" href="../assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../assets/css/styles.min.css?v=2ceda7dc3f">
-  <link rel="stylesheet" href="../assets/css/pages.min.css?v=b8c9c688aa">
+  <link rel="stylesheet" href="../assets/css/styles.min.css?v=07ed593ea9">
+  <link rel="stylesheet" href="../assets/css/pages.min.css?v=ef2d062893">
   <script>document.documentElement.classList.add('js');</script>
   <script type="application/ld+json">
 {
@@ -46,6 +46,51 @@
     "url": "https://www.labora.example/",
     "logo": "https://www.labora.example/assets/img/icon-512.png"
    }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Who is Labora for?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Diagnostic labs: independent pathology labs, imaging and diagnostic centers, multi-center lab chains, hospital laboratories, home collection services, and cardiology and ECG clinics."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How is Labora different from a LIMS?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A LIMS is usually sample-centered and built for research and industrial labs. Labora is built around the patient case for diagnostic labs: it covers what a LIS does and adds radiology reporting, home collection, multi-center management, and business insights."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long does it take to get started?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Rollout is guided, one center at a time, so your team keeps working while Labora is set up. Most of the work is configuring your tests, price list, and report templates, which we help with."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Where is our data, and who can see it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Labora runs on secured, monitored cloud infrastructure with regular backups. Inside your lab, each person sees only what their role allows, and every action is recorded. The details are in our Trust Center."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can we see Labora with our own tests first?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Book a demo and bring your test menu and price list. We will walk through a patient case configured the way your team works."
+     }
+    }
+   ]
   },
   {
    "@type": "BreadcrumbList",
@@ -199,11 +244,8 @@
       <dl class="ab-glance"><div><dt>Built for</dt><dd>Diagnostic labs, from a single center to a multi-center chain</dd></div><div><dt>Covers</dt><dd>Registration, collection, testing, reporting, and delivery</dd></div><div><dt>Specialties</dt><dd>Pathology, radiology, and ECG in one patient case</dd></div><div><dt>Runs on</dt><dd>Secured, monitored cloud infrastructure</dd></div></dl>
     </div>
     <figure class="ab-shot">
-      <picture>
-        <source media="(max-width: 640px)" type="image/webp" srcset="../assets/img/screens/dashboard-m-640.webp?v=c15fffb8 640w, ../assets/img/screens/dashboard-m-800.webp?v=0795fa99 800w, ../assets/img/screens/dashboard-m-1080.webp?v=8862fdf3 985w" sizes="calc(100vw - 40px)" width="640" height="684">
-        <img src="../assets/img/screens/dashboard-1200.webp?v=d42d1d5d" srcset="../assets/img/screens/dashboard-800.webp?v=e6b727bb 800w, ../assets/img/screens/dashboard-1200.webp?v=d42d1d5d 1200w, ../assets/img/screens/dashboard-1600.webp?v=2c060758 1600w" sizes="(max-width: 1240px) calc(100vw - 40px), 1200px" width="2320" height="2000" alt="Labora dashboard with today's cases, collections, average turnaround, reports ready to sign, and recent cases across centers" fetchpriority="high" decoding="async">
-      </picture>
-      <figcaption>The Labora dashboard: every center's cases, turnaround, and reports in one view.</figcaption>
+      <picture><source media="(max-width: 640px)" type="image/webp" srcset="../assets/img/screens/patient-case-m-640.webp?v=3c92addb 640w, ../assets/img/screens/patient-case-m-800.webp?v=65651fcb 800w, ../assets/img/screens/patient-case-m-1080.webp?v=b4132a82 1080w" sizes="calc(100vw - 40px)" width="640" height="644"><img src="../assets/img/screens/patient-case-1200.webp?v=ae5d57db" srcset="../assets/img/screens/patient-case-800.webp?v=1d992580 800w, ../assets/img/screens/patient-case-1200.webp?v=ae5d57db 1200w, ../assets/img/screens/patient-case-1600.webp?v=3ab5b832 1600w" sizes="(max-width: 1240px) calc(100vw - 40px), 1200px" width="2320" height="2000" alt="A Labora patient case: Emily Carter&#x27;s tests across hematology, biochemistry, radiology, and cardiology, with each role&#x27;s step from registration to delivery" fetchpriority="high" decoding="async"></picture>
+      <figcaption>One patient case in Labora: every role's step, every test, and the activity behind it.</figcaption>
     </figure>
   </div>
 </section>
@@ -260,6 +302,32 @@
   </div>
 </section>
 
+<section class="page-section ab-feature" aria-labelledby="ab-scale-title">
+  <div class="container ab-row">
+    <div class="ab-row-copy reveal">
+      <p class="ab-label">As you grow</p>
+      <h2 id="ab-scale-title">From one lab to many centers, on one system</h2>
+      <p>Most labs do not stay at one center for long. Labora runs branches, collection points, home collection, and partner labs together, with one setup shared by all of them.</p>
+      <ul class="checks ab-checks"><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Switch between centers in one click</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Compare cases, turnaround, and revenue by center</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>One test menu, price list, and template library for every center</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Partner and B2B work on the same record</li></ul>
+      <a class="link-arrow" href="../pricing/">See plans for multi-center labs <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <figure class="ab-media  reveal"><picture><source media="(max-width: 640px)" type="image/webp" srcset="../assets/img/screens/centers-overview-m-640.webp?v=8056a49b 640w, ../assets/img/screens/centers-overview-m-800.webp?v=5c452775 800w, ../assets/img/screens/centers-overview-m-1080.webp?v=4a9cd7d5 1080w" sizes="calc(100vw - 40px)" width="640" height="644"><img src="../assets/img/screens/centers-overview-1200.webp?v=d6a5f2c8" srcset="../assets/img/screens/centers-overview-800.webp?v=e351eef1 800w, ../assets/img/screens/centers-overview-1200.webp?v=d6a5f2c8 1200w, ../assets/img/screens/centers-overview-1600.webp?v=5e347300 1600w" sizes="(max-width: 1240px) calc(100vw - 40px), 1200px" width="2320" height="2000" alt="Labora centers overview: cases, on-time rate, and status for each center, with a setup shared by every center" loading="lazy" decoding="async"></picture></figure>
+  </div>
+</section>
+
+<section class="page-section ab-feature" aria-labelledby="ab-sec-title">
+  <div class="container ab-row ab-row--flip">
+    <div class="ab-row-copy reveal">
+      <p class="ab-label">Security and access</p>
+      <h2 id="ab-sec-title">Patient data deserves more than a shared password</h2>
+      <p>Everyone works under their own account and sees only what their role needs. Reports are released only after an authorized doctor signs them, and every action leaves a record.</p>
+      <ul class="checks ab-checks"><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Each person signs in as themselves</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Access set by role and by center</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Every registration, edit, signature, and payment recorded</li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Secured, monitored cloud with regular backups</li></ul>
+      <a class="link-arrow" href="../security/">Visit the Trust Center <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <figure class="ab-media  reveal"><picture><source media="(max-width: 640px)" type="image/webp" srcset="../assets/img/screens/roles-access-m-640.webp?v=93dc7d23 640w, ../assets/img/screens/roles-access-m-800.webp?v=3c4c073e 800w, ../assets/img/screens/roles-access-m-1080.webp?v=53616ee0 1080w" sizes="calc(100vw - 40px)" width="640" height="644"><img src="../assets/img/screens/roles-access-1200.webp?v=7a1d5e62" srcset="../assets/img/screens/roles-access-800.webp?v=415e9f6f 800w, ../assets/img/screens/roles-access-1200.webp?v=7a1d5e62 1200w, ../assets/img/screens/roles-access-1600.webp?v=15521a4c 1600w" sizes="(max-width: 1240px) calc(100vw - 40px), 1200px" width="2320" height="2000" alt="Labora users and roles: each person with a role and center, and the permissions for the front desk role" loading="lazy" decoding="async"></picture></figure>
+  </div>
+</section>
+
 <section class="page-section ab-work" aria-labelledby="ab-work-title">
   <div class="container">
     <div class="ab-band on-dark">
@@ -270,6 +338,17 @@
       </div>
       <ul class="ab-commit"><li class="reveal"><span class="t-ic"><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg></span><h3>Guided rollout</h3><p>We set Labora up one center at a time, so your team keeps working while the switch happens.</p></li><li class="reveal"><span class="t-ic"><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg></span><h3>Your data, moved for you</h3><p>We migrate your tests, price lists, report templates, and referring doctors, so you start with your own setup.</p></li><li class="reveal"><span class="t-ic"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span><h3>Training for every role</h3><p>Front desk, phlebotomists, technicians, and pathologists each learn the parts of Labora they use every day.</p></li></ul>
     </div>
+  </div>
+</section>
+
+<section class="page-section faq-block" aria-labelledby="ab-faq-title">
+  <div class="container faq-wrap">
+    <div class="faq-aside reveal">
+      <h2 id="ab-faq-title">Questions about Labora</h2>
+      <p>What lab owners and IT teams usually ask us first.</p>
+      <a class="link-arrow faq-more" href="../faq/">See all FAQs <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="faq-list"><details class="faq-item"><summary><h3>Who is Labora for?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary><div class="faq-answer"><p>Diagnostic labs: independent pathology labs, imaging and diagnostic centers, multi-center lab chains, hospital laboratories, home collection services, and cardiology and ECG clinics.</p></div></details><details class="faq-item"><summary><h3>How is Labora different from a LIMS?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary><div class="faq-answer"><p>A LIMS is usually sample-centered and built for research and industrial labs. Labora is built around the patient case for diagnostic labs: it covers what a LIS does and adds radiology reporting, home collection, multi-center management, and business insights.</p></div></details><details class="faq-item"><summary><h3>How long does it take to get started?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary><div class="faq-answer"><p>Rollout is guided, one center at a time, so your team keeps working while Labora is set up. Most of the work is configuring your tests, price list, and report templates, which we help with.</p></div></details><details class="faq-item"><summary><h3>Where is our data, and who can see it?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary><div class="faq-answer"><p>Labora runs on secured, monitored cloud infrastructure with regular backups. Inside your lab, each person sees only what their role allows, and every action is recorded. The details are in our Trust Center.</p></div></details><details class="faq-item"><summary><h3>Can we see Labora with our own tests first?</h3><span class="plus" aria-hidden="true"><svg class="icon"><use href="#i-plus"/></svg></span></summary><div class="faq-answer"><p>Yes. Book a demo and bring your test menu and price list. We will walk through a patient case configured the way your team works.</p></div></details></div>
   </div>
 </section>
 
@@ -303,12 +382,12 @@
     </div>
     <div class="footer-bottom">
       <span>© <span data-year>2026</span> Labora. All rights reserved.</span>
-      <ul><li><a href="../privacy/">Privacy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../cookies/">Cookies</a></li></ul>
+      <ul><li><a href="../privacy/">Privacy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../cookies/">Cookies</a></li><li><button class="link-btn" type="button" data-cookie-settings>Cookie settings</button></li></ul>
     </div>
   </div>
 </footer>
 
-<script src="../assets/js/main.min.js?v=a429e375dc" defer></script>
-<script src="../assets/js/pages.min.js?v=00ec828c3d" defer></script>
+<script src="../assets/js/main.min.js?v=1fd8c2da99" defer></script>
+<script src="../assets/js/pages.min.js?v=54ca3a2367" defer></script>
 </body>
 </html>
