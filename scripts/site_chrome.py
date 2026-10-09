@@ -122,7 +122,7 @@ def page(prefix, current, title, desc, canonical, og_image, jsonld, body, css=()
 
 {m}
 
-<main id="main" class="{current}-main">
+<main id="main" class="{current or 'product'}-main">
 {body}
 </main>
 

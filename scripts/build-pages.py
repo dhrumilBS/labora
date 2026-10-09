@@ -712,16 +712,6 @@ def build_about():
 # and a link to the closest content that exists today. Remove an entry once its page is live.
 # ---------------------------------------------------------------------------
 PLANNED = {  # path (no leading slash): (page name, closest existing URL, link label)
-    "platform/pathology-lab/": ("Pathology lab", "#reporting", "See pathology and imaging reporting"),
-    "platform/sample-tracking/": ("Sample tracking", "#sample-tracking", "See sample tracking"),
-    "platform/turnaround-tracking/": ("Turnaround tracking", "#turnaround-tracking", "See turnaround tracking"),
-    "platform/radiology-reporting/": ("Radiology reporting", "#reporting", "See pathology and imaging reporting"),
-    "platform/ecg-cardiology/": ("ECG and cardiology", "#home-collection", "See the product features"),
-    "platform/home-collection/": ("Home collection", "#home-collection", "See home collection"),
-    "platform/centers/": ("Centers and outsource labs", "#home-collection", "See the product features"),
-    "platform/reports-e-signature/": ("Reports and e-signature", "#reporting", "See reporting and sign-off"),
-    "platform/business-insights/": ("Business insights", "#business-insights", "See business insights"),
-    "platform/integrations/": ("Integrations and API", "faq/#q-can-labora-connect-with-lab-analyzers-and-other-systems", "See how integrations work"),
     "resources/guides/": ("Guides", "blog/", "Read the blog"),
     "docs/api/": ("API documentation", "faq/#q-can-labora-connect-with-lab-analyzers-and-other-systems", "See how integrations work"),
     "login/": ("Sign in", "#demo", "Book a demo to get access"),

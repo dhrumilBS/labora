@@ -227,7 +227,7 @@ def build_platform(p):
              if p.get("guide") else "")
     body = f'''<section class="pr-hero" aria-labelledby="pr-title">
   <div class="container">
-    <nav class="pr-crumbs" aria-label="Breadcrumb"><a href="{prefix}">Home</a>{icon("chev", "icon")}<a href="{prefix}#platform">Platform</a>{icon("chev", "icon")}<span aria-current="page">{esc(p["name"])}</span></nav>
+    <nav class="pr-crumbs" aria-label="Breadcrumb"><a href="{prefix}">Home</a>{icon("chev", "icon")}<a href="{prefix}#home-collection">Platform</a>{icon("chev", "icon")}<span aria-current="page">{esc(p["name"])}</span></nav>
     <div class="pr-intro">
       <div>
         <p class="eyebrow"><span class="dot" aria-hidden="true"></span>{esc(p["name"])}</p>
@@ -279,7 +279,7 @@ def build_platform(p):
 
 {cta(prefix, f"See {p['noun']} with your own setup", "Bring your test menu and price list. We will show you a patient case from registration to signed report, configured the way your team works.")}'''
     title = f"{p['name'].replace('Turnaround (TAT)', 'Turnaround Time (TAT) Tracking')} Software | Labora"
-    write_page(f"platform/{p['slug']}/", prefix, None, title, p["meta"], [("Platform", f"{SITE}/#platform"), (p["name"], f"{SITE}/platform/{p['slug']}/")], body)
+    write_page(f"platform/{p['slug']}/", prefix, None, title, p["meta"], [("Platform", f"{SITE}/#home-collection"), (p["name"], f"{SITE}/platform/{p['slug']}/")], body)
 
 def build_solution(s):
     prefix = "../../"
@@ -339,10 +339,6 @@ def build_solution(s):
     write_page(f"solutions/{s['slug']}/", prefix, None, title, s["meta"], [("Solutions", f"{SITE}/#who-its-for"), (s["name"], f"{SITE}/solutions/{s['slug']}/")], body)
 
 if __name__ == "__main__":
-    # Only the Solutions pages are live on main. The Platform pages stay on the feature/platform-solutions branch
-    # until they are ready (their URLs show "coming soon" on the 404 page); run with --platform to build them too.
-    import sys
-    if "--platform" in sys.argv:
-        for p in PLATFORM: build_platform(p)
+    for p in PLATFORM: build_platform(p)
     for s in SOLUTIONS: build_solution(s)
-    print(f"wrote {len(SOLUTIONS)} solution pages" + (f" and {len(PLATFORM)} platform pages" if "--platform" in sys.argv else ""))
+    print(f"wrote {len(PLATFORM)} platform pages and {len(SOLUTIONS)} solution pages")
